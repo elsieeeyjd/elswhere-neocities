@@ -343,6 +343,15 @@ create styles for #leftSidebar and #rightSidebar */
       color: var(--text-light);
   }
 
+   .scrollbox {
+      background-color: #acace6;
+      border: 1px solid #5a5976;
+      padding: 10px;
+      color: var(--text-light);
+      height: 300px;
+      overflow-y: auto;
+  }
+
   /* CSS for extras */
 
   #topBar {

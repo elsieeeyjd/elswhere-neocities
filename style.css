@@ -409,6 +409,20 @@ create styles for #leftSidebar and #rightSidebar */
     text-decoration: underline;
     color: #dedcfe;
   }
+
+  .blinkiestack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .blinkie {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
   
   
   /*ABOUT ME PAGE STUFF*/

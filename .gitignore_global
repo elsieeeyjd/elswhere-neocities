@@ -1,0 +1,7 @@
+.DS_Store
+.neocities
+node_modules
+.env
+*.log
+*.bak
+

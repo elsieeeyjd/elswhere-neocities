@@ -42,13 +42,15 @@ document.addEventListener("DOMContentLoaded", function() {
           <div class='box' id='sociallinks'>
             <ul class='sidebarlinks'>
               <li><i class="bi bi-heart-arrow"></i><a href='https://www.instagram.com/elsie.mov' target='_blank'>Instagram</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href='https://x.com/elsi3_ok' target='_blank'>Twitter/X</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href='https://elsieeeee.substack.com/' target='_blank'>Substack</a></li>
             </ul>
           </div>
           <h3 class='nicetext sidebartext'>my button!</h3>
             <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
-            <p class='boxtext'>This button is made by me in procreate. Feel free to steal! (but remember to link it back to my site ofc :D)</p>
+            <textarea class='buttoncode' readonly>
+               <a href="https://elswhere.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
+            </textarea>
+            <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
           <h3 class='sidebartext nicetext'>Stuff I used & Resources</h3>
           <ul class='sidebarlinks'>
               <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/projects/layout-builder/" target="_blank">Layout base by sadgrl</a></li>

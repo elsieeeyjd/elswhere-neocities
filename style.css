@@ -437,7 +437,51 @@ create styles for #leftSidebar and #rightSidebar */
     gap: 20px;
   }
 
-  
+  /*WIDGET STUFF*/
+  #statusWrapper {
+    position: relative;
+    margin-top: 2rem;
+  }
+
+  #statuscafe {
+    padding: .5em;
+    border: 1px dashed #7978a1;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .boxlabel {
+    position: absolute;
+    top: -0.8rem;
+    left: 1rem;
+    background-color: #dedcfe;
+    color: var(--text-main);
+    padding: 0 0.2rem;
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+  }
+
+  #statuscafe-username {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      font-size: 14px;
+  }
+
+  #statuscafe-content {
+      margin: 0 1em 0.5em 1em;
+      font-size: 12px;
+  }
+
+  .buttoncode {
+    width: 100%;
+    margin-top: 0.5rem;
+    max-width: 200px;
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    padding: 0.5em;
+    background-color: #e9e8ff;
+    overflow: auto;
+  }
   
   
   /*ABOUT ME PAGE STUFF*/

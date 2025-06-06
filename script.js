@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         <h2 class='nicetext sidebartext'>Update</h2>
         <div class="scrollbox">
             <p class='sidebartext'>This site has been updated as of June 2025!</p>
-            <ul style="padding-left:10px;" class='sidebartext boxtext'>
-                <li>05-06-2025 -- I've officially moved from using the neocities built in editor to VSCode!! Imo it's so much nicer to code like this and much more user friednly too.</li>
-                <li>I also finished most of the graphics needed. More will be added as I add more pages.</li>
-                <li>There's now a blog!</li>
-                <li>23-05-2025 --This website is still relatively early in terms of development, I'll probably make it 'less boring' later on when i acc learn how to code lol</li>
-            </ul>
+            <h3 class='sidebartext nicetext' style='font-size: 18px'>5. 6. 2025</h3>
+            <p class='sidebartext boxtext'>Universalise sidebar contents, added new blinkies & bumper stickers</p>
+            <h3 class='sidebartext nicetext' style='font-size: 18px'>3. 6. 2025</h3>
+            <p class='sidebartext boxtext'>Created blog page + archive</p>
+            <h3 class='sidebartext nicetext' style='font-size: 18px'>apr - may 2025</h3>
+            <p class='sidebartext boxtext'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
         </div>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">
@@ -46,15 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
               <li><i class="bi bi-heart-arrow"></i><a href='https://elsieeeee.substack.com/' target='_blank'>Substack</a></li>
             </ul>
           </div>
+          <h3 class='nicetext sidebartext'>my button!</h3>
+            <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
+            <p class='boxtext'>This button is made by me in procreate. Feel free to steal! (but remember to link it back to my site ofc :D)</p>
           <h3 class='sidebartext nicetext'>Stuff I used & Resources</h3>
           <ul class='sidebarlinks'>
               <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/projects/layout-builder/" target="_blank">Layout base by sadgrl</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://picocss.com/" target="_blank">Pico.css</a></li>
+              <li><i class="bi bi-heart-arrow"></i><a href="https://blinkies.cafe/" target="_blank">Blinkies cafe</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/" target="_blank">More resources by sadgrl</a></li>
+              <li><i class="bi bi-heart-arrow"></i><a href="https://www.freepik.com/collection?id=14688295" target="_blank">Freepik assets</a></li>
           </ul>
-        <h3 class='nicetext sidebartext'>my button!</h3>
-        <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
-        <p class='boxtext'>This button is made by me in procreate. Feel free to steal! (but remember to link it back to my site ofc :D)</p>
         <h3 class='nicetext sidebartext'>Professional inquiries</h3>
           <ul class="sidebarlinks">
                 <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>

@@ -10,7 +10,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:8080",
-            "file": "${workspaceFolder}/blog/posts/2025-06-05-firstpost.html"
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }

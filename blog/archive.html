@@ -1,102 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>archive | elswhere</title>
-    <link rel="icon" href="../webicon.PNG" type="image/x-icon">
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title> <!-- If you leave title as "Blog Post", it will automatically be updated to the post title -->
+    <link rel="icon" href="../webicon.PNG" type="image/x-icon">
     <!--PICO-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <!--ICONS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <!-- CSS LINK -->
+    <!--CSS-->
     <link href="../style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <div id="container">
-      <div id="headerArea">
-              <div id="header" style="height: 400px;">
-              </div>
-          <nav id="navbar" style="margin-bottom: 10px;"><ul>
-              <li><a href="https://elswhere.neocities.org">Home</a></li>
-              <li><a href="https://elswhere.neocities.org/about/">About</a></li>
-              <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul></nav></div>
+    <div class="container">
+        <div id="headerArea">
+            <div id="header" style="height: 400px;">
+            </div>
+            
+        <nav id="navbar" style="margin-bottom: 10px;"><ul>
+            <li><a href="https://elswhere.neocities.org">Home</a></li>
+            <li><a href="https://elswhere.neocities.org/about/">About</a></li>
+            <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul></nav></div>
+
       <div id="flex">
         <!--LEFT SIDE BAR STUFF -->
-        <aside id="leftSidebar" style="margin-right: 10px;">
-          <h2 class='nicetext sidebartext'>Update</h2>
-          <div class="scrollbox">
-              <p class='sidebartext'>This site has been updated as of June 2025!</p>
-              <ul style="padding-left:10px;" class='sidebartext boxtext'>
-                  <li>05-06-2025 -- I've officially moved from using the neocities built in editor to VSCode!! Imo it's so much nicer to code like this and much more user friednly too.</li>
-                  <li>I also finished most of the graphics needed. More will be added as I add more pages.</li>
-                  <li>There's now a blog!</li>
-                  <li>23-05-2025 --This website is still relatively early in terms of development, I'll probably make it 'less boring' later on when i acc learn how to code lol</li>
-              </ul>
-          </div>
-          <h3 class="sidebartext nicetext">Blinkies!</h3>
-          <div class="blinkiestack">
-            <img src="../blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>
-            <img src="../blinkies/rock-n-roll.gif" alt="rock-n-roll" class='blinkie'>
-            <img src="../blinkies/cat-destroy.gif" alt="cat-destroy" class='blinkie'>
-            <img src="../blinkies/forgot-to-save.gif" alt="forgot-to-save" class='blinkie'>
-            <img src="../blinkies/seal-approval.png" alt="seal-approval" class='blinkie'>
-          </div>
-          <h2 class = 'sidebartext nicetext'>Enjoy some music while you scroll</h2>
-          <div class='nicebox'>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ICY7Wy10jOHTzfJAZTPsg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-        </aside>
-        <!--CENTER STACK STUFF-->
-        <div class='contentstack'>
-          <a href="https://elswhere.neocities.org/blog/"><i class="bi bi-caret-left-fill"></i>back</a>
-          <!--MAIN AREA STUFF -->
-          <main class='main'>
-            <h1 class='specialtextL'>elsie's brain dump</h1>
+        <aside id="leftSidebar" style="margin-right: 10px;"></aside>
+        <!--MAIN BLOG STUFF-->
+      <div class='contentstack'>
+        <main id="content">
+          <h1 class='specialtextL'>elsie's brain dump</h1>
             <p class='maintext' style='font-size: 18px'>This is where you'll find all my old posts</p>
             <!--THE ACTUAL BLOG STUFF-->
             <div id="content">    
-            <h1>blog archive</h1>    
-            <div id="postlistdiv"></div>
+              <h1>blog archive</h1>    
+              <div id="postlistdiv"></div>
             </div> <!-- end of div id="content" -->
-          </main>
-        </div> <!-- end of div class='centerstack' -->
-        <!--RIGHT SIDE BAR STUFF -->
-        <aside id="rightSidebar" style="margin-left: 10px;">
-          <h2 class='nicetext sidebartext'>More stuff!</h2>
-            <h2 class='sidebartext nicetext'>My Links</h2>
-            <div class='box' id='sociallinks'>
-              <ul class='sidebarlinks'>
-                <li><i class="bi bi-heart-arrow"></i><a href='https://www.instagram.com/elsie.mov' target='_blank'>Instagram</a></li>
-                <li><i class="bi bi-heart-arrow"></i><a href='https://x.com/elsi3_ok' target='_blank'>Twitter/X</a></li>
-                <li><i class="bi bi-heart-arrow"></i><a href='https://elsieeeee.substack.com/' target='_blank'>Substack</a></li>
-              </ul>
-            </div>
-            <h3 class='sidebartext nicetext'>Stuff I used & Resources</h3>
-            <ul class='sidebarlinks'>
-                <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/projects/layout-builder/" target="_blank">Layout base by sadgrl</a></li>
-                <li><i class="bi bi-heart-arrow"></i><a href="https://picocss.com/" target="_blank">Pico.css</a></li>
-                <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/" target="_blank">More resources by sadgrl</a></li>
-            </ul>
-          <h3 class='nicetext sidebartext'>my button!</h3>
-          <img src="../buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
-          <p class='boxtext'>This button is made by me in procreate. Feel free to steal! (but remember to link it back to my site ofc :D)</p>
-          <h3 class='nicetext sidebartext'>Professional inquiries</h3>
-          <ul class="sidebarlinks">
-                <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>
-                <li><i class="bi bi-heart-arrow"></i><a href='mailto:elsieyjd@gmail.com' target='_blank'>Email</a></li>
-          </ul>
-        </aside>
-      </div> <!-- end of div id="flex" -->
-      
-      <footer id="footer" style="margin-top: 10px; color: #e9e8ff;">© 2025 Elsie Duann</footer>
-    </div> <!-- end of div id="container" -->
+        </main> <!-- end of div id="content" -->
+      </div>
     
+    
+        <!--RIGHT SIDE BAR STUFF -->
+        <aside id="rightSidebar" style="margin-left: 10px;"></aside>
+      </div> <!--END OF FLEX-->
+    </div>
+
+    <footer id="footer" style="margin-top: 10px; color: #e9e8ff;">© 2025 Elsie Duann</footer>
   <!-- Here's the link to our JavaScript! -->
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
+  <script src="../script.js"></script>
   </body>
 </html>

@@ -438,16 +438,19 @@ create styles for #leftSidebar and #rightSidebar */
   }
 
   /*WIDGET STUFF*/
-  #statusWrapper {
+  .statusWrapper {
     position: relative;
     margin-top: 2rem;
   }
 
   #statuscafe {
-    padding: .5em;
+    font-size: 14px;
+  }
+
+  .dashedbox {
     border: 1px dashed #7978a1;
     border-radius: 10px;
-    font-size: 14px;
+    padding: .5em;
   }
 
   .boxlabel {

@@ -437,29 +437,47 @@ create styles for #leftSidebar and #rightSidebar */
     gap: 20px;
   }
 
+  .divider {
+    height: 50px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  img.divider {
+    object-fit: contain;
+    max-width: 100%;
+  }
+
   /*WIDGET STUFF*/
   .statusWrapper {
     position: relative;
     margin-top: 2rem;
+    display: inline-block;
+    margin-bottom: 1rem
   }
 
   #statuscafe {
     font-size: 14px;
+    padding-top: 1rem;
   }
 
   .dashedbox {
     border: 1px dashed #7978a1;
     border-radius: 10px;
     padding: .5em;
+    background-color: transparent;
+    height: auto;
+    box-sizing: border-box;
   }
 
   .boxlabel {
     position: absolute;
-    top: -0.8rem;
+    top: -0.75rem;
     left: 1rem;
     background-color: #dedcfe;
     color: var(--text-main);
-    padding: 0 0.2rem;
+    padding: 0 0.4rem;
     font-size: 20px;
     font-family: 'VT323', monospace;
   }

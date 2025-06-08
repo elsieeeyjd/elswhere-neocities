@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ICY7Wy10jOHTzfJAZTPsg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>`
     ;
+
     document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
 
     const rightSidebarHTML = `
@@ -68,6 +69,51 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
     });
+
+    const navbarHTML = `
+        <ul>
+            <li><a href="https://elswhere.neocities.org">Home</a></li>
+            <li><a href="https://elswhere.neocities.org/about/">About</a></li>
+            <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
+            <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>`
+    ;
+
+    document.getElementById("navbar").innerHTML = navbarHTML;
+
+    const footerHTML = `
+        <div class='buttonrow footerbuttons'>
+            <p class='boxtext rowbutton footertext'>created by elsie 2025 | </p>
+            <a href="https://neocities.org/site/elswhere" target="_blank" class='rowbutton footertext footerlink'>my neocities profile</a>
+            <p class='boxtext rowbutton footertext'> | </p>
+            <a href="https://github.com/elsieeeyjd/elswhere-neocities" target="_blank" class='rowbutton footertext footerlink'>github</a>
+        </div>
+        `
+        ;
+
+    document.getElementById("footer").innerHTML = footerHTML;
+
+
+
+    const facts = [
+        "Idk how to wink without scrunching my whole cheek up",
+        "I have two cats, both were strays and adopted and now one of them is obese the other bullies her",
+        "90% of my playlist on spotify has cover images from shuan the sheep",
+        "I haven't touched coding since 6th grade (until now ofc)",
+        "I have Convention on the Prevention and Punishment of the Crime of Genocide bookmarked in my browser (yea i was a mun kid)",
+        "IMO victoria secret's love spell is a good scent sue me",
+        "I'm learning german because once my insta reccs got flooded with german reels and i thought its a funny af language",
+        "right before i graduated hs i gifted my history/government teacher a US flag with his face on it",
+        "my biggest ego boost moment was when i went to the NSDA nationals 2024 and someone from taiwan asked us 'oh are y'all the only non-TAS team in taiwan who qualified PF?'",
+    ];
+
+    function showRandomFact() {
+        const output = document.getElementById("fact-output");
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        output.textContent = facts[randomIndex]
+    }
 
 
 

@@ -6,11 +6,11 @@
     "configurations": [
 
         {
-            "type": "chrome",
+            "name": "Launch Chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "type": "chrome",
             "url": "http://localhost:8080",
-            "file": "${workspaceFolder}/index.html"
-        }
+            "file": "${workspaceFolder}/index.html",
+        },
     ]
 }

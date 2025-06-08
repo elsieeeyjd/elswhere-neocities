@@ -26,6 +26,13 @@ document.addEventListener("DOMContentLoaded", function() {
             <h3 class='sidebartext nicetext' style='font-size: 18px'>apr - may 2025</h3>
             <p class='sidebartext boxtext'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
         </div>
+        <div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
+            <p class='boxtext sidebartext'>total views: <span id='hitcount'>loading...</span></p>
+            <!-- FC2 Clap tag starts here -->
+            <a href="https://clap.fc2.com/post/elsieee/?url=https%3A%2F%2Felswhere.neocities.org&title=Home" target="_blank" title="Web Clap by FC2"><img src="https://clap.fc2.com/images/button/white/elsieee?url=https%3A%2F%2Felswhere.neocities.org&amp;lang=en" alt="Web Clap by FC2" style="border:none;" /></a>
+            <!-- FC2 Clap tag ends here -->
+            <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
+        </div>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">
             <img src="${rootPath}blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>
@@ -138,9 +145,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
 
+    //VISITOR COUNTER STUFF
+
+    //fetch("https://neocities.org/api/info?sitename=elswhere")
+    // .then(response => response.json())
+    // .then(data => {
+    //     const hits = data.info.hits;
+    //     document.getElementById("hit-counter").textContent = hits.toLocaleString();
+    // })
+
+    // .catch(err => {
+    //     console.error("failed to fetch hits:", err);
+    //     document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
+    // });
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var site_data = JSON.parse(this.responseText);
+            var num_arr = site_data.info.views.toString().split("");
+            var num_str = "";
+            for (i = 0; i < num_arr.length; i++) {
+                num_str += num_arr[i];
+                if ( (num_arr.length-1 - i) % 3 == 0 && (num_arr.length-1 - i) != 0 ) {num_str += ",";}
+                var date_str = site_data.info.last_updated;
+                var date_obj = new Date(site_data.info.last_updated);
+            }
+            document.getElementById("hitcount").innerHTML = num_str;
+        }
+    };
+    xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=elswhere", true);
+    xhttp.send();
+
 });
 
  
+
 
 
 
@@ -159,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "I'm learning german because once my insta reccs got flooded with german reels and i thought its a funny af language",
         "right before i graduated hs i gifted my history/government teacher a US flag with his face on it",
         "my biggest ego boost moment was when i went to the NSDA nationals 2024 and someone from taiwan asked us 'oh are y'all the only non-TAS team in taiwan who qualified PF?'",
+        "sO YoU hAVe a moTheR? (iykyk)",
     ];
 
     function showRandomFact() {

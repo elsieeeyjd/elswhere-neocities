@@ -496,7 +496,7 @@ create styles for #leftSidebar and #rightSidebar */
     padding: 5px 7px;
     cursor: pointer;
     font-size: 14px;
-    flexshrink: 0;
+    flex-shrink: 0;
   }
 
   .insitebutton a {
@@ -551,6 +551,7 @@ create styles for #leftSidebar and #rightSidebar */
     background-color: transparent;
     height: auto;
     box-sizing: border-box;
+    display: flex;
   }
 
   .boxlabel {
@@ -584,6 +585,17 @@ create styles for #leftSidebar and #rightSidebar */
     padding: 0.5em;
     background-color: #e9e8ff;
     overflow: auto;
+  }
+
+  #hitcount {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: var(--text-main);
+    margin-top: 1rem;
+    padding: 2px 5px;
+    background-color: #dedcfe;
+    border-radius: 5px;
+    border: 1px solid #7978a1;
   }
   
   

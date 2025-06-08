@@ -416,6 +416,12 @@ create styles for #leftSidebar and #rightSidebar */
     color: #dedcfe;
   }
 
+  .sidebar-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .blinkiestack {
     display: flex;
     flex-direction: column;
@@ -448,8 +454,38 @@ create styles for #leftSidebar and #rightSidebar */
     max-width: 100%;
   }
 
+  .buttonrow-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .buttonscroll {
+    display: flex;
+    overflow-x: hidden;
+    gap: 8px;
+    max-width: 80%; /*change to 80% once i have enough buttons*/
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    position: relative;
+    border: 1px solid #cdcbed;
+    padding: 5px;
+    background-color: transparent;
+  }
+
+  .buttonscroll a img {
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  #scrollRow, .buttonscroll {
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+
   .rowbutton {
     display: inline-block;
+    flex-shrink: 0;
 
   }
 
@@ -460,6 +496,7 @@ create styles for #leftSidebar and #rightSidebar */
     padding: 5px 7px;
     cursor: pointer;
     font-size: 14px;
+    flexshrink: 0;
   }
 
   .insitebutton a {

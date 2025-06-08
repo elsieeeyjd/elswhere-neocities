@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function() {
     
     let path = window.location.pathname;
@@ -10,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         rootPath = ""; //main index.html
     }
+
+    //UNIVERSALISE STUFF
 
     const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Update</h2>
@@ -47,11 +51,16 @@ document.addEventListener("DOMContentLoaded", function() {
             </ul>
           </div>
           <h3 class='nicetext sidebartext'>my button!</h3>
+          <div class='sidebar-center'>
             <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
             <textarea class='buttoncode' readonly>
                <a href="https://elswhere.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
             </textarea>
             <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
+            <p class='boxtext' style='font-size: 10px;'>------------------</p>
+            <p class='boxtext' style='font-size: 10px; margin-bottom: 10px;'>this site is:</p>
+            <a href="https://lovesick.cafe/grrrl" target="_blank" style="margin-bottom: 1rem;"><img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-h2-2.png" class='sidebarbutton'></a>
+          </div>
           <h3 class='sidebartext nicetext'>Stuff I used & Resources</h3>
           <ul class='sidebarlinks'>
               <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/projects/layout-builder/" target="_blank">Layout base by sadgrl</a></li>
@@ -59,7 +68,9 @@ document.addEventListener("DOMContentLoaded", function() {
               <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/" target="_blank">More resources by sadgrl</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://www.freepik.com/collection?id=14688295" target="_blank">Freepik assets</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://petrapixel.neocities.org/coding/bookmarks" target="_blank">PetraPixel's coding bookmarks</a></li>
+              <li><i class="bi bi-heart-arrow"></i><a href="https://pixelsafari.neocities.org/" target="_blank">Pixel Safari</a></li>
           </ul>
+          <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>
         <h3 class='nicetext sidebartext'>Professional inquiries</h3>
           <ul class="sidebarlinks">
                 <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>
@@ -68,9 +79,8 @@ document.addEventListener("DOMContentLoaded", function() {
     ;
 
     document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
-    });
 
-    const navbarHTML = `
+       const navbarHTML = `
         <ul>
             <li><a href="https://elswhere.neocities.org">Home</a></li>
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
@@ -96,6 +106,48 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("footer").innerHTML = footerHTML;
 
 
+    //MAIN PAGE STUFF
+
+    //Scroll button stuff
+
+    const scrollContainer = document.getElementById("scrollRow");
+
+    if (scrollContainer) {
+        //Duplicate the content to create an infinite scrolling effect
+        scrollContainer.innerHTML += scrollContainer.innerHTML;
+
+        let scrollSpeed = 1; // Adjust this value to change the speed of scrolling
+
+        let scrolling = true;
+
+        function autoScroll() {
+            if (scrolling) {
+                    scrollContainer.scrollLeft += scrollSpeed;
+                    //smooth loopy loop
+                    if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+                        scrollContainer.scrollLeft = 0;
+                    }
+            }
+        requestAnimationFrame(autoScroll);
+        }
+
+        scrollContainer.addEventListener("mouseover", () => scrolling = false);
+        scrollContainer.addEventListener("mouseout", () => scrolling = true);
+
+        autoScroll(); // Start the auto-scrolling
+
+    }
+
+});
+
+ 
+
+
+
+
+//ABOUT PAGE STUFF 
+
+    // Random fact generator
 
     const facts = [
         "Idk how to wink without scrunching my whole cheek up",

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p class='sidebartext boxtext'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
         </div>
         <div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
-            <p class='boxtext sidebartext'>total views: <span id='hitcount'>loading...</span></p>
+            <iframe src="https://elsieeeyjd.github.io/elswhere-neocities/widgets/hitcounter.html" width="100%" height="90" style="border:none; display: block" frameborder="0"></iframe> 
             <!-- FC2 Clap tag starts here -->
             <a href="https://clap.fc2.com/post/elsieee/?url=https%3A%2F%2Felswhere.neocities.org&title=Home" target="_blank" title="Web Clap by FC2"><img src="https://clap.fc2.com/images/button/white/elsieee?url=https%3A%2F%2Felswhere.neocities.org&amp;lang=en" alt="Web Clap by FC2" style="border:none;" /></a>
             <!-- FC2 Clap tag ends here -->
@@ -159,23 +159,23 @@ document.addEventListener("DOMContentLoaded", function() {
     //     document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
     // });
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var site_data = JSON.parse(this.responseText);
-            var num_arr = site_data.info.views.toString().split("");
-            var num_str = "";
-            for (i = 0; i < num_arr.length; i++) {
-                num_str += num_arr[i];
-                if ( (num_arr.length-1 - i) % 3 == 0 && (num_arr.length-1 - i) != 0 ) {num_str += ",";}
-                var date_str = site_data.info.last_updated;
-                var date_obj = new Date(site_data.info.last_updated);
-            }
-            document.getElementById("hitcount").innerHTML = num_str;
-        }
-    };
-    xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=elswhere", true);
-    xhttp.send();
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         var site_data = JSON.parse(this.responseText);
+    //         var num_arr = site_data.info.views.toString().split("");
+    //         var num_str = "";
+    //         for (i = 0; i < num_arr.length; i++) {
+    //             num_str += num_arr[i];
+    //             if ( (num_arr.length-1 - i) % 3 == 0 && (num_arr.length-1 - i) != 0 ) {num_str += ",";}
+    //             var date_str = site_data.info.last_updated;
+    //             var date_obj = new Date(site_data.info.last_updated);
+    //         }
+    //         document.getElementById("hitcount").innerHTML = num_str;
+    //     }
+    // };
+    // xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=elswhere", true);
+    // xhttp.send();
 
 });
 

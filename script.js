@@ -17,9 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //UNIVERSALISE STUFF
 
   const leftSidebarHTML = `
-        <h2 class='nicetext sidebartext'>Update</h2>
+        <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox">
             <p class='sidebartext'>This site has been updated as of June 2025!</p>
+            <h3 class='sidebartext nicetext' style='font-size: 18px'>9. 6. 2025 (nice)</h3>
+            <p class='sidebartext boxtext'>added (a shit ton of) buttons!! widget additions/fixes</p>
             <h3 class='sidebartext nicetext' style='font-size: 18px'>5. 6. 2025</h3>
             <p class='sidebartext boxtext'>Universalise sidebar contents, added new blinkies & bumper stickers</p>
             <h3 class='sidebartext nicetext' style='font-size: 18px'>3. 6. 2025</h3>
@@ -90,8 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
             <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
             <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li><a href="#">coming soon!</a></li>
+            <li><a href="#">coming soon!</a></li>
         </ul>`;
   document.getElementById("navbar").innerHTML = navbarHTML;
 

@@ -34,7 +34,7 @@
       #hitcount {
         font-family: 'VT323', monospace;
         font-size: 14px;
-        color: var(--text-main);
+        color: #7978a1;
         margin-top: 1rem;
         padding: 2px 5px;
         background-color: #dedcfe;
@@ -52,12 +52,12 @@
       .then(response => response.json())
       .then(data => {
           const hits = data.info.hits;
-          document.getElementById("hit-counter").textContent = hits.toLocaleString();
+          document.getElementById("hitcount").textContent = hits.toLocaleString();
       })
   
       .catch(err => {
           console.error("failed to fetch hits:", err);
-          document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
+          document.getElementById("hitcount").textContent = "either my code or neocities is fucked! check back later :>";
       });
     </script>
   </body>

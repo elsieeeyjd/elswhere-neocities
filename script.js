@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p class='sidebartext boxtext'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
         </div>
         <div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
-            <iframe src="https://elsieeeyjd.github.io/elswhere-neocities/widgets/hitcounter.html" width="100%" height="90" style="border:none; display: block" frameborder="0"></iframe> 
+            <iframe src="https://elsieeeyjd.github.io/elswhere-neocities/widgets/hitcounter.html" width="100%" height="90" style="border:none; display: block; background-color: transparent;" frameborder="0"></iframe> 
             <!-- FC2 Clap tag starts here -->
             <a href="https://clap.fc2.com/post/elsieee/?url=https%3A%2F%2Felswhere.neocities.org&title=Home" target="_blank" title="Web Clap by FC2"><img src="https://clap.fc2.com/images/button/white/elsieee?url=https%3A%2F%2Felswhere.neocities.org&amp;lang=en" alt="Web Clap by FC2" style="border:none;" /></a>
             <!-- FC2 Clap tag ends here -->

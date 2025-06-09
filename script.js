@@ -1,21 +1,22 @@
+document.addEventListener("DOMContentLoaded", function () {
+  let path = window.location.pathname;
 
+  let rootPath = "";
+  if (path.includes("blog/posts/")) {
+    rootPath = "../../";
+  } else if (
+    path.includes("blog/") ||
+    path.includes("artworks/") ||
+    path.includes("about/")
+  ) {
+    rootPath = "../";
+  } else {
+    rootPath = ""; //main index.html
+  }
 
-document.addEventListener("DOMContentLoaded", function() {
-    
-    let path = window.location.pathname;
+  //UNIVERSALISE STUFF
 
-    let rootPath = "";
-    if (path.includes("blog/posts/")) {
-        rootPath = "../../";
-    }else if (path.includes("blog/")|| path.includes("artworks/")|| path.includes("about/")) {
-        rootPath = "../";
-    } else {
-        rootPath = ""; //main index.html
-    }
-
-    //UNIVERSALISE STUFF
-
-    const leftSidebarHTML = `
+  const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Update</h2>
         <div class="scrollbox">
             <p class='sidebartext'>This site has been updated as of June 2025!</p>
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p class='sidebartext boxtext'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
         </div>
         <div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
-            <p class='boxtext sidebartext'>total views: <span id='hitcount'>loading...</span></p>
+            <p class='boxtext sidebartext'>total visits: <span id='hitcount'>loading...</span></p>
             <!-- FC2 Clap tag starts here -->
             <a href="https://clap.fc2.com/post/elsieee/?url=https%3A%2F%2Felswhere.neocities.org&title=Home" target="_blank" title="Web Clap by FC2"><img src="https://clap.fc2.com/images/button/white/elsieee?url=https%3A%2F%2Felswhere.neocities.org&amp;lang=en" alt="Web Clap by FC2" style="border:none;" /></a>
             <!-- FC2 Clap tag ends here -->
@@ -44,12 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
         <h3 class = 'sidebartext nicetext'>Enjoy some music while you scroll</h3>
         <div class='nicebox'>
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ICY7Wy10jOHTzfJAZTPsg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>`
-    ;
+        </div>`;
+  document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
 
-    document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
-
-    const rightSidebarHTML = `
+  const rightSidebarHTML = `
           <h2 class='sidebartext nicetext'>My Links</h2>
           <div class='box' id='sociallinks'>
             <ul class='sidebarlinks'>
@@ -82,12 +81,10 @@ document.addEventListener("DOMContentLoaded", function() {
           <ul class="sidebarlinks">
                 <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>
                 <li><i class="bi bi-heart-arrow"></i><a href='mailto:elsieyjd@gmail.com' target='_blank'>Email</a></li>
-          </ul>`
-    ;
+          </ul>`;
+  document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
 
-    document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
-
-       const navbarHTML = `
+  const navbarHTML = `
         <ul>
             <li><a href="https://elswhere.neocities.org">Home</a></li>
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
@@ -95,108 +92,93 @@ document.addEventListener("DOMContentLoaded", function() {
             <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
-        </ul>`
-    ;
+        </ul>`;
+  document.getElementById("navbar").innerHTML = navbarHTML;
 
-    document.getElementById("navbar").innerHTML = navbarHTML;
-
-    const footerHTML = `
+  const footerHTML = `
         <div class='buttonrow footerbuttons'>
             <p class='boxtext rowbutton footertext'>created by elsie 2025 | </p>
             <a href="https://neocities.org/site/elswhere" target="_blank" class='rowbutton footertext footerlink'>my neocities profile</a>
             <p class='boxtext rowbutton footertext'> | </p>
             <a href="https://github.com/elsieeeyjd/elswhere-neocities" target="_blank" class='rowbutton footertext footerlink'>github</a>
         </div>
-        `
-        ;
+        `;
+  document.getElementById("footer").innerHTML = footerHTML;
 
-    document.getElementById("footer").innerHTML = footerHTML;
+  //MAIN PAGE STUFF
 
+  //Scroll button stuff
 
-    //MAIN PAGE STUFF
+  const scrollContainer = document.getElementById("scrollRow");
 
-    //Scroll button stuff
+  if (scrollContainer) {
+    //Duplicate the content to create an infinite scrolling effect
+    scrollContainer.innerHTML += scrollContainer.innerHTML;
 
-    const scrollContainer = document.getElementById("scrollRow");
+    let scrollSpeed = 1; // Adjust this value to change the speed of scrolling
 
-    if (scrollContainer) {
-        //Duplicate the content to create an infinite scrolling effect
-        scrollContainer.innerHTML += scrollContainer.innerHTML;
+    let scrolling = true;
 
-        let scrollSpeed = 1; // Adjust this value to change the speed of scrolling
-
-        let scrolling = true;
-
-        function autoScroll() {
-            if (scrolling) {
-                    scrollContainer.scrollLeft += scrollSpeed;
-                    //smooth loopy loop
-                    if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-                        scrollContainer.scrollLeft = 0;
-                    }
-            }
-        requestAnimationFrame(autoScroll);
+    function autoScroll() {
+      if (scrolling) {
+        scrollContainer.scrollLeft += scrollSpeed;
+        //smooth loopy loop
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
         }
-
-        scrollContainer.addEventListener("mouseover", () => scrolling = false);
-        scrollContainer.addEventListener("mouseout", () => scrolling = true);
-
-        autoScroll(); // Start the auto-scrolling
-
+      }
+      requestAnimationFrame(autoScroll);
     }
 
-    //VISITOR COUNTER STUFF
+    scrollContainer.addEventListener("mouseover", () => (scrolling = false));
+    scrollContainer.addEventListener("mouseout", () => (scrolling = true));
 
-    //fetch("https://neocities.org/api/info?sitename=elswhere")
-    // .then(response => response.json())
-    // .then(data => {
-    //     const hits = data.info.hits;
-    //     document.getElementById("hit-counter").textContent = hits.toLocaleString();
-    // })
+    autoScroll(); // Start the auto-scrolling
+  }
 
-    // .catch(err => {
-    //     console.error("failed to fetch hits:", err);
-    //     document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
-    // });
+  //VISITOR COUNTER STUFF
 
-    fetch("data/hits.json")
-      .then(r => r.json())
-      .then(data => {
-        document.getElementById("hitcount").textContent = data.views.toLocaleString();
-        const d = new Date(data.last_updated);
-      })
-      .catch(err => console.error("Hit counter failed:", err));
+  //fetch("https://neocities.org/api/info?sitename=elswhere")
+  // .then(response => response.json())
+  // .then(data => {
+  //     const hits = data.info.hits;
+  //     document.getElementById("hit-counter").textContent = hits.toLocaleString();
+  // })
 
+  // .catch(err => {
+  //     console.error("failed to fetch hits:", err);
+  //     document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
+  // });
+
+  fetch(`${rootPath}data/hits.json`)
+    .then((r) => r.json())
+    .then((data) => {
+      document.getElementById("hitcount").textContent =
+        data.views.toLocaleString();
+      const d = new Date(data.last_updated);
+    })
+    .catch((err) => console.error("Hit counter failed:", err));
 });
 
- 
+//ABOUT PAGE STUFF
 
+// Random fact generator
 
+const facts = [
+  "Idk how to wink without scrunching my whole cheek up",
+  "I have two cats, both were strays and adopted and now one of them is obese the other bullies her",
+  "90% of my playlist on spotify has cover images from shuan the sheep",
+  "I haven't touched coding since 6th grade (until now ofc)",
+  "I have Convention on the Prevention and Punishment of the Crime of Genocide bookmarked in my browser (yea i was a mun kid)",
+  "IMO victoria secret's love spell is a good scent sue me",
+  "I'm learning german because once my insta reccs got flooded with german reels and i thought its a funny af language",
+  "right before i graduated hs i gifted my history/government teacher a US flag with his face on it",
+  "my biggest ego boost moment was when i went to the NSDA nationals 2024 and someone from taiwan asked us 'oh are y'all the only non-TAS team in taiwan who qualified PF?'",
+  "sO YoU hAVe a moTheR? (iykyk)",
+];
 
-
-
-//ABOUT PAGE STUFF 
-
-    // Random fact generator
-
-    const facts = [
-        "Idk how to wink without scrunching my whole cheek up",
-        "I have two cats, both were strays and adopted and now one of them is obese the other bullies her",
-        "90% of my playlist on spotify has cover images from shuan the sheep",
-        "I haven't touched coding since 6th grade (until now ofc)",
-        "I have Convention on the Prevention and Punishment of the Crime of Genocide bookmarked in my browser (yea i was a mun kid)",
-        "IMO victoria secret's love spell is a good scent sue me",
-        "I'm learning german because once my insta reccs got flooded with german reels and i thought its a funny af language",
-        "right before i graduated hs i gifted my history/government teacher a US flag with his face on it",
-        "my biggest ego boost moment was when i went to the NSDA nationals 2024 and someone from taiwan asked us 'oh are y'all the only non-TAS team in taiwan who qualified PF?'",
-        "sO YoU hAVe a moTheR? (iykyk)",
-    ];
-
-    function showRandomFact() {
-        const output = document.getElementById("fact-output");
-        const randomIndex = Math.floor(Math.random() * facts.length);
-        output.textContent = facts[randomIndex]
-    }
-
-
-
+function showRandomFact() {
+  const output = document.getElementById("fact-output");
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  output.textContent = facts[randomIndex];
+}

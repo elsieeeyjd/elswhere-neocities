@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hitcounter.html</title>
+    <link rel="icon" href="webicon.PNG" type="image/x-icon">
+    <!--PICO-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- CSS LINK -->
+    <style>
+       @font-face {
+          font-family: 'VT323';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isRFJXUdVNFKPY.woff2) format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      .boxtext {
+        font-size: 12px;
+        color: #e9e8ff;
+      }
+      #hitcount {
+        font-family: 'VT323', monospace;
+        font-size: 14px;
+        color: var(--text-main);
+        margin-top: 1rem;
+        padding: 2px 5px;
+        background-color: #dedcfe;
+        border-radius: 5px;
+        border: 1px solid #7978a1;
+      }
+    </style>
+  </head>
+  <body>
+    <p class='boxtext sidebartext'>total views: <span id='hitcount'>loading...</span></p>
+    <script>
+      fetch("https://neocities.org/api/info?sitename=elswhere")
+      .then(response => response.json())
+      .then(data => {
+          const hits = data.info.hits;
+          document.getElementById("hit-counter").textContent = hits.toLocaleString();
+      })
+  
+      .catch(err => {
+          console.error("failed to fetch hits:", err);
+          document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
+      });
+    </script>
+  </body>
+</html>

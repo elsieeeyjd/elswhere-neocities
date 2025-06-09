@@ -23,8 +23,8 @@ jobs:
 
     - name: Commit & push if changed
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
         git add hits.json
-        git diff --cached --quiet || git commit -m "Update hits.json via GitHub action"
-        git push
+        git commit -m "Update hit counter" || echo "No changes to commit"
+        git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/elsieeeyjd/elswhere-neocities.git main

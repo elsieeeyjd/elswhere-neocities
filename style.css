@@ -101,6 +101,55 @@
     display: inline-block;
   }
 
+
+/* Default cursor for the whole page */
+body {
+  cursor: url('cursor/p-angel-heart/normal-select.cur'), auto;
+}
+
+/* Pointer (for links and buttons) */
+a, button, .insitebutton, .rowbutton, .sidebarsection summary {
+  cursor: url('cursor/p-angel-heart/link-select.cur'), pointer;
+}
+
+/* Help cursor (for help icons or tooltips) */
+.help-cursor {
+  cursor: url('cursor/p-angel-heart/help-select.cur'), help;
+}
+
+/* Crosshair (for drawing or selection tools) */
+.move-cursor {
+  cursor: url('cursor/p-angel-heart/move.cur');
+}
+
+/*Resize*/
+
+.resize-vertical-cursor {
+  cursor: url('cursor/p-angel-heart/vertical-resize.cur'), ns-resize;
+}
+
+.resize-horizontal-cursor {
+  cursor: url('cursor/p-angel-heart/horizontal-resize.cur'), ew-resize; 
+}
+
+.resize-diag-left-cursor {
+  cursor: url('cursor/p-angel-heart/diagonal-resize-1.cur') nwse-resize, 
+}
+
+.resize-diag-right-cursor {
+  cursor: url('cursor/p-angel-heart/diagonal-resize-2.cur') nesw-resize, 
+}
+
+
+/* Text selection (inputs, textareas) */
+input, textarea, .text-cursor {
+  cursor: url('cursor/p-angel-heart/text-select.cur'), text;
+}
+
+
+
+
+
 body {
   font-family: 'VCR', monospace;
   font-size: 14;
@@ -451,6 +500,7 @@ create styles for #leftSidebar and #rightSidebar */
     align-items: center;
   }
 
+
   .blinkiestack {
     display: flex;
     flex-direction: column;
@@ -523,7 +573,6 @@ create styles for #leftSidebar and #rightSidebar */
     background-color: transparent;
     color: var(--text-main);
     padding: 5px 7px;
-    cursor: pointer;
     font-size: 14px;
     flex-shrink: 0;
   }
@@ -537,7 +586,6 @@ create styles for #leftSidebar and #rightSidebar */
 
   .insitebutton a:hover {
     color: #acace6;
-    cursor: pointer;
   }
 
   .footerbuttons {
@@ -557,7 +605,6 @@ create styles for #leftSidebar and #rightSidebar */
 
   .footerlink:hover {
     color: #bbbafd;
-    cursor: pointer;
   }
 
   /*WIDGET STUFF*/
@@ -650,7 +697,6 @@ create styles for #leftSidebar and #rightSidebar */
     color: var(--text-main);
     padding: 4px 10px;
     border: 1px solid #7978a1;
-    cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
@@ -769,7 +815,6 @@ create styles for #leftSidebar and #rightSidebar */
 
 
 .sidebarsection summary {
-  cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   color: #e9e8ff !important;
@@ -777,6 +822,11 @@ create styles for #leftSidebar and #rightSidebar */
   padding: 2px;
   list-style: none;
   position: relative;
+}
+
+.sidebarsection summary:hover {
+  color: #bbbafd;
+  text-decoration: underline;
 }
 
 .sidebarsection[open] summary {

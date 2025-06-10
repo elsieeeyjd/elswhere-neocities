@@ -734,6 +734,82 @@ create styles for #leftSidebar and #rightSidebar */
   background-color: #5e4e8c;
 }
 
+/*EXTRA PAGE STUFF*/
+
+.smallsidebar {
+  width: 200px;
+  padding: 1rem;
+  border: 2px dashed #cdcbed;
+  border-radius: 10px;
+  background-color: #7978a1;
+}
+
+.smallsidebar * {
+  display: block;
+  margin: 7px;
+  color: #e9e8ff;
+  font-size: 16px;
+  font-family: 'VT323', monospace;
+}
+
+.sSidebartitle {
+  font-size: 22px;
+  color: #e9e8ff;
+  font-family: 'Venice';
+  margin-bottom: 0.5rem;
+}
+
+.extracontainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #dedcfe;
+}
+
+.sidebarsection {
+  border-bottom: 2px dashed #cdcbed;
+}
+
+
+.sidebarsection summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e9e8ff !important;
+  margin: 2px 0;
+  padding: 2px;
+  list-style: none;
+  position: relative;
+}
+
+.sidebarsection[open] summary {
+  color: #dedcfe
+}
+
+.sidebarsection ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: '✶ ';
+}
+
+.sidebarsection ul li a {
+  color: #e9e8ff;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.sidebarsection ul li a:hover {
+  color: #bbbafd;
+  text-decoration: underline;
+}
+
+.extracontent {
+  flex: 1;
+  padding: 1rem;
+  color: #f8f1e1;
+}
+
   /* BELOW THIS POINT IS MEDIA QUERY */
 
   /* so you wanna change the width of your page? 

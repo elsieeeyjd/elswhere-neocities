@@ -228,6 +228,13 @@ const facts = [
   "sO YoU hAVe a moTheR? (iykyk)",
 ];
 
+//ABOUT ME RANDOM FACT GENERATOR
+function showRandomFact() {
+  const output = document.getElementById("fact-output");
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  output.textContent = facts[randomIndex];
+}
+
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {
@@ -425,12 +432,5 @@ document.addEventListener("DOMContentLoaded", function () {
   //The <title> tag content is what shows up on browser tabs
   if (document.title === "Blog Post") {
     document.title = currentPostTitle;
-  }
-
-  //ABOUT ME RANDOM FACT GENERATOR
-  function showRandomFact() {
-    const output = document.getElementById("fact-output");
-    const randomIndex = Math.floor(Math.random() * facts.length);
-    output.textContent = facts[randomIndex];
   }
 }); //END OF DOM CONTENT LOADED EVENT

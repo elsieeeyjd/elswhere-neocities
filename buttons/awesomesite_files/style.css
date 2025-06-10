@@ -1,0 +1,163 @@
+@font-face {
+    font-family: X-Files;
+    src: url("/fonts/x-files.ttf");
+}
+@font-face {
+    font-family: Aldrich;
+    src: url("/fonts/Aldrich-Regular.ttf");
+}
+:root {
+    --text:#ffffff;
+    --main:rgb(25, 50, 66);
+    --secondary:rgb(34, 74, 99);
+    --accent: #0F853E;
+    --border:solid 2px #0F853E;
+    --link: cyan;
+    --button: #005252;
+    --special:"X-Files", sans-serif;
+    --normal:"Aldrich", serif;
+}
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+}
+body:before{
+    background-attachment: scroll;
+    content: '';
+    display: block;
+    position: fixed;
+    width:100vw;
+    height:100vh;
+    left:0;
+    top:0;
+    transform: scale(1);
+    z-index: -700;
+    background-image: url("/img/background.gif");
+    background-size: repeat, auto;
+    background-position: center, 0% 0%;
+    background-repeat: repeat, repeat;
+}
+body {
+    font-family: var(--normal);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: normal;
+    font-weight: 150;
+}
+main{
+    width: 70%;
+    margin: auto;
+    background-color: var(--main);
+    padding: 10px 15px;
+    border: var(--border)
+}
+footer{
+    text-align: center;
+    padding: 5px 0px
+}
+.twothings{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+ul {
+    list-style-type: "★  ";
+}
+h1{
+    text-align: center;
+}
+h1, h2, h3, h4, h5{
+    font-family: var(--special);
+}
+hr{
+    border:2px dashed var(--accent);
+}
+hr.light{
+    border:2px dashed var(--secondary);
+}
+#imghover img:hover{
+    transition: all 0.2s ease-out;
+    transform: scale(1.1);
+  }
+a{
+    color: var(--link);
+    text-decoration: underline;
+}
+a:hover {
+    -webkit-animation:rainbow 1s infinite;
+    -ms-animation:rainbow 1s infinite;
+    -o-animation:rainbow 1s infinite;
+    animation:rainbow 1s infinite;
+}
+@-webkit-keyframes rainbow {
+    0% {color: #ff0000;}
+    10% {color: #ff8000;}
+    20% {color: #ffff00;}
+    30% {color: #80ff00;}
+    40% {color: #00ff00;}
+    50% {color: #00ff80;}
+    60% {color: #00ffff;}
+    70% {color: #0080ff;}
+    80% {color: #0000ff;}
+    90% {color: #8000ff;}
+    100% {color: #ff0080;}
+}
+@-ms-keyframes rainbow {
+    0% {color: #ff0000;}
+    10% {color: #ff8000;}
+    20% {color: #ffff00;}
+    30% {color: #80ff00;}
+    40% {color: #00ff00;}
+    50% {color: #00ff80;}
+    60% {color: #00ffff;}
+    70% {color: #0080ff;}
+    80% {color: #0000ff;}
+    90% {color: #8000ff;}
+    100% {color: #ff0080;}
+}
+@-o-keyframes rainbow {
+    0% {color: #ff0000;}
+    10% {color: #ff8000;}
+    20% {color: #ffff00;}
+    30% {color: #80ff00;}
+    40% {color: #00ff00;}
+    50% {color: #00ff80;}
+    60% {color: #00ffff;}
+    70% {color: #0080ff;}
+    80% {color: #0000ff;}
+    90% {color: #8000ff;}
+    100% {color: #ff0080;}
+}
+@keyframes rainbow {
+    0% {color: #ff0000;}
+    10% {color: #ff8000;}
+    20% {color: #ffff00;}
+    30% {color: #80ff00;}
+    40% {color: #00ff00;}
+    50% {color: #00ff80;}
+    60% {color: #00ffff;}
+    70% {color: #0080ff;}
+    80% {color: #0000ff;}
+    90% {color: #8000ff;}
+    100% {color: #ff0080;}
+} 
+#preloader {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: var(--main)
+      url("/img/spinning-circles.svg")
+      no-repeat center;
+    z-index: 9999;
+}
+@media (max-width: 770px){
+    .twothings{
+        display:block;
+    }
+}

@@ -104,36 +104,36 @@
 
 /* Default cursor for the whole page */
 body {
-  cursor: url('cursor/p-angel-heart/normal-select.png'), auto;
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/normal-select.png'), auto;
 }
 
 /* Pointer (for links and buttons) */
 a, button, .insitebutton, .rowbutton, .sidebarsection summary {
-  cursor: url('cursor/p-angel-heart/link-select.png'), pointer;
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/link-select.png'), pointer;
 }
 
 /* Help cursor (for help icons or tooltips) */
 .help-cursor {
-  cursor: url('cursor/p-angel-heart/help-select.png'), help;
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/help-select.png'), help;
 }
 
 /* Crosshair (for drawing or selection tools) */
 .move-cursor {
-  cursor: url('cursor/p-angel-heart/move.png');
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/move.png');
 }
 
 /*Resize*/
 
 .resize-vertical-cursor {
-  cursor: url('cursor/p-angel-heart/vertical-resize.png') ns-resize;
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/vertical-resize.png') ns-resize;
 }
 
 .resize-horizontal-cursor {
-  cursor: url('cursor/p-angel-heart/horizontal-resize.png'), ew-resize; 
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/horizontal-resize.png'), ew-resize; 
 }
 
 .resize-diag-left-cursor {
-  cursor: url('cursor/p-angel-heart/diagonal-resize-1.png') nwse-resize, 
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/diagonal-resize-1.png') nwse-resize, 
 }
 
 .resize-diag-right-cursor {
@@ -143,7 +143,7 @@ a, button, .insitebutton, .rowbutton, .sidebarsection summary {
 
 /* Text selection (inputs, textareas) */
 input, textarea, .text-cursor {
-  cursor: url('cursor/p-angel-heart/text-select.png'), text;
+  cursor: url('https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/text-select.png'), text;
 }
 
 
@@ -433,6 +433,14 @@ create styles for #leftSidebar and #rightSidebar */
     padding: 0 0.4rem;
     font-size: 20px;
     font-family: 'VT323', monospace;
+  }
+
+  .flexcolumn {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+    height: 50px;
   }
 
 
@@ -862,6 +870,16 @@ create styles for #leftSidebar and #rightSidebar */
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+#buttonwall {
+  flex: 2 1 0%;
+  min-width: 0;
+}
+
+#cliquewall {
+  flex: 1 1 0%;
+  min-width: 0;
 }
 
   /* BELOW THIS POINT IS MEDIA QUERY */

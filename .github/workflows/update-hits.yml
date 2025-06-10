@@ -19,7 +19,7 @@ jobs:
 
     - name: Generate hits.json
       run: |
-        jq '{views: .info.views, last_updated: .info.last_updated}' neocities.json > data/hits.json
+        jq '{views: .info.views}' neocities.json > data/hits.json
 
     - name: Commit & push if changed
       run: |

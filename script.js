@@ -255,6 +255,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //UNIVERSALISE STUFF
 
+    const navbarHTML = `
+        <ul>
+            <li><a href="https://elswhere.neocities.org">Home</a></li>
+            <li><a href="https://elswhere.neocities.org/about/">About</a></li>
+            <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
+            <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
+            <li><a href="#">coming soon!</a></li>
+            <li><a href="#">coming soon!</a></li>
+        </ul>`;
+  document.getElementById("navbar").innerHTML = navbarHTML;
+
+  const footerHTML = `
+        <div class='buttonrow footerbuttons'>
+            <p class='boxtext rowbutton footertext'>created by elsie 2025 | </p>
+            <a href="https://neocities.org/site/elswhere" target="_blank" class='rowbutton footertext footerlink'>my neocities profile</a>
+            <p class='boxtext rowbutton footertext'> | </p>
+            <a href="https://github.com/elsieeeyjd/elswhere-neocities" target="_blank" class='rowbutton footertext footerlink'>github</a>
+        </div>
+        `;
+  document.getElementById("footer").innerHTML = footerHTML;
+
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox">
@@ -287,7 +308,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class='nicebox'>
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ICY7Wy10jOHTzfJAZTPsg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>`;
-  document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
+
+      if (document.getElementById("leftSidebar")) {
+        document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
+      }
+  
 
   const rightSidebarHTML = `
           <h2 class='sidebartext nicetext'>My Links</h2>
@@ -323,28 +348,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>
                 <li><i class="bi bi-heart-arrow"></i><a href='mailto:elsieyjd@gmail.com' target='_blank'>Email</a></li>
           </ul>`;
-  document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
-
-  const navbarHTML = `
-        <ul>
-            <li><a href="https://elswhere.neocities.org">Home</a></li>
-            <li><a href="https://elswhere.neocities.org/about/">About</a></li>
-            <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
-            <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
-            <li><a href="#">coming soon!</a></li>
-            <li><a href="#">coming soon!</a></li>
-        </ul>`;
-  document.getElementById("navbar").innerHTML = navbarHTML;
-
-  const footerHTML = `
-        <div class='buttonrow footerbuttons'>
-            <p class='boxtext rowbutton footertext'>created by elsie 2025 | </p>
-            <a href="https://neocities.org/site/elswhere" target="_blank" class='rowbutton footertext footerlink'>my neocities profile</a>
-            <p class='boxtext rowbutton footertext'> | </p>
-            <a href="https://github.com/elsieeeyjd/elswhere-neocities" target="_blank" class='rowbutton footertext footerlink'>github</a>
-        </div>
-        `;
-  document.getElementById("footer").innerHTML = footerHTML;
+  if (document.getElementById("rightSidebar")) {
+        document.getElementById("rightSidebar").innerHTML = leftSidebarHTML;
+      }
 
   //MAIN PAGE STUFF
 

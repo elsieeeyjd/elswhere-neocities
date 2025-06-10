@@ -358,6 +358,39 @@ create styles for #leftSidebar and #rightSidebar */
       overflow-y: auto;
   }
 
+    .dashedbox {
+    border: 1px dashed #7978a1;
+    border-radius: 10px;
+    padding: .5em;
+    background-color: transparent;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  .dashedboxscroll {
+    border: 1px dashed #7978a1;
+    border-radius: 10px;
+    padding: .5em;
+    background-color: transparent;
+    height: auto;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 300px; /* Adjust this value as needed */
+  }
+
+  .boxlabel {
+    position: absolute;
+    top: -0.75rem;
+    left: 1rem;
+    background-color: #dedcfe;
+    color: var(--text-main);
+    padding: 0 0.4rem;
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+  }
+
+
   /* CSS for extras */
 
   #topBar {
@@ -544,27 +577,6 @@ create styles for #leftSidebar and #rightSidebar */
     padding-top: 1rem;
   }
 
-  .dashedbox {
-    border: 1px dashed #7978a1;
-    border-radius: 10px;
-    padding: .5em;
-    background-color: transparent;
-    height: auto;
-    box-sizing: border-box;
-    display: flex;
-  }
-
-  .boxlabel {
-    position: absolute;
-    top: -0.75rem;
-    left: 1rem;
-    background-color: #dedcfe;
-    color: var(--text-main);
-    padding: 0 0.4rem;
-    font-size: 20px;
-    font-family: 'VT323', monospace;
-  }
-
   #statuscafe-username {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
@@ -608,10 +620,24 @@ create styles for #leftSidebar and #rightSidebar */
     grid-row-gap: 0px;
   }
   
+  .stack-vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+
   #mypfp {
     width: 100%;
     max-width: 200px;
   }
+  
+  .badgegrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
 
   .factbox {
     border: 1px dashed #7978a1;

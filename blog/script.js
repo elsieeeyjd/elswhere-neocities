@@ -1,3 +1,5 @@
+//I PUT EVERYTHING HERE IN THE SCRIPT.JS IN THE ROOT PATH 
+//------------------------------------
 // let blogName = "elsie's brain dump";
 // let authorName = "elsie";
 // let authorLink = "elswhere.neocities.org"; // Enter your website, social media, etc. Some way for people to tell you they like your blog! (Leaving it empty is okay too)

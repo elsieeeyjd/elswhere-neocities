@@ -272,7 +272,8 @@ EXCEPT for the navigation */
   #flex {
       display: flex;
       gap: 1rem;
-      align-items: flex-start;
+      min-height: 100vh;
+      align-items: stretch;
   }
 
   /* this colors BOTH sidebars
@@ -284,6 +285,7 @@ create styles for #leftSidebar and #rightSidebar */
       width: 200px;
       padding: 20px;
       font-size: smaller;
+      min-height: 100vh;
       /* this makes the sidebar text slightly smaller */
   }
 
@@ -626,7 +628,6 @@ create styles for #leftSidebar and #rightSidebar */
   #statuscafe {
     font-size: 14px;
     padding-top: 1rem;
-    min-width: 150px;
   }
 
   #statuscafe-username {
@@ -662,9 +663,34 @@ create styles for #leftSidebar and #rightSidebar */
     border: 1px solid #7978a1;
   }
 
-  .webring {
-    max-width: 200px;
-    max-height: auto;
+  .webringbox {
+    padding: 1.5em;
+    margin: .5em auto;
+    max-width: 700px;
+    text-align: center;
+  }
+  
+
+  .webringbuttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .webrings .webringbuttons a, .webringbuttons span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 31px;
+    border-radius: 4px;
+    font-family: 'VT323', monospace;
+    font-size: 1em;
+    text-decoration: none;
+    margin: 2px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
   }
   
   

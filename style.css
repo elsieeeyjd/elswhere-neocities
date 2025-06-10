@@ -104,46 +104,46 @@
 
 /* Default cursor for the whole page */
 body {
-  cursor: url('cursor/p-angel-heart/normal-select.cur'), auto;
+  cursor: url('cursor/p-angel-heart/normal-select.png'), auto;
 }
 
 /* Pointer (for links and buttons) */
 a, button, .insitebutton, .rowbutton, .sidebarsection summary {
-  cursor: url('cursor/p-angel-heart/link-select.cur'), pointer;
+  cursor: url('cursor/p-angel-heart/link-select.png'), pointer;
 }
 
 /* Help cursor (for help icons or tooltips) */
 .help-cursor {
-  cursor: url('cursor/p-angel-heart/help-select.cur'), help;
+  cursor: url('cursor/p-angel-heart/help-select.png'), help;
 }
 
 /* Crosshair (for drawing or selection tools) */
 .move-cursor {
-  cursor: url('cursor/p-angel-heart/move.cur');
+  cursor: url('cursor/p-angel-heart/move.png');
 }
 
 /*Resize*/
 
 .resize-vertical-cursor {
-  cursor: url('cursor/p-angel-heart/vertical-resize.cur'), ns-resize;
+  cursor: url('cursor/p-angel-heart/vertical-resize.png') ns-resize;
 }
 
 .resize-horizontal-cursor {
-  cursor: url('cursor/p-angel-heart/horizontal-resize.cur'), ew-resize; 
+  cursor: url('cursor/p-angel-heart/horizontal-resize.png'), ew-resize; 
 }
 
 .resize-diag-left-cursor {
-  cursor: url('cursor/p-angel-heart/diagonal-resize-1.cur') nwse-resize, 
+  cursor: url('cursor/p-angel-heart/diagonal-resize-1.png') nwse-resize, 
 }
 
 .resize-diag-right-cursor {
-  cursor: url('cursor/p-angel-heart/diagonal-resize-2.cur') nesw-resize, 
+  cursor: url('cursor/p-angel-heart/diagonal-resize-2.png') nesw-resize, 
 }
 
 
 /* Text selection (inputs, textareas) */
 input, textarea, .text-cursor {
-  cursor: url('cursor/p-angel-heart/text-select.cur'), text;
+  cursor: url('cursor/p-angel-heart/text-select.png'), text;
 }
 
 

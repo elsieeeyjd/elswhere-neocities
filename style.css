@@ -11,6 +11,7 @@
       --box-bg-color: #acace6;
       --text-light: #e9e8ff;
       --text-main: #7978a1;
+      --text-ultra-light: #f8f4ff;
   }
 
   /*FONTS*/
@@ -212,12 +213,12 @@ body {
 }
 
 .sidebartext {
-  color: var(--text-light);
+  color: var(--text-ultra-light);
 }
 
 .boxtext {
   font-size: 12px;
-  color: var(--text-light);
+  color: var(--text-ultra-light);
 }
 
 
@@ -423,7 +424,7 @@ create styles for #leftSidebar and #rightSidebar */
       background-color: #acace6;
       border: 1px solid #5a5976;
       padding: 10px;
-      color: var(--text-light);
+      color: var(--text-ultra-light);
       height: 300px;
       overflow-y: auto;
   }
@@ -819,7 +820,7 @@ create styles for #leftSidebar and #rightSidebar */
   left: 50%;
   transform: translateX(-50%);
   background: #acace6;
-  color: var(--text-light);
+  color: var(--text-ultra-light);
   border: 1px solid #7978a1;
   border-radius: 6px;
   padding: 0.5rem;

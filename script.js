@@ -342,14 +342,14 @@ document.addEventListener("DOMContentLoaded", function () {
               <li><i class="bi bi-heart-arrow"></i><a href="https://petrapixel.neocities.org/coding/bookmarks" target="_blank">PetraPixel's coding bookmarks</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://pixelsafari.neocities.org/" target="_blank">Pixel Safari</a></li>
           </ul>
-          <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>
+          <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-ultra-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>
         <h3 class='nicetext sidebartext'>Professional inquiries</h3>
           <ul class="sidebarlinks">
                 <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>
                 <li><i class="bi bi-heart-arrow"></i><a href='mailto:elsieyjd@gmail.com' target='_blank'>Email</a></li>
           </ul>`;
   if (document.getElementById("rightSidebar")) {
-        document.getElementById("rightSidebar").innerHTML = leftSidebarHTML;
+        document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
       }
 
   //MAIN PAGE STUFF

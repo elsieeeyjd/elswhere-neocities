@@ -307,8 +307,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
             <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
             <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
-            <li><a href="#">coming soon!</a></li>
-            <li><a href="#">coming soon!</a></li>
         </ul>`;
   document.getElementById("navbar").innerHTML = navbarHTML;
 

@@ -235,6 +235,52 @@ function showRandomFact() {
   output.textContent = facts[randomIndex];
 }
 
+//BUTTON SELECTOR
+
+document.querySelectorAll('.filter-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const tag = button.getAttribute('data-tag');
+    const buttons = document.querySelectorAll('.wallbutton');
+    const allFilters = document.querySelectorAll('.filter-btn');
+
+    // Remove 'active' class from all buttons first
+    allFilters.forEach(btn => btn.classList.remove('active'));
+
+    // Add 'active' class to the clicked one
+    button.classList.add('active');
+
+    // Show/hide site buttons based on tag
+    buttons.forEach(btn => {
+      const tags = btn.getAttribute('data-tags').split(' ');
+
+      if (tag === 'all' || tags.includes(tag)) {
+        btn.style.display = 'inline-block';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+  });
+});
+
+document.querySelectorAll('.filter-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const tag = button.getAttribute('data-tag');
+    const buttons = document.querySelectorAll('.wallbutton');
+
+    buttons.forEach(btn => {
+      const tags = btn.getAttribute('data-tags').split(' ');
+
+      if (tag === 'all' || tags.includes(tag)) {
+        btn.style.display = 'inline-block';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+  });
+});
+
+
+
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {
@@ -439,4 +485,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.title === "Blog Post") {
     document.title = currentPostTitle;
   }
+
+  
+
+
 }); //END OF DOM CONTENT LOADED EVENT

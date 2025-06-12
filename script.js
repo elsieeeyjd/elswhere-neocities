@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class='sidebar-center'>
             <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
             <textarea class='buttoncode' readonly>
-               <a href="https://elswhere.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
+<a href="https://elswhere.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
             </textarea>
             <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
             <p class='boxtext' style='font-size: 10px;'>------------------</p>
@@ -396,6 +396,40 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
       }
 
+  //Extra Page Layout
+
+  const extraSidebarHTML = `
+          <h3 class="sSidebartitle">Menu</h3>
+            <p class="boxtext">none of these webpages work yet, check back later!</p>
+            <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Main</a>
+            <details class="sidebarsection">
+              <summary>Media recs</summary>
+              <ul>
+                <li><a href="https://elswhere.neocities.org/extra/books/">Books</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/music/">Music</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/movies/">Movies</a></li>
+              </ul>
+            </details>
+            <details class="sidebarsection">
+              <summary>Creations</summary>
+              <ul>
+                <li><a href="https://elswhere.neocities.org/extra/portfolio/">Writings</a></li>
+                <li><a href="https://elswhere.neocities.org/coding-proj/">Coding</a></li>
+                <li><a href="https://elswhere.neocities.org/artworks/">Art</a></li>
+              </ul>
+            </details>
+            <details class="sidebarsection">
+              <summary>Other</summary>
+              <ul>
+                <li>Coming soon!</li>
+              </ul>
+            </details>`;
+
+  if (document.getElementById("extraSidebar")) {
+    document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
+  }
+  
+  
   //MAIN PAGE STUFF
 
   //Scroll button stuff

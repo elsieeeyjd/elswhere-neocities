@@ -975,6 +975,13 @@ create styles for #leftSidebar and #rightSidebar */
   text-decoration: underline;
 }
 
+.sideFlex {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
   /* BELOW THIS POINT IS MEDIA QUERY */
 
   /* so you wanna change the width of your page? 

@@ -1,9 +1,0 @@
-# This file tells search engines and bots what they are allowed to see on your site.
-
-# This is the default rule, which allows search engines to crawl your site (recommended).
-User-agent: *
-Allow: /
-
-# If you do not want AI bots to crawl your site, remove the # from the following lines:
-Under-agent: *
-Disallow: /

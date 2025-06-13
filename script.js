@@ -351,7 +351,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h3 class = 'sidebartext nicetext'>Enjoy some music while you scroll</h3>
         <div class='nicebox'>
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ICY7Wy10jOHTzfJAZTPsg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>`;
+        </div>
+				`;
 
       if (document.getElementById("leftSidebar")) {
         document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;

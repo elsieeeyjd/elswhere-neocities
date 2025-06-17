@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const rightSidebarHTML = `
-          <h2 class='sidebartext nicetext'>My Links</h2>
+          <h2 class='sidebartext nicetext'>More stuff</h2>
           <div class='smallsidebar'>
             <h3 class="sSidebartitle">Menu</h3>
             <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Extra pg.</a>

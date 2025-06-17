@@ -237,49 +237,47 @@ function showRandomFact() {
 
 //BUTTON SELECTOR
 
-document.querySelectorAll('.filter-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const tag = button.getAttribute('data-tag');
-    const buttons = document.querySelectorAll('.wallbutton');
-    const allFilters = document.querySelectorAll('.filter-btn');
+document.querySelectorAll(".filter-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const buttons = document.querySelectorAll(".wallbutton");
+    const allFilters = document.querySelectorAll(".filter-btn");
 
     // Remove 'active' class from all buttons first
-    allFilters.forEach(btn => btn.classList.remove('active'));
+    allFilters.forEach((btn) => btn.classList.remove("active"));
 
     // Add 'active' class to the clicked one
-    button.classList.add('active');
+    button.classList.add("active");
 
     // Show/hide site buttons based on tag
-    buttons.forEach(btn => {
-      const tags = btn.getAttribute('data-tags').split(' ');
+    buttons.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
 
-      if (tag === 'all' || tags.includes(tag)) {
-        btn.style.display = 'inline-block';
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
       } else {
-        btn.style.display = 'none';
+        btn.style.display = "none";
       }
     });
   });
 });
 
-document.querySelectorAll('.filter-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const tag = button.getAttribute('data-tag');
-    const buttons = document.querySelectorAll('.wallbutton');
+document.querySelectorAll(".filter-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const buttons = document.querySelectorAll(".wallbutton");
 
-    buttons.forEach(btn => {
-      const tags = btn.getAttribute('data-tags').split(' ');
+    buttons.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
 
-      if (tag === 'all' || tags.includes(tag)) {
-        btn.style.display = 'inline-block';
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
       } else {
-        btn.style.display = 'none';
+        btn.style.display = "none";
       }
     });
   });
 });
-
-
 
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
@@ -301,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //UNIVERSALISE STUFF
 
-    const navbarHTML = `
+  const navbarHTML = `
         <ul>
             <li><a href="https://elswhere.neocities.org">Home</a></li>
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
@@ -323,15 +321,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox">
-            <p class='sidebartext'>This site has been updated as of June 2025!</p>
-            <h3 class='sidebartext nicetext' style='font-size: 18px'>9. 6. 2025 (nice)</h3>
-            <p class='sidebartext boxtext'>added (a shit ton of) buttons!! widget additions/fixes</p>
-            <h3 class='sidebartext nicetext' style='font-size: 18px'>5. 6. 2025</h3>
-            <p class='sidebartext boxtext'>Universalise sidebar contents, added new blinkies & bumper stickers</p>
-            <h3 class='sidebartext nicetext' style='font-size: 18px'>3. 6. 2025</h3>
-            <p class='sidebartext boxtext'>Created blog page + archive</p>
-            <h3 class='sidebartext nicetext' style='font-size: 18px'>apr - may 2025</h3>
-            <p class='sidebartext boxtext'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
+            <p class='sidebartextDark'>This site has been updated as of June 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 6. 2025 (nice)</h3>
+            <p class='sidebartextDark boxtextDark'>added (a shit ton of) buttons!! widget additions/fixes</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>5. 6. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>Universalise sidebar contents, added new blinkies & bumper stickers</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>3. 6. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>Created blog page + archive</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>apr - may 2025</h3>
+            <p class='sidebartextDark boxtextDark'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
         </div>
         <div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
             <p class='boxtext sidebartext'>total visits: <span id='hitcount'>loading...</span></p>
@@ -354,18 +352,37 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 				`;
 
-      if (document.getElementById("leftSidebar")) {
-        document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
-      }
-  
+  if (document.getElementById("leftSidebar")) {
+    document.getElementById("leftSidebar").innerHTML = leftSidebarHTML;
+  }
 
   const rightSidebarHTML = `
           <h2 class='sidebartext nicetext'>My Links</h2>
-          <div class='box' id='sociallinks'>
-            <ul class='sidebarlinks'>
-              <li><i class="bi bi-heart-arrow"></i><a href='https://www.instagram.com/elsie.mov' target='_blank'>Instagram</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href='https://elsieeeee.substack.com/' target='_blank'>Substack</a></li>
-            </ul>
+          <div class='smallsidebar'>
+            <h3 class="sSidebartitle">Menu</h3>
+            <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Extra pg.</a>
+            <details class="sidebarsection">
+              <summary>Media recs</summary>
+              <ul>
+                <li><a href="https://elswhere.neocities.org/extra/books/">Books</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/music/">Music</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/movies/">Movies</a></li>
+              </ul>
+            </details>
+            <details class="sidebarsection">
+              <summary>Creations</summary>
+              <ul>
+                <li><a href="https://elswhere.neocities.org/extra/portfolio/">Writings</a></li>
+                <li><a href="https://elswhere.neocities.org/coding-proj/">Coding</a></li>
+                <li><a href="https://elswhere.neocities.org/artworks/">Art</a></li>
+              </ul>
+            </details>
+            <details class="sidebarsection">
+              <summary>Other</summary>
+              <ul>
+                <li>Coming soon!</li>
+              </ul>
+            </details>
           </div>
           <h3 class='nicetext sidebartext'>my button!</h3>
           <div class='sidebar-center'>
@@ -394,8 +411,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><i class="bi bi-heart-arrow"></i><a href='mailto:elsieyjd@gmail.com' target='_blank'>Email</a></li>
           </ul>`;
   if (document.getElementById("rightSidebar")) {
-        document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
-      }
+    document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
+  }
 
   //Extra Page Layout
 
@@ -429,8 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("extraSidebar")) {
     document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
   }
-  
-  
+
   //MAIN PAGE STUFF
 
   //Scroll button stuff
@@ -518,8 +534,4 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.title === "Blog Post") {
     document.title = currentPostTitle;
   }
-
-  
-
-
 }); //END OF DOM CONTENT LOADED EVENT

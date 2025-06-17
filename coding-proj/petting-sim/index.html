@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Petting Sim</title>
+    <style>
+      body,
+      html {
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "VT323", monospace;
+        font-size: 12px;
+        background: transparent;
+        color: #7978a1;
+      }
+      
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        gap: 4rem;
+        margin: 0;
+        height: 100vh;
+        flex-direction: row; 
+      }
+
+      #pettingmenu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center; 
+      }
+
+      .petitems {
+        width: 80px;
+        height: auto;
+        cursor: pointer;
+        position: relative;
+      }
+
+      #pet {
+        flex-shrink: 0; 
+      }
+
+      #pet img {
+        max-width: 300px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="pettingmenu">
+        <img src="hand.PNG" alt="hand" class="petitems" id="hand" />
+        <img src="soap.PNG" alt="soap" class="petitems" id="soap" />
+      </div>
+      <div id="pet">
+        <img src="cat.PNG" alt="cat" id="cat" />
+      </div>
+    </div>
+    <script>
+      const petItems = document.querySelectorAll('.petitems');
+      const originalPosition = new Map();
+      let isFollowing = false;
+      let currentItem = null;
+      let placeholder = null;
+      
+
+      window.addEventListener('DOMContentLoaded', () => {
+        petItems.forEach(item => {
+          const rect = item.getBoundingClientRect();
+          originalPosition.set(item, {
+            left: rect.left,
+            top: rect.top
+          });
+
+          // item.style.left = `${rect.left}px`;
+          // item.style.top = `${rect.top}px`;
+
+          item.addEventListener('click', () => {
+            if (isFollowing) return; 
+            currentItem = item;
+            isFollowing = true;
+
+            placeholder = document.createElement('div');
+            placeholder.style.width = `${item.offsetWidth}px`;
+            placeholder.style.height = `${item.offsetHeight}px`;
+            placeholder.style.display = 'block';
+            placeholder.style.visibility = 'hidden';
+            item.parentNode.insertBefore(placeholder, item);
+
+            currentItem.style.position = "absolute";
+            currentItem.style.zIndex = "10";
+          });
+        });
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (isFollowing && currentItem) {
+          currentItem.style.left = `${e.pageX}px`;
+          currentItem.style.top = `${e.pageY}px`;
+        };
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'e' && isFollowing && currentItem) {
+          const original = originalPosition.get(currentItem);
+          currentItem.style.left = "";
+          currentItem.style.top = "";
+          if (placeholder) {
+            placeholder.parentNode.removeChild(placeholder);
+            placeholder = null;
+          }
+          currentItem.style.position = "relative";
+          isFollowing = false;
+          currentItem = null;
+        };
+      });
+    </script>
+  </body>
+</html>

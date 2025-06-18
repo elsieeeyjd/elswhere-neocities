@@ -322,6 +322,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox">
             <p class='sidebartextDark'>This site has been updated as of June 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 6. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>more widgets, added extra page w new layout, comment section on blog</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 6. 2025 (nice)</h3>
             <p class='sidebartextDark boxtextDark'>added (a shit ton of) buttons!! widget additions/fixes</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>5. 6. 2025</h3>

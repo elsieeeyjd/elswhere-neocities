@@ -998,6 +998,12 @@ create styles for #leftSidebar and #rightSidebar */
   align-items: center;
 }
 
+.commentbox {
+  background-color: #cdcbed;
+  border: #7978a1 dashed 1px;
+  border-radius: 5px;
+}
+
   /* BELOW THIS POINT IS MEDIA QUERY */
 
   /* so you wanna change the width of your page? 

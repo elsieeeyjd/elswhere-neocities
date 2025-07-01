@@ -10,7 +10,7 @@
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:8080",
-            "file": "${workspaceFolder}/blog/posts/2025-06-09-why-i-made-this-site.html",
+            "file": "${workspaceFolder}/blog/posts/2025-07-01-thoughts-in-the-filler-episodes.html",
         },
     ]
 }

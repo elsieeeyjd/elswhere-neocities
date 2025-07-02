@@ -999,6 +999,25 @@ create styles for #leftSidebar and #rightSidebar */
   text-decoration: underline;
 }
 
+.filter-chnl {
+  all: unset;
+  font-family:'VT323', monospace;
+  background-color:#cdcbed;
+  color: var(--text-main);
+  padding: 4px 10px;
+  border: 1px solid #7978a1;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.filter-chnl.active {
+  background-color: #dedcfe;
+  color: #7978a1;
+  border: 2px solid #7978a1;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .sideFlex {
   display: flex;
   gap: 5px;

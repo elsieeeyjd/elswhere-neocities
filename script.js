@@ -225,7 +225,7 @@ const facts = [
   "IMO victoria secret's love spell is a good scent sue me",
   "I'm learning german because once my insta reccs got flooded with german reels and i thought its a funny af language",
   "right before i graduated hs i gifted my history/government teacher a US flag with his face on it",
-  "my biggest ego boost moment was when i went to the NSDA nationals 2024 and someone from taiwan asked us 'oh are y'all the only non-TAS team in taiwan who qualified PF?'",
+  "my biggest ego boost moment was when i went to the NSDA nationals 2024 and someone from taiwan asked us 'oh are y'all the only non-[Insert super good school name] team in taiwan who qualified PF?'",
   "sO YoU hAVe a moTheR? (iykyk)",
 ];
 
@@ -280,6 +280,51 @@ document.querySelectorAll(".filter-btn").forEach((button) => {
   });
 });
 
+//CHANNEL SELECTOR
+
+document.querySelectorAll(".filter-chnl").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const channels = document.querySelectorAll(".channel");
+    const allFilters = document.querySelectorAll(".filter-chnl");
+
+    // Remove 'active' class from all buttons first
+    allFilters.forEach((btn) => btn.classList.remove("active"));
+
+    // Add 'active' class to the clicked one
+    button.classList.add("active");
+
+    // Show/hide site buttons based on tag
+    channels.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
+
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  });
+});
+
+document.querySelectorAll(".filter-chnl").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const channels = document.querySelectorAll(".channel");
+
+    channels.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
+
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  });
+});
+
+
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {
@@ -323,6 +368,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox">
             <p class='sidebartextDark'>This site has been updated as of June 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 7. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>new blog post, revamped main page menu</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 6. 2025</h3>
             <p class='sidebartextDark boxtextDark'>more widgets, added extra page w new layout, comment section on blog</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 6. 2025 (nice)</h3>
@@ -407,12 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <li><i class="bi bi-heart-arrow"></i><a href="https://petrapixel.neocities.org/coding/bookmarks" target="_blank">PetraPixel's coding bookmarks</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://pixelsafari.neocities.org/" target="_blank">Pixel Safari</a></li>
           </ul>
-          <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-ultra-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>
-        <h3 class='nicetext sidebartext'>Professional inquiries</h3>
-          <ul class="sidebarlinks">
-                <li><i class="bi bi-heart-arrow"></i><a href='https://www.linkedin.com/in/elsie-duann-434a7a307/' target='_blank'>LinkedIn</a></li>
-                <li><i class="bi bi-heart-arrow"></i><a href='mailto:elsieyjd@gmail.com' target='_blank'>Email</a></li>
-          </ul>`;
+          <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-ultra-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>`;
   if (document.getElementById("rightSidebar")) {
     document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
   }
@@ -426,9 +468,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <details class="sidebarsection">
               <summary>Media recs</summary>
               <ul>
-                <li><a href="https://elswhere.neocities.org/extra/books/">Books</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/music/">Music</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/movies/">Movies</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/music/">Music</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
               </ul>
             </details>
             <details class="sidebarsection">

@@ -980,7 +980,8 @@ create styles for #leftSidebar and #rightSidebar */
   height: 500px;
 }
 
-.filter-btn {
+
+.filters {
   all: unset;
   font-family:'VT323', monospace;
   background-color:#cdcbed;
@@ -991,7 +992,7 @@ create styles for #leftSidebar and #rightSidebar */
   margin-bottom: 1rem;
 }
 
-.filter-btn.active {
+.filters.active {
   background-color: #dedcfe;
   color: #7978a1;
   border: 2px solid #7978a1;
@@ -999,24 +1000,6 @@ create styles for #leftSidebar and #rightSidebar */
   text-decoration: underline;
 }
 
-.filter-chnl {
-  all: unset;
-  font-family:'VT323', monospace;
-  background-color:#cdcbed;
-  color: var(--text-main);
-  padding: 4px 10px;
-  border: 1px solid #7978a1;
-  transition: background-color 0.3s ease;
-  margin-bottom: 1rem;
-}
-
-.filter-chnl.active {
-  background-color: #dedcfe;
-  color: #7978a1;
-  border: 2px solid #7978a1;
-  font-weight: bold;
-  text-decoration: underline;
-}
 
 .sideFlex {
   display: flex;
@@ -1029,6 +1012,16 @@ create styles for #leftSidebar and #rightSidebar */
   background-color: #cdcbed;
   border: #7978a1 dashed 1px;
   border-radius: 5px;
+}
+
+.mediabox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  padding: 1rem;
+  border: 1px dashed #7978a1;
+  border-radius: 10px;
 }
 
   /* BELOW THIS POINT IS MEDIA QUERY */

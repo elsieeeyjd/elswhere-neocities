@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>extra | elswhere</title>
+    <link rel="icon" href="../../../webicon.PNG" type="image/x-icon" />
+    <!--PICO-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <!--ICONS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- CSS LINK -->
+    <link href="../../../style.css" rel="stylesheet" type="text/css" media="all" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="headerArea">
+        <div id="header" style="height: 400px"></div>
+
+        <nav id="navbar" style="margin-bottom: 10px"></nav>
+      </div>
+
+      <div id="flex" class="extracontainer">
+        <div class="smallsidebar" id="extraSidebar"></div>
+        <!--MAIN AREA STUFF -->
+        <main class="extracontent">
+          <h1 class="specialtextL">Movie and TV show reccomendations</h1>
+        <!--MOVIES-->
+        <h2 class="maintext specialtextS">Movies</h2>
+            <div class="selectmenu">
+            <button class="filter-mov filters" data-tag="all">Show All</button>
+            <button class="filter-mov filters" data-tag="romance">Romance</button>
+            <button class="filter-mov filters" data-tag="drama">Drama</button>
+            <button class="filter-mov filters" data-tag="mystery">Mystery</button>
+            <button class="filter-mov filters" data-tag="fantasy">Fantasy</button>
+            <button class="filter-mov filters" data-tag="comedy">Comedy</button>
+            <button class="filter-mov filters" data-tag="action">Action</button>
+            </div>
+
+        <div class="mediabox">
+            <div class="file movie" data-tags="action comedy">
+                <img src="images/thegrandbudapest.jpg" alt="The Grand Budapest Hotel">
+                <p class="filename"><a href="https://www.imdb.com/title/tt2278388/" target="_blank">The Grand Budapest Hotel</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>My first and favorite work of Wes Anderson. Aside from the cinamatography and aesthetic, the plot is full of humor and sarcasm and sometimes even subtle symbolism. A fun yet meaningful watch for sure.</p>
+                <p class='boxtext'><b>Warnings: </b>nudity, sexual themes, dark humor.</p>
+                </div>
+            </div>
+            <div class="file movie" data-tags="commedy">
+                <img src="images/thepeanutsmovie.jpg" alt="The Peanuts Movie">
+                <p class="filename"><a href="https://www.imdb.com/title/tt2452042/" target="_blank">The Peanuts Movie</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>I don't care what anyone says this will forever be my comfort film. Not only does it captures the original comic vibes with 3D animation, its such a cute and comforting movie.</p>
+                </div>
+            </div>
+            <div class="file movie" data-tags="romance fantasy drama">
+                <img src="images/yourname.jpg" alt="Legally Blonde">
+                <p class="filename"><a href='https://www.imdb.com/title/tt5311514/' target="_blank">Your Name</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>I'm not an anime fan but this movie absolutely has my heart oml. The visuals, the characters dynamic, the plot (twist), and don't even get me started on the music. Comfort movie #2.</p>
+                </div>
+            </div>
+            <div class="file movie" data-tags="comedy drama">
+                <img src="images/legallyblonde.jpg" alt="Legally Blonde">
+                <p class="filename"><a href="https://www.imdb.com/title/tt0250494/" target="_blank">Legally Blonde</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>Super fun and inspirational movie about a 'dumb blonde' succeeding in Harvard Law, and still looking extremely pretty while doing so too. Elle Woods you will forever be my idol.</p>
+                </div>
+            </div>
+            <div class="file movie" data-tags="romance comedy">
+                <img src="images/clueless.jpg" alt="Clueless">
+                <p class="filename"><a href="https://www.imdb.com/title/tt0112697/" target="_blank">Clueless</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>A classic teen romantic comedy. Yeah it's kind of predictable but still a really fun watch when you're in the mood for some feel-good romance. Also the love inteest is a tad bit questionable but ngl they look cute together.</p>
+                <p class='boxtext'><b>Warnings: </b>mention of sex, drugs, and alcohol</p>
+                </div>
+            </div>
+            <div class="file movie" data-tags="drama mystery">
+                <img src="images/enolaholmes.jpg" alt="Enola Holmes">
+                <p class="filename"><a href="https://www.imdb.com/title/tt7846844/" target="_blank">Enola Holmes</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>I should probably rewatch this film since I was too young when I first watched it to understand the mystery lol. But I love the historical settings and costumes, and also the historical implications of women sufferage and other reforms at the time. Also louis partridge is fine af.</p>
+                </div>
+            </div>
+        </div>
+    <!--TV SHOWS-->
+    <h2 class="maintext specialtextS" style="margin-top: 2rem;">TV Shows</h2>
+            <div class="selectmenu">
+            <button class="filter-tv filters" data-tag="all">Show All</button>
+            <button class="filter-tv filters" data-tag="romance">Romance</button>
+            <button class="filter-tv filters" data-tag="drama">Drama</button>
+            <button class="filter-tv filters" data-tag="mystery">Mystery</button>
+            <button class="filter-tv filters" data-tag="fantasy">Fantasy</button>
+            <button class="filter-tv filters" data-tag="comedy">Comedy</button>
+            <button class="filter-tv filters" data-tag="action">Action</button>
+            </div>
+        <div class="mediabox">
+            <div class="file tv" data-tags="drama romance">
+                <img src="../../../current/gossipgirl.jpg" alt="Gossip Girl">
+                <p class="filename"><a href="https://www.imdb.com/title/tt0397442/" target="_blank">Gossip Girl</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>I've finished the first season and I honestly love it??? its so messy but so good that it makes me feel like my life is boring (is that a bad thing lol)</p>
+                <p class='boxtext'><b>Warnings: </b>sexual themes, drugs, alcohol</p>
+                </div>
+            </div>
+            <div class="file tv" data-tags="drama comedy">
+                <img src="images/attorneywoo.png" alt="Extraordinary Attorney Woo">
+                <p class="filename"><a href="https://www.imdb.com/title/tt20869502/" target="_blank">Extraordinary Attorney Woo</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>This show tells the story of a girl on the autism spectrum tackling her life as an attorney. Eveery episodes is about a new case and, aside from the law and mystery stuff, I also love young woo's character growth.</p>
+                </div>
+            </div>
+            <div class="file tv" data-tags="drama mystery">
+                <img src="images/witchscourt.jpg" alt="Witch's Court">
+                <p class="filename"><a href='https://www.imdb.com/title/tt7428488/' target="_blank">Witch at Court</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>Another legal kdrama but much more dark in nature compared to attorney woo. It focuses around SA related cases and can sometimes gets real dark, but the series still has some lighthearted moments. also i-deum is such a girl boss.</p>
+                <p class="boxtext"><b>Warnings: </b>HEAVY on the sexual assault theme; suicide attempt, some blood, fucked up sex trafficking scheme.</p>
+                </div>
+            </div>
+            <div class="file tv" data-tags="comedy mystery">
+                <img src="images/wednesday.jpg" alt="Wednesday">
+                <p class="filename"><a href="https://www.imdb.com/title/tt13443470/" target="_blank">Wednesday</a></p>
+                <div class='hoverinfo'>
+                <p class='boxtext'>I love the portrayal of Wednesday Adams and the school as a whole in this show. The plot is also sooo fun but also perfectly mixed with mysteries. also the outfits unironically slap.</p>
+                <p class="boxtext"><b>Warnings: </b>blood, very very light gore</p>
+                </div>
+            </div>
+        </div>
+
+        </main>
+      </div>
+      <footer id="footer" style="margin-top: 10px; color: #e9e8ff"></footer>
+    </div>
+    <script src="../../../script.js"></script>
+  </body>
+</html>

@@ -236,7 +236,7 @@ function showRandomFact() {
   output.textContent = facts[randomIndex];
 }
 
-//BUTTON SELECTOR
+//BUTTON SELECTOR-------------
 
 document.querySelectorAll(".filter-btn").forEach((button) => {
   button.addEventListener("click", () => {
@@ -280,7 +280,7 @@ document.querySelectorAll(".filter-btn").forEach((button) => {
   });
 });
 
-//CHANNEL SELECTOR
+//CHANNEL SELECTOR---------------
 
 document.querySelectorAll(".filter-chnl").forEach((button) => {
   button.addEventListener("click", () => {
@@ -311,6 +311,92 @@ document.querySelectorAll(".filter-chnl").forEach((button) => {
   button.addEventListener("click", () => {
     const tag = button.getAttribute("data-tag");
     const channels = document.querySelectorAll(".channel");
+
+    channels.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
+
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  });
+});
+
+//MOVIES SELECTOR----------------------
+document.querySelectorAll(".filter-mov").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const channels = document.querySelectorAll(".movie");
+    const allFilters = document.querySelectorAll(".filter-mov");
+
+    // Remove 'active' class from all buttons first
+    allFilters.forEach((btn) => btn.classList.remove("active"));
+
+    // Add 'active' class to the clicked one
+    button.classList.add("active");
+
+    // Show/hide site buttons based on tag
+    channels.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
+
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  });
+});
+
+document.querySelectorAll(".filter-mov").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const channels = document.querySelectorAll(".movie");
+
+    channels.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
+
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  });
+});
+
+//TV SELECTOR---------------------
+document.querySelectorAll(".filter-tv").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const channels = document.querySelectorAll(".tv");
+    const allFilters = document.querySelectorAll(".filter-tv");
+
+    // Remove 'active' class from all buttons first
+    allFilters.forEach((btn) => btn.classList.remove("active"));
+
+    // Add 'active' class to the clicked one
+    button.classList.add("active");
+
+    // Show/hide site buttons based on tag
+    channels.forEach((btn) => {
+      const tags = btn.getAttribute("data-tags").split(" ");
+
+      if (tag === "all" || tags.includes(tag)) {
+        btn.style.display = "inline-block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+  });
+});
+
+document.querySelectorAll(".filter-tv").forEach((button) => {
+  button.addEventListener("click", () => {
+    const tag = button.getAttribute("data-tag");
+    const channels = document.querySelectorAll(".tv");
 
     channels.forEach((btn) => {
       const tags = btn.getAttribute("data-tags").split(" ");
@@ -469,9 +555,9 @@ document.addEventListener("DOMContentLoaded", function () {
               <summary>Media recs</summary>
               <ul>
                 <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/music/">Music</a></li>
                 <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
                 <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/others/">Others</a></li>
               </ul>
             </details>
             <details class="sidebarsection">

@@ -453,7 +453,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox">
-            <p class='sidebartextDark'>This site has been updated as of June 2025!</p>
+            <p class='sidebartextDark'>This site has been updated as of July 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 7. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>movies and youtube media rec pages</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 7. 2025</h3>
             <p class='sidebartextDark boxtextDark'>new blog post, revamped main page menu</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 6. 2025</h3>
@@ -500,9 +502,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <details class="sidebarsection">
               <summary>Media recs</summary>
               <ul>
-                <li><a href="https://elswhere.neocities.org/extra/books/">Books</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/music/">Music</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/movies/">Movies</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/others/">Others</a></li>
               </ul>
             </details>
             <details class="sidebarsection">

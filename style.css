@@ -6,9 +6,9 @@
       --body-bg-image: url('tilebg.gif');
       --content: #43256E;
       --navbar-color: #7978a1;
-      --sidebar-color: #9998ce;
-      --main-bg-color: #dedcfe;
-      --box-bg-color: #acace6;
+      --sidebar-color: #8584b9;
+      --main-bg-color: #eeedf7;
+      --box-bg-color: #9998ce;
       --box-border-color: #7978a1;
       --text-light: #e9e8ff;
       --text-main: #2F2C42;
@@ -289,7 +289,7 @@ EXCEPT for the navigation */
 
   /* navigation links*/
   #navbar li a {
-      color: #cdcbed;
+      color: var(--text-ultra-light);
       /* navbar text color */
       font-weight: 800;
       text-decoration: none;
@@ -314,7 +314,7 @@ if you want to style them separately,
 create styles for #leftSidebar and #rightSidebar */
   aside {
       background-color: var(--sidebar-color);
-      color: var(--text-light);
+      color: var(--text-ultra-light);
       width: 200px;
       padding: 20px;
       font-size: smaller;
@@ -347,14 +347,14 @@ create styles for #leftSidebar and #rightSidebar */
   }
   
   main {
-      background-color: #dedcfe;
+      background-color: var(--main-bg-color);
       flex: 1;
       padding: 20px;
   }
   
   .menubox {
     margin-top: 0px;
-    background-color: #acace6;
+    background-color: var(--box-bg-color);
     border: 1px solid #7978a1;
     padding: 1rem;
     border-radius: 12px;
@@ -402,7 +402,7 @@ create styles for #leftSidebar and #rightSidebar */
   /*BLOG SPECIFI STUFF*/
   
   #content {
-    background-color: #dedcfe;
+    background-color: var(--main-bg-color);
     flex: 1;
     padding: 20px;
   }
@@ -424,21 +424,21 @@ create styles for #leftSidebar and #rightSidebar */
 
   /* this is just a cool box, it's the darker colored one */
   .box {
-      background-color: #acace6;
+      background-color: var(--box-bg-color);
       border: 1px solid #5a5976;
       padding: 10px;
       color: var(--text-light);
   }
 
   .box2 {
-      background-color: #dedcfe;
+      background-color: var(--main-bg-color);
       border: 1px solid #7978a1;
       padding: 10px;
       color: var(--text-ultra-light);
   }
 
    .scrollbox {
-      background-color: #dedcfe;
+      background-color: var(--main-bg-color);
       border: 1px solid #5a5976;
       padding: 10px;
       color: var(--text-main);
@@ -535,7 +535,7 @@ create styles for #leftSidebar and #rightSidebar */
   
   
   .sidebarlinks a {
-    color: var(--text-light); 
+    color: var(--text-ultra-light); 
     text-decoration: none;
   }
 
@@ -630,7 +630,7 @@ create styles for #leftSidebar and #rightSidebar */
   .insitebutton a {
     all:unset;
     font-family: 'VT323', monospace;
-    color: var(--text-light);
+    color: var(--text-ultra-light);
     text-decoration: underline;
   }
 
@@ -645,7 +645,7 @@ create styles for #leftSidebar and #rightSidebar */
   .footertext {
     all:unset;
     font-size: 18px;
-    color: var(--text-light);
+    color: var(--text-ultra-light);
     font-family: 'VT323', monospace;
   }
 
@@ -688,7 +688,7 @@ create styles for #leftSidebar and #rightSidebar */
     font-family: 'VT323', monospace;
     font-size: 12px;
     padding: 0.5em;
-    background-color: #e9e8ff;
+    background-color: var(--main-bg-color);
     overflow: auto;
   }
 
@@ -789,7 +789,7 @@ create styles for #leftSidebar and #rightSidebar */
 /*ARTWORK PAGE STUFF*/
 .file-browser {
   padding: 2rem;
-  background-color: #dedcfe;
+  background-color: var(--main-bg-color);
   border: 2px inset #aaa;
   margin: 1rem;
 }
@@ -837,9 +837,9 @@ create styles for #leftSidebar and #rightSidebar */
   bottom: 110%;
   left: 50%;
   transform: translateX(-50%);
-  background: #acace6;
+  background: var(--box-bg-color);
   color: var(--text-ultra-light);
-  border: 1px solid #7978a1;
+  border: 1px solid var(--box-border-color);
   border-radius: 6px;
   padding: 0.5rem;
   width: 200px;
@@ -871,14 +871,14 @@ create styles for #leftSidebar and #rightSidebar */
 .smallsidebar * {
   display: block;
   margin: 7px;
-  color: #e9e8ff;
+  color: var(--text-ultra-light);
   font-size: 16px;
   font-family: 'VT323', monospace;
 }
 
 .sSidebartitle {
   font-size: 22px;
-  color: #e9e8ff;
+  color: var(--text-ultra-light);
   font-family: 'Venice';
   margin-bottom: 0.5rem;
 }

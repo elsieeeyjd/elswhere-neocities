@@ -410,7 +410,6 @@ document.querySelectorAll(".filter-tv").forEach((button) => {
   });
 });
 
-
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {
@@ -452,7 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
-        <div class="scrollbox">
+        <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of July 2025!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 7. 2025</h3>
             <p class='sidebartextDark boxtextDark'>movies and youtube media rec pages</p>
@@ -495,6 +494,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const rightSidebarHTML = `
+          <div id="accessibility">
+              <h3 class="sidebartext nicetext">Accessibility Options</h3>
+              <button id="toggle-blink" class="accbutton">Gif bg: ON</button>
+              <button id="toggle-font" class="accbutton">Font: default</button>
+          </div>
           <h2 class='sidebartext nicetext'>More stuff</h2>
           <div class='smallsidebar'>
             <h3 class="sSidebartitle">Menu</h3>
@@ -546,6 +550,81 @@ document.addEventListener("DOMContentLoaded", function () {
           <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-ultra-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>`;
   if (document.getElementById("rightSidebar")) {
     document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
+  }
+
+  //ACCESSIBILITY STUFF
+
+  const bgToggleBtn = document.getElementById("toggle-blink");
+
+  function updateBgToggleLabel() {
+    const isOff = document.body.classList.contains("accessibility-no-blink");
+    bgToggleBtn.textContent = isOff ? "Background: OFF" : "Background: ON";
+  }
+
+  bgToggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("accessibility-no-blink");
+    updateBgToggleLabel();
+
+    // Optional: Save state
+    const isOff = document.body.classList.contains("accessibility-no-blink");
+    localStorage.setItem("bgBlinkOff", isOff);
+  });
+
+  // Load saved state on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("bgBlinkOff");
+    if (saved === "true") {
+      document.body.classList.add("accessibility-no-blink");
+    }
+    updateBgToggleLabel();
+  });
+
+  let currentFont = "default"; // Track the current font state
+
+  document.getElementById("toggle-font").addEventListener("click", () => {
+    if (currentFont === "default") {
+      document.body.classList.add("accessibility-serif");
+      currentFont = "serif";
+    } else if (currentFont === "serif") {
+      document.body.classList.remove("accessibility-serif");
+      document.body.classList.add("accessibility-dyslexic");
+      currentFont = "dyslexic";
+    } else {
+      document.body.classList.remove("accessibility-dyslexic");
+      currentFont = "default";
+    }
+  });
+
+  const fonts = [
+    { name: "Default", css: "'VCR', sans-serif" },
+    { name: "Serif", css: "'Georgia', serif" },
+    { name: "OpenDyslexic", css: "'OpenDyslexic', monospace" },
+  ];
+
+  let currentFontIndex = 0;
+
+  function applyFont(index) {
+    document.body.style.fontFamily = fonts[index].css;
+    document.getElementById(
+      "toggle-font"
+    ).innerText = `Font: ${fonts[index].name}`;
+  }
+
+  document.getElementById("toggle-font").addEventListener("click", () => {
+    currentFontIndex = (currentFontIndex + 1) % fonts.length;
+    applyFont(currentFontIndex);
+  });
+
+  // Optional: Load saved font on page load
+  const savedIndex = localStorage.getItem("fontIndex");
+  if (savedIndex !== null) {
+    currentFontIndex = parseInt(savedIndex);
+    applyFont(currentFontIndex);
+  }
+
+  // Optional: Save font choice on change
+  function saveFontChoice() {
+    localStorage.setItem("fontIndex", currentFontIndex);
   }
 
   //Extra Page Layout

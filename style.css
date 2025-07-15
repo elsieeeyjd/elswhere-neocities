@@ -90,9 +90,17 @@
   /*VCR_OCD (main text) FONT*/
   @font-face {
     font-family: 'VCR';
-    font-style: normal;;
+    font-style: normal;
     font-weight: normal; 
     src: url('font/VCR_OSD_MONO_1.001.ttf') format('truetype');
+  }
+
+  /*OPEN DYSLEXIC FONT*/
+  @font-face {
+    font-family: "OpenDyslexic";
+    font-style: normal;
+    font-weight: normal;
+    src: url('font/OpenDyslexic-Regular.otf') format('opentype');
   }
   
   
@@ -179,7 +187,7 @@ body {
   font-family: 'VCR', monospace;
   font-size: 14;
   margin: 0;
-  background-color: #bbbafd;
+  background-color: #5e4e8c;
   /* you can delete the line below if you'd prefer to not use an image */
   background-size: auto;
   color: var(--text-main);
@@ -187,6 +195,42 @@ body {
   background-attachment: fixed; 
   background-repeat: repeat;
 }
+
+
+/*ACCESSIBILITY STUFF*/
+.accbutton {
+  all: unset;
+  font-family:'VT323', monospace;
+  background-color:#cdcbed;
+  color: var(--text-main);
+  padding: 4px 10px;
+  border: 1px solid #7978a1;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+  }
+
+.accbutton:hover {
+  background-color: #dedcfe;
+  color: #7978a1;
+  border: 2px solid #7978a1;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+body.accessibility-no-blink {
+  animation: none !important;
+  background-image: none !important;
+}
+
+body.accessibility-serif {
+  font-family: 'Georgia', serif !important;
+}
+
+body.accessibility-dyslexic {
+  font-family: 'OpenDyslexic', sans-serif; /* if you have it */
+}
+
 
 /*text formatting stuff*/
 
@@ -335,6 +379,8 @@ create styles for #leftSidebar and #rightSidebar */
   #rightSidebar {
       order: 3;
   }
+
+  
   
   /*CENTER*/
   
@@ -437,7 +483,7 @@ create styles for #leftSidebar and #rightSidebar */
       color: var(--text-ultra-light);
   }
 
-   .scrollbox {
+  .scrollbox {
       background-color: var(--main-bg-color);
       border: 1px solid #5a5976;
       padding: 10px;
@@ -446,7 +492,7 @@ create styles for #leftSidebar and #rightSidebar */
       overflow-y: auto;
   }
 
-    .dashedbox {
+  .dashedbox {
     border: 1px dashed #7978a1;
     border-radius: 10px;
     padding: .5em;
@@ -471,7 +517,7 @@ create styles for #leftSidebar and #rightSidebar */
     position: absolute;
     top: -0.75rem;
     left: 1rem;
-    background-color: #dedcfe;
+    background-color: var(--main-bg-color);
     color: var(--text-main);
     padding: 0 0.4rem;
     font-size: 20px;
@@ -888,7 +934,7 @@ create styles for #leftSidebar and #rightSidebar */
   align-items: flex-start;
   gap: 2rem;
   padding: 2rem;
-  background-color: #dedcfe;
+  background-color: var(--main-bg-color);
 }
 
 .sidebarsection {

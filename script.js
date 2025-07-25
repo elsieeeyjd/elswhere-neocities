@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div id="accessibility">
               <h3 class="sidebartext nicetext">Accessibility Options</h3>
               <button id="toggle-blink" class="accbutton">Gif bg: ON</button>
-              <button id="toggle-font" class="accbutton">Font: default</button>
+              <button id="toggle-font" class="accbutton">Font: Default</button>
           </div>
           <h2 class='sidebartext nicetext'>More stuff</h2>
           <div class='smallsidebar'>
@@ -551,6 +551,41 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("rightSidebar")) {
     document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
   }
+
+  //Extra Page Layout
+
+  const extraSidebarHTML = `
+          <h3 class="sSidebartitle">Menu</h3>
+            <p class="boxtext">none of these webpages work yet, check back later!</p>
+            <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Main</a>
+            <details class="sidebarsection">
+              <summary>Media recs</summary>
+              <ul>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/mediarec/others/">Others</a></li>
+              </ul>
+            </details>
+            <details class="sidebarsection">
+              <summary>Creations</summary>
+              <ul>
+                <li><a href="https://elswhere.neocities.org/extra/portfolio/">Writings</a></li>
+                <li><a href="https://elswhere.neocities.org/coding-proj/">Coding</a></li>
+                <li><a href="https://elswhere.neocities.org/artworks/">Art</a></li>
+              </ul>
+            </details>
+            <details class="sidebarsection">
+              <summary>Other</summary>
+              <ul>
+                <li>Coming soon!</li>
+              </ul>
+            </details>`;
+
+  if (document.getElementById("extraSidebar")) {
+    document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
+  }
+
 
   //ACCESSIBILITY STUFF
 
@@ -625,40 +660,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Optional: Save font choice on change
   function saveFontChoice() {
     localStorage.setItem("fontIndex", currentFontIndex);
-  }
-
-  //Extra Page Layout
-
-  const extraSidebarHTML = `
-          <h3 class="sSidebartitle">Menu</h3>
-            <p class="boxtext">none of these webpages work yet, check back later!</p>
-            <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Main</a>
-            <details class="sidebarsection">
-              <summary>Media recs</summary>
-              <ul>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/others/">Others</a></li>
-              </ul>
-            </details>
-            <details class="sidebarsection">
-              <summary>Creations</summary>
-              <ul>
-                <li><a href="https://elswhere.neocities.org/extra/portfolio/">Writings</a></li>
-                <li><a href="https://elswhere.neocities.org/coding-proj/">Coding</a></li>
-                <li><a href="https://elswhere.neocities.org/artworks/">Art</a></li>
-              </ul>
-            </details>
-            <details class="sidebarsection">
-              <summary>Other</summary>
-              <ul>
-                <li>Coming soon!</li>
-              </ul>
-            </details>`;
-
-  if (document.getElementById("extraSidebar")) {
-    document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
   }
 
   //MAIN PAGE STUFF

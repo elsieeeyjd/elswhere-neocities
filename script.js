@@ -7,6 +7,7 @@ let authorLink = "elswhere.neocities.org"; // Enter your website, social media, 
 //==[ 2. POSTS ARRAY ]==
 
 let postsArray = [
+  ["posts/2025-07-25-the-'fuck-it-ill-do-it-myself'-mentality.html"],
   ["posts/2025-07-01-thoughts-in-the-filler-episodes.html"],
   ["posts/2025-06-09-why-i-made-this-site.html"],
   //[ "posts/2020-11-10-My-Second-Post-Example.html" ],
@@ -453,6 +454,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of July 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 7. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>new blog post, accessibility options</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 7. 2025</h3>
             <p class='sidebartextDark boxtextDark'>movies and youtube media rec pages</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 7. 2025</h3>
@@ -475,6 +478,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- FC2 Clap tag ends here -->
             <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
         </div>
+        <a href="https://buymeacoffee.com/elsieee" target="_blank"><img src="buttons/tip-jar.png" id="tip-jar""></a>
+        <p class="sidebartext" style="font-size: 12px; margin-top: 5px; margin-bottom: 5px;">my payment method for BMAC isn't set up yet cuz stripe isn't available in my country. Oops! It'll b set up in mid-september when i move to the UK. :)</p>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">
             <img src="${rootPath}blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>

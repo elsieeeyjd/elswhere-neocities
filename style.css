@@ -596,6 +596,18 @@ create styles for #leftSidebar and #rightSidebar */
     align-items: center;
   }
 
+  #tip-jar {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #tip-jar:hover {
+    transform: scale(1.05) rotate(5deg);
+    transition: transform 0.2s ease;
+  }
 
   .blinkiestack {
     display: flex;

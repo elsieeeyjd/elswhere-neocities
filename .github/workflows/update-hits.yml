@@ -30,5 +30,14 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_PAT }}
         GIST_ID:  e000ae8688809341624cece09c0e1690
       run: |
-        gh api gists/$GIST_ID --method PATCH \
-          --field files[data/hits.json].content="$(cat data/hits.json)"
+        # Build a tiny JSON document that looks like:
+        # { "files": { "hits.json": { "content": "<the JSON string>" } } }
+        jq -Rs --argfile data data/hits.json '
+          {files:{("hits.json"):{content:$data}}}
+        ' < /dev/null > gist-payload.json
+
+        cat gist-payload.json  #-- debug, shows what we're sending
+
+        gh api "gists/$GIST_ID" \
+          --method PATCH \
+          --input gist-payload.json

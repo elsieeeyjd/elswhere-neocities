@@ -479,7 +479,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
         </div>
         <a href="https://buymeacoffee.com/elsieee" target="_blank"><img src="buttons/tip-jar.png" id="tip-jar""></a>
-        <p class="sidebartext" style="font-size: 12px; margin-top: 5px; margin-bottom: 5px;">my payment method for BMAC isn't set up yet cuz stripe isn't available in my country. Oops! It'll b set up in mid-september when i move to the UK. :)</p>
+        <p class="sidebartext" style="font-size: 12px; margin-top: 5px;">my payment method for BMAC isn't set up yet cuz stripe isn't available in my country. Oops! It'll b set up in mid-september when i move to the UK. :)</p>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">
             <img src="${rootPath}blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>

@@ -32,7 +32,7 @@ jobs:
       run: |
         # Build a tiny JSON document that looks like:
         # { "files": { "hits.json": { "content": "<the JSON string>" } } }
-        jq -Rs --argfile data data/hits.json '
+        jq -Rs --rawfile data data/hits.json '
           {files:{("hits.json"):{content:$data}}}
         ' < /dev/null > gist-payload.json
 

@@ -26,6 +26,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gh jq
 
+      - name: Debug – show files we just built
+        run: |
+          echo "----- neocities.json -----"
+          cat neocities.json
+          echo "----- data/hits.json -----"
+          cat data/hits.json
+
       - name: Update Gist with hits.json
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}

@@ -1,45 +1,35 @@
 name: Update Hit Counter
+
 on:
   schedule:
-    - cron:  '*/30 * * * *'    # every 30 min
-  workflow_dispatch:           # manual run button
+    - cron: '*/30 * * * *'   # every 30 minutes
+  workflow_dispatch:
 
 jobs:
-  update:
+  fetch:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo (not strictly required, but harmless)
+        uses: actions/checkout@v4
 
-    - name: Fetch Neocities data
-      run: curl -s "https://neocities.org/api/info?sitename=elswhere" > neocities.json
+      - name: Fetch Neocities API
+        run: |
+          curl -s "https://neocities.org/api/info?sitename=elswhere" > neocities.json
+          # Optional debug:
+          jq . neocities.json | sed -e 's/api_key/*****/g'
 
-    - name: Build hits.json
-      run: |
-        mkdir -p data
-        jq '{views: .info.views}' neocities.json > data/hits.json
-        echo "----- neocities.json -----"; head -n 20 neocities.json
-        echo "----- data/hits.json -----"; cat data/hits.json
+      - name: Build hits.json
+        run: |
+          jq '{views: .info.views, last_updated: .info.last_updated}' neocities.json > hits.json
+          cat hits.json
 
-    - name: Push back to this repo
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "Update hit counter"
-        file_pattern: "data/hits.json"
+      - name: Upload hits.json to Neocities
+        env:
+          NEOCITIES_USERNAME: ${{ secrets.NEOCITIES_USERNAME }}
+          NEOCITIES_API_KEY:  ${{ secrets.NEOCITIES_API_KEY }}
+        run: |
+          # Upload to /data/hits.json on your site (Neocities treats the form field name as the remote path)
+          curl -sS -u "$NEOCITIES_USERNAME:$NEOCITIES_API_KEY" \
+            -F "data/hits.json=@hits.json" \
+            https://neocities.org/api/upload
 
-    - name: Patch gist
-      env:
-        GH_TOKEN: ${{ secrets.GH_PAT }}
-        GIST_ID:  e000ae8688809341624cece09c0e1690
-      run: |
-        # Build a tiny JSON document that looks like:
-        # { "files": { "hits.json": { "content": "<the JSON string>" } } }
-        jq -Rs --rawfile data data/hits.json '
-          {files:{("hits.json"):{content:$data}}}
-        ' < /dev/null > gist-payload.json
-
-        cat gist-payload.json  #-- debug, shows what we're sending
-
-        gh api "gists/$GIST_ID" \
-          --method PATCH \
-          --input gist-payload.json

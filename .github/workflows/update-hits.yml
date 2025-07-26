@@ -16,8 +16,10 @@ jobs:
 
     - name: Build hits.json
       run: |
+        mkdir -p data
         jq '{views: .info.views}' neocities.json > data/hits.json
-        cat data/hits.json      # debug line
+        echo "----- neocities.json -----"; head -n 20 neocities.json
+        echo "----- data/hits.json -----"; cat data/hits.json
 
     - name: Push back to this repo
       uses: stefanzweifel/git-auto-commit-action@v5

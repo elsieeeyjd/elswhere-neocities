@@ -411,6 +411,21 @@ document.querySelectorAll(".filter-tv").forEach((button) => {
   });
 });
 
+
+const GIST_ID = 'e000ae8688809341624cece09c0e1690';  
+const rawUrl =
+  `https://gist.githubusercontent.com/elsieeeyjd/${GIST_ID}/raw/hits.json`;
+
+
+fetch(`${rawUrl}?t=${Date.now()}`)
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('hitcount').textContent =
+      data.views.toLocaleString();
+    // …or however you want to display it
+  });
+
+  
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {

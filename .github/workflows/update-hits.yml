@@ -17,7 +17,7 @@ jobs:
 
       - name: Build hits.json
         run: |
-          # extract just views & last_updated
+          mkdir -p data
           jq '{views: .info.views}' \
              neocities.json > hits.json
 
@@ -31,7 +31,7 @@ jobs:
           echo "----- neocities.json -----"
           cat neocities.json
           echo "----- data/hits.json -----"
-          cat ../../data/hits.json
+          cat data/hits.json
 
       - name: Update Gist with hits.json
         env:

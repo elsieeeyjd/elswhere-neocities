@@ -19,7 +19,7 @@ jobs:
         run: |
           mkdir -p data
           jq '{views: .info.views}' \
-             neocities.json > hits.json
+             neocities.json > data/hits.json
 
       - name: Install GitHub CLI
         run: |

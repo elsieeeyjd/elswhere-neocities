@@ -411,27 +411,6 @@ document.querySelectorAll(".filter-tv").forEach((button) => {
   });
 });
 
-//HIT COUNTER SHIT
-
-(() => {
-  const GIST_ID  = 'e000ae8688809341624cece09c0e1690';   // <-- your real ID
-  const rawUrl   =
-    `https://gist.githubusercontent.com/elsieeeyjd/${GIST_ID}/raw/hits.json`;
-
-  fetch(`${rawUrl}?t=${Date.now()}`)          // ?t= busts browser cache
-    .then(r => {
-      if (!r.ok) throw new Error(r.statusText);
-      return r.json();
-    })
-    .then(({ views }) => {
-      document.getElementById('hitcount').textContent =
-        Number(views).toLocaleString();
-    })
-    .catch(err => {
-      console.error('hit-counter error:', err);
-      document.getElementById('hitcount').textContent = '—';
-    });
-})();
 
   
 //-----------------------------
@@ -721,28 +700,28 @@ document.addEventListener("DOMContentLoaded", function () {
     autoScroll(); // Start the auto-scrolling
   }
 
-  //VISITOR COUNTER STUFF
 
-  //fetch("https://neocities.org/api/info?sitename=elswhere")
-  // .then(response => response.json())
-  // .then(data => {
-  //     const hits = data.info.hits;
-  //     document.getElementById("hit-counter").textContent = hits.toLocaleString();
-  // })
+//HIT COUNTER SHIT
 
-  // .catch(err => {
-  //     console.error("failed to fetch hits:", err);
-  //     document.getElementById("hit-counter").textContent = "either my code or neocities is fucked! check back later :>";
-  // });
+(() => {
+  const GIST_ID  = 'e000ae8688809341624cece09c0e1690';   // <-- your real ID
+  const rawUrl   =
+    `https://gist.githubusercontent.com/elsieeeyjd/${GIST_ID}/raw/hits.json`;
 
-  fetch(`${rootPath}data/hits.json`)
-    .then((r) => r.json())
-    .then((data) => {
-      document.getElementById("hitcount").textContent =
-        data.views.toLocaleString();
-      const d = new Date(data.last_updated);
+  fetch(`${rawUrl}?t=${Date.now()}`)          // ?t= busts browser cache
+    .then(r => {
+      if (!r.ok) throw new Error(r.statusText);
+      return r.json();
     })
-    .catch((err) => console.error("Hit counter failed:", err));
+    .then(({ views }) => {
+      document.getElementById('hitcount').textContent =
+        Number(views).toLocaleString();
+    })
+    .catch(err => {
+      console.error('hit-counter error:', err);
+      document.getElementById('hitcount').textContent = '—';
+    });
+})();
 
   //BLOG STUFF HTML
   //==[ 4. INSERTING THE SECTIONS INTO OUR ACTUAL HTML PAGES ]==

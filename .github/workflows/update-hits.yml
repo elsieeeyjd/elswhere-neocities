@@ -1,45 +1,34 @@
-# .github/workflows/update-hits.yml
 name: Update Hit Counter
-
 on:
   schedule:
-    - cron: '*/30 * * * *'   # every 30 minutes
-  workflow_dispatch:       # manual trigger
+    - cron:  '*/30 * * * *'    # every 30 min
+  workflow_dispatch:           # manual run button
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch Neocities data
-        run: |
-          curl -s "https://neocities.org/api/info?sitename=elswhere" \
-            > neocities.json
+    - name: Checkout repo
+      uses: actions/checkout@v3
 
-      - name: Build hits.json
-        run: |
-          mkdir -p data
-          jq '{views: .info.views}' \
-             neocities.json > data/hits.json
+    - name: Fetch Neocities data
+      run: curl -s "https://neocities.org/api/info?sitename=elswhere" > neocities.json
 
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gh jq
+    - name: Build hits.json
+      run: |
+        jq '{views: .info.views}' neocities.json > data/hits.json
+        cat data/hits.json      # debug line
 
-      - name: Debug – show files we just built
-        run: |
-          echo "----- neocities.json -----"
-          cat neocities.json
-          echo "----- data/hits.json -----"
-          cat data/hits.json
+    - name: Push back to this repo
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Update hit counter"
+        file_pattern: "data/hits.json"
 
-      - name: Update Gist with hits.json
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-          GIST_ID: ${{ secrets.HITS_GIST_ID }}
-        run: |
-          # this will PATCH the single file 'hits.json' in your gist
-          gh api \
-            --method PATCH \
-            /gists/$GIST_ID \
-            -f files.hits.json.content="$(cat hits.json)"
+    - name: Patch gist
+      env:
+        GH_TOKEN: ${{ secrets.GH_PAT }}
+        GIST_ID:  e000ae8688809341624cece09c0e1690
+      run: |
+        gh api gists/$GIST_ID --method PATCH \
+          --field files[data/hits.json].content="$(cat data/hits.json)"

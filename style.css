@@ -13,9 +13,9 @@
       --text-light: #e9e8ff;
       --text-main: #2F2C42;
       --text-ultra-light: #f8f4ff;
+      color-scheme: light;
   }
 
-  /*FONTS*/
 
 
   @font-face {

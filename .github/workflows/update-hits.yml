@@ -20,7 +20,7 @@ jobs:
     - name: Generate hits.json
       run: |
         jq '{views: .info.views}' neocities.json > data/hits.json
-
+        
     - name: Commit & push if changed
       run: |
         git config --global user.email "actions@github.com"

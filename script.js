@@ -480,8 +480,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- FC2 Clap tag ends here -->
             <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
         </div>
-        <a href="https://buymeacoffee.com/elsieee" target="_blank"><img src="${rootPath}buttons/tip-jar.png" id="tip-jar""></a>
-        <p class="sidebartext" style="font-size: 12px; margin-top: 5px;">my payment method for BMAC isn't set up yet cuz stripe isn't available in my country. Oops! It'll b set up in mid-september when i move to the UK. :)</p>
+        <a href="buymeacoffee.com/elsieee"><img src="buttons/tip-jar.png" id="tip-jar"></a>
+        <p class='sidebartext boxtext' style='font-size: 10px; margin-bottom: 5px;'>the payment method here isn't set up yet, but you can follow my BMAC page anyway!</p>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">
             <img src="${rootPath}blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>
@@ -563,7 +563,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const extraSidebarHTML = `
           <h3 class="sSidebartitle">Menu</h3>
-            <p class="boxtext">none of these webpages work yet, check back later!</p>
+            <p class="boxtext">completed pages: movies, youtube, tv show recs; art gallery</p>
             <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Main</a>
             <details class="sidebarsection">
               <summary>Media recs</summary>
@@ -704,24 +704,21 @@ document.addEventListener("DOMContentLoaded", function () {
 //HIT COUNTER SHIT
 
 (() => {
-  const GIST_ID  = 'e000ae8688809341624cece09c0e1690';   // <-- your real ID
-  const rawUrl   =
-    `https://gist.githubusercontent.com/elsieeeyjd/${GIST_ID}/raw/hits.json`;
-
-  fetch(`${rawUrl}?t=${Date.now()}`)          // ?t= busts browser cache
+  const url = '/data/hits.json?t=' + Date.now(); // cache-buster
+  fetch(url)
     .then(r => {
-      if (!r.ok) throw new Error(r.statusText);
+      if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
       return r.json();
     })
     .then(({ views }) => {
-      document.getElementById('hitcount').textContent =
-        Number(views).toLocaleString();
+      document.getElementById('hitcount').textContent = Number(views).toLocaleString();
     })
     .catch(err => {
       console.error('hit-counter error:', err);
       document.getElementById('hitcount').textContent = '—';
     });
 })();
+
 
   //BLOG STUFF HTML
   //==[ 4. INSERTING THE SECTIONS INTO OUR ACTUAL HTML PAGES ]==

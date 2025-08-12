@@ -455,7 +455,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
-            <p class='sidebartextDark'>This site has been updated as of July 2025!</p>
+            <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>10. 8. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>new banner!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 7. 2025</h3>
             <p class='sidebartextDark boxtextDark'>new blog post, accessibility options</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 7. 2025</h3>

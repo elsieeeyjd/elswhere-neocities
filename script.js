@@ -493,12 +493,12 @@ function initPlayerUI() {
 
   let list = [];
   let index = 0;
-  let repeat = "all"; // 'one' | 'all' | 'off'
+  let repeat = "all";
   let shuffle = false;
 
   //0) QoL
 
-  //base url so i can mix local and cloud src
+  //base url so can mix local and cloud src
   const BASE_URL = ""; // later, you could set to "https://<user>.github.io/assets/"
   function resolveSrc(p) {
     return /^https?:\/\//.test(p) ? p : BASE_URL + p;
@@ -509,7 +509,7 @@ function initPlayerUI() {
     .then((tracks) => {
       list = tracks;
       //load playlist
-      list = tracks; // <-- here
+      list = tracks; 
       renderPlaylist();
 
       load(index);
@@ -878,7 +878,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- FC2 Clap tag ends here -->
             <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
         </div>
-        <a href="buymeacoffee.com/elsieee"><img src="${rootPath}buttons/tip-jar.png" id="tip-jar"></a>
+        <a href="https://buymeacoffee.com/elsieee" target="_blank"><img src="${rootPath}buttons/tip-jar.png" id="tip-jar"></a>
         <p class='sidebartext boxtext' style='font-size: 10px; margin-bottom: 5px;'>the payment method here isn't set up yet, but you can follow my BMAC page anyway!</p>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">

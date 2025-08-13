@@ -430,20 +430,20 @@ const playerHTML = `
           
           <div class="track">
             <div class="title-wrap">
-              <div class="title" id="title">-</div>
+              <div class="title" id="title" style="font-family: 'VT323';">-</div>
             </div>
             
             <div class="progress" id="progress">
               <div class="progress-bar" id="progressBar"></div>
             </div>
-            <div class="time">
-              <span id="currentTime">0:00</span>
-              <span id="duration">0:00</span>
+            <div class="time" >
+              <span id="currentTime" style="font-family: 'VT323';">0:00</span>
+              <span id="duration" style="font-family: 'VT323';">0:00</span>
             </div>
           </div>
 
           <button id="btnPlaylist" aria-haspopup="listbox" aria-expanded="false" aria-controls="playlistPanel">🎵</button>
-          <div id="playlistPanel" class="playlist" role="listbox" tabindex="-1" hidden></div> 
+          <div id="playlistPanel" class="playlist" role="listbox" tabindex="-1" hidden style="font-family: 'VT323';"></div> 
 
 
           <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Volume">`;
@@ -459,12 +459,19 @@ function initPlayerUI() {
   let path = window.location.pathname;
 
   let rootPath = "";
-  if (path.includes("blog/posts/")) {
+  if(
+    path.includes("extra/mediarec/")
+  ) {
+    rootPath = "../../../"; 
+  } else if (
+    path.includes("blog/posts/") 
+  ) {
     rootPath = "../../";
   } else if (
     path.includes("blog/") ||
     path.includes("artworks/") ||
-    path.includes("about/")
+    path.includes("about/") ||
+    path.includes("extra/")
   ) {
     rootPath = "../";
   } else {
@@ -798,17 +805,25 @@ document.addEventListener("DOMContentLoaded", function () {
   let path = window.location.pathname;
 
   let rootPath = "";
-  if (path.includes("blog/posts/")) {
+  if(
+    path.includes("extra/mediarec/")
+  ) {
+    rootPath = "../../../"; 
+  } else if (
+    path.includes("blog/posts/") 
+  ) {
     rootPath = "../../";
   } else if (
     path.includes("blog/") ||
     path.includes("artworks/") ||
-    path.includes("about/")
+    path.includes("about/") ||
+    path.includes("extra/")
   ) {
     rootPath = "../";
   } else {
     rootPath = ""; //main index.html
   }
+
 
   //UNIVERSALISE STUFF
 
@@ -835,6 +850,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>14. 8. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>top bar music player (oml i spent way too much time on this if only did wikiplayer just fucking worked)</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>10. 8. 2025</h3>
             <p class='sidebartextDark boxtextDark'>new banner!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 7. 2025</h3>

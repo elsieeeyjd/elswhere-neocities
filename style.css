@@ -297,7 +297,7 @@ body {
   width: min(520px, 90vw);
   max-height: 40vh;
   overflow: auto;
-  background: #9998ce;                 /* your sidebar color */
+  background: #8483c4;                 /* your sidebar color */
   color: var(--fg);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,.18);
@@ -329,7 +329,7 @@ body {
   content:"now playing..."; 
   margin-right:.5rem; 
   color:#e9e8ff; 
-  font-size: 9px;
+  font-size: 10px;
   opacity:.9;
 }
 

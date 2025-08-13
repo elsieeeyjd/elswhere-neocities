@@ -411,306 +411,387 @@ document.querySelectorAll(".filter-tv").forEach((button) => {
   });
 });
 
-
 //--------------------------------
 //MUSIC PLAYER STUFF
 
-// elements
-const audio = document.getElementById('audio');
-const btnPlay = document.getElementById('play');
-const btnNext = document.getElementById('next');
-const btnPrev = document.getElementById('prev');
-const btnShuffle = document.getElementById('shuffle');
-const btnRepeat = document.getElementById('repeat');
-const titleEl = document.getElementById('title');
-const progress = document.getElementById('progress');
-const progressBar = document.getElementById('progressBar');
-const volume = document.getElementById('volume');
+//inject html
 
-let list = [];
-let index = 0;
-let repeat = 'all';   // 'one' | 'all' | 'off'
-let shuffle = false;
+document.addEventListener("DOMContentLoaded", () => {
+  mountPlayer(); // put the HTML into #player
+  initPlayerUI(); // query elements & attach listeners
+});
 
+const playerHTML = `
+          <button id="prev" aria-label="Previous">⏮</button>
+          <button id="play" aria-label="Play/Pause">▶</button>
+          <button id="next" aria-label="Next">⏭</button>
+          <button id="shuffle" aria-label="Shuffle">🔀</button>
+          <button id="repeat" aria-label="Repeat">🔁</button>
+          
+          <div class="track">
+            <div class="title-wrap">
+              <div class="title" id="title">-</div>
+            </div>
+            
+            <div class="progress" id="progress">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="time">
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
 
-//0) QoL 
-
-//base url so i can mix local and cloud src
-const BASE_URL = ""; // later, you could set to "https://<user>.github.io/assets/"
-function resolveSrc(p){ return /^https?:\/\//.test(p) ? p : BASE_URL + p; }
-
-// 1) fetch playlist.json
-fetch('music/playlist.json')
-  .then(r => r.json())
-  .then(tracks => {
-    list = tracks;
-    //load playlist 
-    list = tracks;         // <-- here
-    renderPlaylist();  
+          <button id="btnPlaylist" aria-haspopup="listbox" aria-expanded="false" aria-controls="playlistPanel">🎵</button>
+          <div id="playlistPanel" class="playlist" role="listbox" tabindex="-1" hidden></div> 
 
 
-    load(index);
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Volume">`;
 
-    audio.crossOrigin = "anonymous";     // helps metadata on some hosts
-    audio.src = resolveSrc(t.src);
-    audio.load();
-
-  })
-  .catch(err => console.error('Playlist load failed:', err));
-
-//1.5) title scrolling
-
-const titleWrap    = document.querySelector('.title-wrap');
-const titleMarquee = document.getElementById('title');
-
-function setTitle(text){
-  // reset
-  titleMarquee.classList.remove('scroll');
-  titleMarquee.style.removeProperty('--scroll-distance');
-  titleMarquee.style.removeProperty('--duration');
-
-  // set fresh text
-  titleMarquee.textContent = text;
-
-  // If it fits, don't animate
-  requestAnimationFrame(() => {
-    const needsScroll = titleMarquee.scrollWidth > titleWrap.clientWidth;
-    if (!needsScroll) return;
-
-    // Duplicate the text so it loops smoothly
-    const gap = ' \u00A0\u00A0\u00A0 ';
-    titleMarquee.innerHTML = `${text}${gap}${text}`;
-
-    // Distance to travel = width of one copy
-    const distance = titleMarquee.scrollWidth / 2;
-
-    // Speed: ~40px/sec (tweak to taste)
-    const duration = Math.max(10, distance / 40);
-
-    titleMarquee.style.setProperty('--scroll-distance', distance + 'px');
-    titleMarquee.style.setProperty('--duration', duration + 's');
-    titleMarquee.classList.add('scroll');
-  });
+function mountPlayer() {
+  const root = document.getElementById("player");
+  if (!root) return; // page without a player
+  root.innerHTML = playerHTML;
 }
 
-//1.7) time marker
-const curEl = document.getElementById('currentTime');
-const durEl = document.getElementById('duration');
+function initPlayerUI() {
 
-// mm:ss (or h:mm:ss if long)
-function fmtTime(s){
-  if (!isFinite(s)) return '0:00';
-  s = Math.floor(s);
-  const h = Math.floor(s/3600);
-  const m = Math.floor((s%3600)/60);
-  const sec = String(s%60).padStart(2,'0');
-  return h ? `${h}:${String(m).padStart(2,'0')}:${sec}` : `${m}:${sec}`;
-}
+  let path = window.location.pathname;
 
-//1.9) Playlist panel 
+  let rootPath = "";
+  if (path.includes("blog/posts/")) {
+    rootPath = "../../";
+  } else if (
+    path.includes("blog/") ||
+    path.includes("artworks/") ||
+    path.includes("about/")
+  ) {
+    rootPath = "../";
+  } else {
+    rootPath = ""; //main index.html
+  }
 
-const btnPlaylist = document.getElementById('btnPlaylist');
-const panel = document.getElementById('playlistPanel');
 
-function renderPlaylist(){
-  if (!panel) return;
-  panel.innerHTML = list.map((t, i) => `
+  // elements
+  const audio = document.getElementById("audio");
+  const btnPlay = document.getElementById("play");
+  const btnNext = document.getElementById("next");
+  const btnPrev = document.getElementById("prev");
+  const btnShuffle = document.getElementById("shuffle");
+  const btnRepeat = document.getElementById("repeat");
+  const titleEl = document.getElementById("title");
+  const progress = document.getElementById("progress");
+  const progressBar = document.getElementById("progressBar");
+  const volume = document.getElementById("volume");
+
+  let list = [];
+  let index = 0;
+  let repeat = "all"; // 'one' | 'all' | 'off'
+  let shuffle = false;
+
+  //0) QoL
+
+  //base url so i can mix local and cloud src
+  const BASE_URL = ""; // later, you could set to "https://<user>.github.io/assets/"
+  function resolveSrc(p) {
+    return /^https?:\/\//.test(p) ? p : BASE_URL + p;
+  }
+  // 1) fetch playlist.json
+  fetch(`${rootPath}music/playlist.json`, {cache: 'no-store'})
+    .then((r) => r.json())
+    .then((tracks) => {
+      list = tracks;
+      //load playlist
+      list = tracks; // <-- here
+      renderPlaylist();
+
+      load(index);
+
+      audio.crossOrigin = "anonymous"; // helps metadata on some hosts
+      audio.src = resolveSrc(t.src);
+      audio.load();
+    })
+    .catch((err) => console.error("Playlist load failed:", err));
+
+  //1.5) title scrolling
+
+  const titleWrap = document.querySelector(".title-wrap");
+  const titleMarquee = document.getElementById("title");
+
+  function setTitle(text) {
+    // reset
+    titleMarquee.classList.remove("scroll");
+    titleMarquee.style.removeProperty("--scroll-distance");
+    titleMarquee.style.removeProperty("--duration");
+
+    // set fresh text
+    titleMarquee.textContent = text;
+
+    // If it fits, don't animate
+    requestAnimationFrame(() => {
+      const needsScroll = titleMarquee.scrollWidth > titleWrap.clientWidth;
+      if (!needsScroll) return;
+
+      // Duplicate the text so it loops smoothly
+      const gap = " \u00A0\u00A0\u00A0 ";
+      titleMarquee.innerHTML = `${text}${gap}${text}`;
+
+      // Distance to travel = width of one copy
+      const distance = titleMarquee.scrollWidth / 2;
+
+      // Speed: ~40px/sec (tweak to taste)
+      const duration = Math.max(10, distance / 40);
+
+      titleMarquee.style.setProperty("--scroll-distance", distance + "px");
+      titleMarquee.style.setProperty("--duration", duration + "s");
+      titleMarquee.classList.add("scroll");
+    });
+  }
+
+  //1.7) time marker
+  const curEl = document.getElementById("currentTime");
+  const durEl = document.getElementById("duration");
+
+  // mm:ss (or h:mm:ss if long)
+  function fmtTime(s) {
+    if (!isFinite(s)) return "0:00";
+    s = Math.floor(s);
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = String(s % 60).padStart(2, "0");
+    return h ? `${h}:${String(m).padStart(2, "0")}:${sec}` : `${m}:${sec}`;
+  }
+
+  //1.9) Playlist panel
+
+  const btnPlaylist = document.getElementById("btnPlaylist");
+  const panel = document.getElementById("playlistPanel");
+
+  function renderPlaylist() {
+    if (!panel) return;
+    panel.innerHTML = list
+      .map(
+        (t, i) => `
     <div class="playlist_item" role="option"
          data-index="${i}"
          aria-selected="${i === index}">
-      <div class="playlist_title">${t.title}${t.artist ? ' — ' + t.artist : ''}</div>
+      <div class="playlist_title">${t.artist}${t.title ? " — " + t.title : ""}</div>
     </div>
-  `).join('');
-}
-
-function prefetchDurations(){
-  list.forEach((t,i) => {
-    if (t._durFetched) return;
-    t._durFetched = true;
-    const a = new Audio();
-    a.crossOrigin = 'anonymous'; // helps metadata on some hosts
-    a.preload = 'metadata';
-    a.src = resolveSrc(t.src);
-    a.src = t.src;
-    a.addEventListener('loadedmetadata', () => {
-      t._dur = fmtTime(a.duration);
-      const row = panel.querySelector(`.playlist_item[data-index="${i}"]`);
-      if (row && !row.querySelector('.playlist_dur')){
-        row.insertAdjacentHTML('beforeend', `<div class="playlist_dur">${t._dur}</div>`);
-      }
-    }, { once:true });
-  });
-}
-
-
-function openPlaylist(){
-  panel.hidden = false;
-  panel.setAttribute('aria-open','true');
-  btnPlaylist.setAttribute('aria-expanded', 'true');
-  panel.focus();
-}
-function closePlaylist(){
-  panel.hidden = true;
-  panel.setAttribute('aria-open','false');
-  btnPlaylist.setAttribute('aria-expanded', 'false');
-  setTimeout(()=> panel.hidden = true, 150);
-}
-
-// Button click toggles
-btnPlaylist.addEventListener('click', () => {
-  panel.hidden ? openPlaylist() : closePlaylist();
-});
-
-// Close on outside click
-document.addEventListener('click', (e) => {
-  if (panel.hidden) return;
-  const within = panel.contains(e.target) || btnPlaylist.contains(e.target);
-  if (!within) closePlaylist();
-});
-
-// Close on Esc
-panel.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') { closePlaylist(); btnPlaylist.focus(); }
-});
-
-panel.addEventListener('click', (e) => {
-  const row = e.target.closest('.playlist_item');
-  if (!row) return;
-  const i = +row.dataset.index;
-  load(i);
-  play();
-  renderPlaylist();   // refresh highlight
-  closePlaylist();
-});
-
-function focusActiveRow(){
-  const row = panel.querySelector(`.playlist_item[data-index="${index}"]`);
-  row?.scrollIntoView({ block:'nearest' });
-}
-
-
-
-// 2) load a track into the audio tag
-function load(i) {
-  
-  index = (i + list.length) % list.length;
-  const t = list[index];
-  audio.src = t.src;              // direct MP3/OGG URL
-  setTitle(`${t.artist} - ${t.title ?? ''}`.trim());
-  curEl.textContent = '0:00';
-  durEl.textContent = '0:00';
-
-  // load playlist 
-  renderPlaylist(); 
-  prefetchDurations();
-  focusActiveRow();   
-  
-}
-
-
-
-// 2.5) update time markers when loaded
-
-audio.addEventListener('loadedmetadata', () => {
-  durEl.textContent = fmtTime(audio.duration);
-  curEl.textContent = fmtTime(audio.currentTime || 0);
-});
-
-audio.addEventListener('timeupdate', () => {
-  curEl.textContent = fmtTime(audio.currentTime);
-  //  existing progressBar width update stays here
-});
-
-// optionally refresh immediately after seek:
-progress?.addEventListener('click', () => {
-  curEl.textContent = fmtTime(audio.currentTime);
-});
-
-// when a track ends (if don’t immediately start next), snap current to duration:
-audio.addEventListener('ended', () => {
-  curEl.textContent = fmtTime(audio.duration);
-});
-
-
-// 3) play/pause logic
-function play() {
-  audio.play().then(() => {
-    btnPlay.textContent = '⏸';
-  }).catch(err => {
-    // Autoplay blocked until user interacts – normal on first click
-    console.warn('Play failed (likely autoplay policy):', err);
-  });
-}
-function pause() {
-  audio.pause();
-  btnPlay.textContent = '▶';
-}
-
-// 4) wire up buttons
-btnPlay.addEventListener('click', () => (audio.paused ? play() : pause()));
-btnNext.addEventListener('click', () => { next(); play(); });
-btnPrev.addEventListener('click', () => { prev(); play(); });
-
-function next() {
-  if (shuffle) {
-    let j; do { j = Math.floor(Math.random() * list.length); } while (j === index && list.length > 1);
-    load(j);
-  } else {
-    load(index + 1);
+  `
+      )
+      .join("");
   }
-}
-function prev() { load(index - 1); }
 
-// 5) time/progress UI
+  function prefetchDurations() {
+    list.forEach((t, i) => {
+      if (t._durFetched) return;
+      t._durFetched = true;
+      const a = new Audio();
+      a.crossOrigin = "anonymous"; // helps metadata on some hosts
+      a.preload = "metadata";
+      a.src = resolveSrc(t.src);
+      a.src = t.src;
+      a.addEventListener(
+        "loadedmetadata",
+        () => {
+          t._dur = fmtTime(a.duration);
+          const row = panel.querySelector(`.playlist_item[data-index="${i}"]`);
+          if (row && !row.querySelector(".playlist_dur")) {
+            row.insertAdjacentHTML(
+              "beforeend",
+              `<div class="playlist_dur">${t._dur}</div>`
+            );
+          }
+        },
+        { once: true }
+      );
+    });
+  }
 
-  audio.addEventListener('timeupdate', () => {
+  function openPlaylist() {
+    panel.hidden = false;
+    panel.setAttribute("aria-open", "true");
+    btnPlaylist.setAttribute("aria-expanded", "true");
+    panel.focus();
+  }
+  function closePlaylist() {
+    panel.hidden = true;
+    panel.setAttribute("aria-open", "false");
+    btnPlaylist.setAttribute("aria-expanded", "false");
+    setTimeout(() => (panel.hidden = true), 150);
+  }
+
+  // Button click toggles
+  btnPlaylist.addEventListener("click", () => {
+    panel.hidden ? openPlaylist() : closePlaylist();
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (panel.hidden) return;
+    const within = panel.contains(e.target) || btnPlaylist.contains(e.target);
+    if (!within) closePlaylist();
+  });
+
+  // Close on Esc
+  panel.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closePlaylist();
+      btnPlaylist.focus();
+    }
+  });
+
+  panel.addEventListener("click", (e) => {
+    const row = e.target.closest(".playlist_item");
+    if (!row) return;
+    const i = +row.dataset.index;
+    load(i);
+    play();
+    renderPlaylist(); // refresh highlight
+    closePlaylist();
+  });
+
+  function focusActiveRow() {
+    const row = panel.querySelector(`.playlist_item[data-index="${index}"]`);
+    row?.scrollIntoView({ block: "nearest" });
+  }
+
+  // 2) load a track into the audio tag
+  function load(i) {
+    index = (i + list.length) % list.length;
+    const t = list[index];
+    audio.src = t.src; // direct MP3/OGG URL
+    setTitle(`${t.artist} - ${t.title ?? ""}`.trim());
+    curEl.textContent = "0:00";
+    durEl.textContent = "0:00";
+
+    // load playlist
+    renderPlaylist();
+    prefetchDurations();
+    focusActiveRow();
+  }
+
+  // 2.5) update time markers when loaded
+
+  audio.addEventListener("loadedmetadata", () => {
+    durEl.textContent = fmtTime(audio.duration);
+    curEl.textContent = fmtTime(audio.currentTime || 0);
+  });
+
+  audio.addEventListener("timeupdate", () => {
+    curEl.textContent = fmtTime(audio.currentTime);
+    //  existing progressBar width update stays here
+  });
+
+  // optionally refresh immediately after seek:
+  progress?.addEventListener("click", () => {
+    curEl.textContent = fmtTime(audio.currentTime);
+  });
+
+  // when a track ends (if don’t immediately start next), snap current to duration:
+  audio.addEventListener("ended", () => {
+    curEl.textContent = fmtTime(audio.duration);
+  });
+
+  // 3) play/pause logic
+  function play() {
+    audio
+      .play()
+      .then(() => {
+        btnPlay.textContent = "⏸";
+      })
+      .catch((err) => {
+        // Autoplay blocked until user interacts – normal on first click
+        console.warn("Play failed (likely autoplay policy):", err);
+      });
+  }
+  function pause() {
+    audio.pause();
+    btnPlay.textContent = "▶";
+  }
+
+  // 4) wire up buttons
+  btnPlay.addEventListener("click", () => (audio.paused ? play() : pause()));
+  btnNext.addEventListener("click", () => {
+    next();
+    play();
+  });
+  btnPrev.addEventListener("click", () => {
+    prev();
+    play();
+  });
+
+  function next() {
+    if (shuffle) {
+      let j;
+      do {
+        j = Math.floor(Math.random() * list.length);
+      } while (j === index && list.length > 1);
+      load(j);
+    } else {
+      load(index + 1);
+    }
+  }
+  function prev() {
+    load(index - 1);
+  }
+
+  // 5) time/progress UI
+
+  audio.addEventListener("timeupdate", () => {
     if (!isFinite(audio.duration)) return;
     const pct = (audio.currentTime / audio.duration) * 100;
     progressBar.style.width = `${pct}%`;
   });
 
-// click to seek
-progress.addEventListener('click', (e) => {
-  const rect = progress.getBoundingClientRect();
-  const pct = (e.clientX - rect.left) / rect.width;
-  if (isFinite(audio.duration)) audio.currentTime = pct * audio.duration;
-});
+  // click to seek
+  progress.addEventListener("click", (e) => {
+    const rect = progress.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    if (isFinite(audio.duration)) audio.currentTime = pct * audio.duration;
+  });
 
-// 6) when a song ends → next depending on repeat mode
-audio.addEventListener('ended', () => {
-  if (repeat === 'one') { audio.currentTime = 0; play(); return; }
-  if (repeat === 'all') { next(); play(); return; }
-  // 'off'
-  btnPlay.textContent = '▶️';
-});
+  // 6) when a song ends → next depending on repeat mode
+  audio.addEventListener("ended", () => {
+    if (repeat === "one") {
+      audio.currentTime = 0;
+      play();
+      return;
+    }
+    if (repeat === "all") {
+      next();
+      play();
+      return;
+    }
+    // 'off'
+    btnPlay.textContent = "▶️";
+  });
 
-// 7) volume (and remember it)
-const savedVol = +localStorage.getItem('vol');
-if (!Number.isNaN(savedVol)) { volume.value = savedVol; audio.volume = savedVol; }
-volume.addEventListener('input', () => {
-  audio.volume = +volume.value;
-  localStorage.setItem('vol', volume.value);
-});
+  // 7) volume (and remember it)
+  const savedVol = +localStorage.getItem("vol");
+  if (!Number.isNaN(savedVol)) {
+    volume.value = savedVol;
+    audio.volume = savedVol;
+  }
+  volume.addEventListener("input", () => {
+    audio.volume = +volume.value;
+    localStorage.setItem("vol", volume.value);
+  });
 
-//8) shuffle and repeat
+  //8) shuffle and repeat
 
+  btnShuffle.addEventListener("click", () => {
+    shuffle = !shuffle;
+    btnShuffle.style.opacity = shuffle ? "1" : ".5";
+  });
 
-btnShuffle.addEventListener('click', () => {
-  shuffle = !shuffle;
-  btnShuffle.style.opacity = shuffle ? '1' : '.5';
-});
+  btnRepeat.addEventListener("click", () => {
+    repeat = repeat === "all" ? "one" : repeat === "one" ? "off" : "all";
+    btnRepeat.textContent = repeat === "one" ? "🔂" : "🔁";
+    btnRepeat.style.opacity = repeat === "off" ? ".5" : "1";
+  });
+} //end of initPlayerUI
 
-btnRepeat.addEventListener('click', () => {
-  repeat = repeat === 'all' ? 'one' : repeat === 'one' ? 'off' : 'all';
-  btnRepeat.textContent = repeat === 'one' ? '🔂' : '🔁';
-  btnRepeat.style.opacity = repeat === 'off' ? '.5' : '1';
-});
-
-
-
-
-
-  
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {
@@ -893,7 +974,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
   }
 
-
   //ACCESSIBILITY STUFF
 
   const bgToggleBtn = document.getElementById("toggle-blink");
@@ -1000,25 +1080,24 @@ document.addEventListener("DOMContentLoaded", function () {
     autoScroll(); // Start the auto-scrolling
   }
 
+  //HIT COUNTER SHIT
 
-//HIT COUNTER SHIT
-
-(() => {
-  const url = '/data/hits.json?t=' + Date.now(); // cache-buster
-  fetch(url)
-    .then(r => {
-      if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
-      return r.json();
-    })
-    .then(({ views }) => {
-      document.getElementById('hitcount').textContent = Number(views).toLocaleString();
-    })
-    .catch(err => {
-      console.error('hit-counter error:', err);
-      document.getElementById('hitcount').textContent = '—';
-    });
-})();
-
+  (() => {
+    const url = "/data/hits.json?t=" + Date.now(); // cache-buster
+    fetch(url)
+      .then((r) => {
+        if (!r.ok) throw new Error(r.status + " " + r.statusText);
+        return r.json();
+      })
+      .then(({ views }) => {
+        document.getElementById("hitcount").textContent =
+          Number(views).toLocaleString();
+      })
+      .catch((err) => {
+        console.error("hit-counter error:", err);
+        document.getElementById("hitcount").textContent = "—";
+      });
+  })();
 
   //BLOG STUFF HTML
   //==[ 4. INSERTING THE SECTIONS INTO OUR ACTUAL HTML PAGES ]==

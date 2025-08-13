@@ -15,7 +15,44 @@
   </head>
   <!--for anyone who's bored enough to want to inspect the elements of my website -- don't. Idk how to code so this shi is honestly a mess. I'm a history-politics major not a cs one and idek why i'm making a website but here i am lol (tbh its just cuz i dislike most drag and drop web maker so i was just like ok fine ill do it myself and now im knee deep in this mess lmfao) -->
   <body>
+
+   
+  </body>
+     <!-- DIY MUSIC PLAYER -->
+  <div class="player">
+    <button id="prev" aria-label="Previous">⏮</button>
+    <button id="play" aria-label="Play/Pause">▶</button>
+    <button id="next" aria-label="Next">⏭</button>
+    <button id="shuffle" aria-label="Shuffle">🔀</button>
+    <button id="repeat" aria-label="Repeat">🔁</button>
+    
+    <div class="track">
+      <div class="title-wrap">
+        <div class="title" id="title">-</div>
+      </div>
+      
+      <div class="progress" id="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="time">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <button id="btnPlaylist" aria-haspopup="listbox" aria-expanded="false" aria-controls="playlistPanel">🎵</button>
+    <div id="playlistPanel" class="playlist" role="listbox" tabindex="-1" hidden></div> 
+
+
+    <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Volume">
+  </div>
+
+  <audio id="audio" preloud="metadata"></audio>
+
+    <!-- DIY MUSIC PLAYER END  -->
+
     <div class='container'>
+      
         <div id="headerArea">
             <div id="header">
             </div>

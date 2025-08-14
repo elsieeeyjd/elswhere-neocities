@@ -20,15 +20,32 @@ jobs:
 
       - name: Build hits.json
         run: |
-          jq '{views: .info.views, last_updated: .info.last_updated}' neocities.json > hits.json
+          jq '{views: (.info.views // .info.hits), last_updated: .info.last_updated}' neocities.json > hits.json
           cat hits.json
+
+      - name: Update Gist (hits.json)
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}   # PAT with "gist" scope
+          GIST_ID:  e000ae8688809341624cece09c0e1690
+        run: |
+          set -euo pipefail
+          # Update the gist file content
+          gh api -X PATCH "/gists/$GIST_ID" \
+            -f "files[hits.json][content]=$(cat hits.json)"
+            
+      - name: Verify via API (no CDN cache)
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GIST_ID:  e000ae8688809341624cece09c0e1690
+        run: |
+          gh api "/gists/$GIST_ID" | jq -r '.files["hits.json"].raw_url'
 
       - name: Upload hits.json to Neocities
         env:
           NEOCITIES_USERNAME: ${{ secrets.NEOCITIES_USERNAME }}
           NEOCITIES_API_KEY:  ${{ secrets.NEOCITIES_API_KEY }}
         run: |
-          # Upload to /data/hits.json on your site (Neocities treats the form field name as the remote path)
+          # Upload to /data/hits.json on site (Neocities treats the form field name as the remote path)
           curl -sS -u "$NEOCITIES_USERNAME:$NEOCITIES_API_KEY" \
             -F "data/hits.json=@hits.json" \
             https://neocities.org/api/upload

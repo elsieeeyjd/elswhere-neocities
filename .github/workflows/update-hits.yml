@@ -38,7 +38,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           GIST_ID:  e000ae8688809341624cece09c0e1690
         run: |
-          gh api "/gists/$GIST_ID" | jq -r '.files["hitcount_gist"].raw_url'
+          gh api "/gists/$GIST_ID" | jq -r '.files["hits.json"].raw_url'
 
       - name: Upload hits.json to Neocities
         env:

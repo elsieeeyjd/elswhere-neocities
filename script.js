@@ -511,6 +511,7 @@ function initPlayerUI() {
       //load playlist
       list = tracks; 
       renderPlaylist();
+      restoreStateThenLoad();
 
       load(index);
 
@@ -519,6 +520,60 @@ function initPlayerUI() {
       audio.load();
     })
     .catch((err) => console.error("Playlist load failed:", err));
+
+
+  //1.1) restore state
+  function restoreStateThenLoad() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch {}
+  // Defaults if nothing saved yet
+  let i = 0, resumeTime = 0, resumePlay = false;
+
+  if (saved) {
+    // Prefer matching by src (safer if playlist order changed)
+    const bySrc = saved.src ? list.findIndex(t => t.src === saved.src) : -1;
+    i = bySrc >= 0 ? bySrc : (
+      Number.isInteger(saved.index) && saved.index >= 0 && saved.index < list.length
+        ? saved.index : 0
+    );
+
+    // restore modes + volume
+    if (typeof saved.shuffle === 'boolean') shuffle = saved.shuffle;
+    if (saved.repeat) repeat = saved.repeat;
+    if (typeof saved.vol === 'number') {
+      audio.volume = Math.min(1, Math.max(0, saved.vol));
+      volume && (volume.value = audio.volume);
+    }
+
+    resumeTime = Number(saved.time) || 0;
+    resumePlay = !!saved.playing;  // browsers may block autoplay; we’ll handle nicely below
+  }
+
+  // Load the track now
+  load(i);
+
+  // Seek only after metadata is known (duration is available)
+  const onMeta = () => {
+    audio.removeEventListener('loadedmetadata', onMeta);
+    // clamp in case file changed length
+    if (isFinite(audio.duration)) {
+      audio.currentTime = Math.min(resumeTime, audio.duration - 0.25);
+    }
+    // Try to resume playback after first user interaction (autoplay policies)
+    if (resumePlay) {
+      const resumeOnce = () => {
+        play();                         // your existing play()
+        document.removeEventListener('click', resumeOnce, true);
+        document.removeEventListener('keydown', resumeOnce, true);
+      };
+      // any click or keypress will resume
+      document.addEventListener('click', resumeOnce, true);
+      document.addEventListener('keydown', resumeOnce, true);
+      // Optional: show a tiny “tap to resume ▶” hint near the player
+    }
+  };
+  audio.addEventListener('loadedmetadata', onMeta);
+}
 
   //1.5) title scrolling
 
@@ -555,7 +610,7 @@ function initPlayerUI() {
     });
   }
 
-  //1.7) time marker
+  //1.6) time marker
   const curEl = document.getElementById("currentTime");
   const durEl = document.getElementById("duration");
 
@@ -569,7 +624,7 @@ function initPlayerUI() {
     return h ? `${h}:${String(m).padStart(2, "0")}:${sec}` : `${m}:${sec}`;
   }
 
-  //1.9) Playlist panel
+  //1.7) Playlist panel
 
   const btnPlaylist = document.getElementById("btnPlaylist");
   const panel = document.getElementById("playlistPanel");
@@ -663,6 +718,45 @@ function initPlayerUI() {
     row?.scrollIntoView({ block: "nearest" });
   }
 
+
+  //1.9) save state
+  //9) remember play progress
+
+function throttle (fn, ms) {
+  let t = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - t >= ms) {
+      t = now;
+      fn(...args);
+    }
+  }
+}
+
+const STORAGE_KEY = 'elsiePlayer';
+
+const saveState = throttle(() => {
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        index: index,
+        src: list[index]?.src || null,
+        time: audio.currentTime || 0,
+        vol: audio.volume,
+        shuffle,
+        repeat,
+        playing: !audio.paused,
+        updatedAT: Date.now()
+      })
+    );
+  } catch (e) {
+    console.warn("Failed to save player state:", e);
+  }
+}, 500);
+
+
+
   // 2) load a track into the audio tag
   function load(i) {
     index = (i + list.length) % list.length;
@@ -671,7 +765,7 @@ function initPlayerUI() {
     setTitle(`${t.artist} - ${t.title ?? ""}`.trim());
     curEl.textContent = "0:00";
     durEl.textContent = "0:00";
-
+    saveState();// save current state
     // load playlist
     renderPlaylist();
     prefetchDurations();
@@ -699,6 +793,21 @@ function initPlayerUI() {
   audio.addEventListener("ended", () => {
     curEl.textContent = fmtTime(audio.duration);
   });
+
+
+  // 2.7) when to save state
+
+  // when to save? 
+
+    audio.addEventListener('timeupdate', saveState);
+    progress?.addEventListener('click', () => saveState());
+    btnPlay.addEventListener('click', () => saveState());
+    volume.addEventListener('input', () => saveState());
+    btnShuffle.addEventListener('click', () => { shuffle = !shuffle; saveState(); });
+    btnRepeat.addEventListener('click', () => { /* cycle repeat */ saveState(); });
+    window.addEventListener('pagehide', saveState);
+
+
 
   // 3) play/pause logic
   function play() {
@@ -798,6 +907,43 @@ function initPlayerUI() {
     btnRepeat.style.opacity = repeat === "off" ? ".5" : "1";
   });
 } //end of initPlayerUI
+
+
+//9) remember play progress
+
+function throttle (fn, ms) {
+  let t = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - t >= ms) {
+      t = now;
+      fn(...args);
+    }
+  }
+}
+
+const STORAGE_KEY = 'elsiePlayer';
+
+const saveState = throttle(() => {
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        index: index,
+        src: list[index]?.src || null,
+        time: audio.currentTime || 0,
+        vol: audio.volume,
+        shuffle,
+        repeat,
+        playing: !audio.paused,
+        updatedAT: Date.now()
+      })
+    );
+  } catch (e) {
+    console.warn("Failed to save player state:", e);
+  }
+}, 500);
+
 
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE

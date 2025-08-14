@@ -49,5 +49,5 @@ jobs:
           curl -sS -u "$NEOCITIES_USERNAME:$NEOCITIES_API_KEY" 
             set -euo pipefail
             -F "data/hits.json=@hits.json;type=application/json" \
-            https://neocities.org/api/upload | jq .
+            "https://neocities.org/api/upload"
 

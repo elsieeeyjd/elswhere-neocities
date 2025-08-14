@@ -47,7 +47,7 @@ jobs:
         run: |
           # Upload to /data/hits.json on site (Neocities treats the form field name as the remote path)
           set -euo pipefail
-          curl -sS -u "$NEOCITIES_USERNAME:$NEOCITIES_API_KEY" 
+          curl -sS -u "$NEOCITIES_USERNAME:$NEOCITIES_API_KEY" \
             -F "data/hits.json=@hits.json" \
             "https://neocities.org/api/upload"
 

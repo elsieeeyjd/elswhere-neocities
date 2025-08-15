@@ -51,3 +51,7 @@ jobs:
             -F "data/hits.json=@hits.json" \
             "https://neocities.org/api/upload"
 
+      - name: Verify public file
+        run: |
+          curl -fsS "https://elswhere.neocities.org/data/hits.json?bust=$(date +%s)" | jq .
+

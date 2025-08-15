@@ -32,6 +32,18 @@ jobs:
           # Update the gist file content
           gh api -X PATCH "/gists/$GIST_ID" \
             -f "files[hits.json][content]=$(cat hits.json)"
+
+      - name: Download hits.json from Gist
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}           
+          GIST_ID:  ${{ secrets.HITS_GIST_ID }}          
+        run: |
+          set -euo pipefail
+          # Use the API (avoids raw CDN cache)
+          gh api "/gists/$GIST_ID" \
+            | jq -r '.files["hits.json"].content' > hits.json
+          jq . hits.json
+
             
       - name: Verify via API (no CDN cache)
         env:

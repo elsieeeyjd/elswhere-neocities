@@ -34,10 +34,33 @@
         <div class="smallsidebar" id="extraSidebar"></div>
         <!--MAIN AREA STUFF -->
         <main class="extracontent">
-          <h1 class="specialtextL">random stuff!!</h1>
-          <p class="maintext" style="font-size: 18px">
-            this page is under construction!! check back later :>
-          </p>
+          <h1 class="specialtextL">wanna explore..?</h1>
+          <div class="typebox">
+            <p id="type-text">></p>
+          </div>
+          <div class="itemGridMenu">
+            <div class='itembtn'><a href="https://elswhere.neocities.org/extra/mediarec/books/" class="imgtxt">
+                  <img src="../buttons/items/book-dithered.png" alt="booksRec" >
+                  <span>library</span>
+                </a></div>
+            <div class='itembtn'><a href="https://elswhere.neocities.org/extra/mediarec/movies/" class="imgtxt">
+              <img src="../buttons/items/TV-dithered.png" alt="movies and TV">
+              <span>cinema</span>
+            </a></div>
+            <div class="itembtn"><a href="https://elswhere.neocities.org/extra/mediarec/youtube/"  class="imgtxt">
+              <img src="../buttons/items/yt-dithered.png" alt="youtube">
+              <span>film studio</span>
+            </a></div>
+            <div class="itembtn"><a href="https://elswhere.neocities.org/extra/screenshots/" class="imgtxt">
+              <img src="../buttons/items/cam-dithered.png" alt="camera">
+              <span>bulletin</span>
+            </a></div>
+            <div class="itembtn"><a href="https://elswhere.neocities.org/blog/" class="imgtxt">
+              <img src="../buttons/items/type-dithered.png" alt="typewriter">
+              <span>news stand</span>
+            </a></div>
+          </div>
+          <small class="maintext" style="font-size: 10px; margin-top: 1rem; color: var(--text-main); margin-bottom: 2rem;">this menu uses code snippets from <a href="https://ribo.zone/free/snippets/" target="_blank">ribo.zone</a></small>
           <div class="flexcolumn">
             <div id="buttonwall">
             <h2 class="maintext specialtextS">button wall</h2>
@@ -67,6 +90,8 @@
                   <a href="https://fairygore.neocities.org/" target="_blank" class="wallbutton" data-tags="cool"><img src="https://images4.imagebam.com/ac/e5/39/ME10GBKU_o.png" alt="o sleeper"></a>
                   <a href="https://doqmeat.com/" target="_blank" class="wallbutton" data-tags="cool"><img src="https://doqmeat.com/!g/web/doqmeat-2.png" alt="des' journal"></a>
                   <a href="https://seryndelle.neocities.org/" target="_blank" class="wallbutton" data-tags="cool mutuals"><img src="https://seryndelle.neocities.org/images/88x31%20Seryndelle%20-%20Beyond%20Wonderland.png" alt="Seryndelle's Sanctum"></a>
+                  <a href="https://fairytale.magicalgurll.com" target="_blank" class="wallbutton" data-tags="cool"><img src="https://fairytale.magicalgurll.com/img/buttons/fairytale1.gif" alt="Fairytale"></a>
+                  <a href="https://ribo.zone" target="_blank" class="wallbutton" data-tags="cool resources"><img src="https://ribo.zone/88x31/site/ribozone.gif" alt="ribo.zone"></a>
                 </div>
               </div>
             </div>
@@ -77,6 +102,7 @@
               </div>
             </div>
           </div>
+
           <!--    -->
           <div id="guestbook">
             <h2 class="specialtextL" style="margin: 2rem 2rem 0 2rem;">Guestbook</h2>
@@ -88,5 +114,29 @@
       <footer id="footer" style="margin-top: 10px; color: #e9e8ff"></footer>
     </div>
     <script src="../script.js"></script>
+    <script>
+
+      const str = "you've been wandering in elswhere for a while. Frankly speaking, you're a bit lost. where else haven't you explored? Fortunately, you happen to come across a strange plaza, surrounded by strange yet endearing stores. Perhaps one of these stores will lead you to what you want to find?."
+      let a = 0; 
+      let text = "";
+      let isTag = false;
+
+      function type() {
+        text = str.slice(0, ++a);
+        if (text === str) return;
+
+        document.getElementById('type-text').innerHTML = text;
+
+        var char = text.slice(-1);
+        if( char === '<' ) isTag = true;
+        if( char === '>' ) isTag = false;
+
+        if (isTag) return type();
+        setTimeout(type, 60);
+      }
+
+      type();
+
+    </script>
   </body>
 </html>

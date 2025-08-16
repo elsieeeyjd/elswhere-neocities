@@ -588,6 +588,53 @@ create styles for #leftSidebar and #rightSidebar */
     margin-bottom: 0.5rem;
     border-radius: 8px;
   }
+
+  .itembtn {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .itemGridMenu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); <---- open when add more button for 2nd row*/ 
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .itembtn img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .imgtxt {
+  width: fit-content;
+  height: fit-content;
+  display: inline-block;
+  position: relative;
+  }
+  .imgtxt span {
+    opacity: 0;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    color: #FFF;
+    filter: drop-shadow(1px 1px 0 #43256E) 
+      drop-shadow(-1px 1px 0 #43256E)
+      drop-shadow(1px -1px 0 #43256E)
+      drop-shadow(-1px -1px 0 #43256E);
+  }
+  .imgtxt:hover span, .imgtxt:focus span {
+    opacity: 1;
+  }
+  .imgtxt:hover img, .imgtxt:focus img {
+    transform: scale(1.05) rotate(5deg);
+  }
   
   .CD {
     transition: transform 0.2s ease;
@@ -634,6 +681,36 @@ create styles for #leftSidebar and #rightSidebar */
       padding: 10px;
       color: var(--text-ultra-light);
   }
+
+  .stamp {
+    border-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABIUlEQVRYR+1Z7RKDMAib7//Qm+5O13YggUI/vO6XZ8uIgYa4ba/f551cp5cbc7+8HRqfgghNBDzsbf4D6LmBY26I9UcBPavWqzW+eRFGpwMKnIeQLWpGQ1AAX3oBLUuL6iaQo2pLpjaUjg4PdBRmSd2m2JMEvqqeQLAbUE5PAQzZFtUktDA6HVDroZNay7303YBKT+qlCqY8Fh1FE3GHC43/E3w0sDWjWT6Ne1pABQE2uydtq3AvgahqLKDSKNVWxOxHtYmspa/2o92BovITDfQ5s17LqHRopPXlRyWGvNbdetQLkMpdWWxeNFDyrEwFtFYXoxk2m5JoYOTI1Rjn9fuol3GWerjJOlL6JkB2Vm9H6lR/35QCW7aM6t2G6DeX+A+i15AZncAfXQAAAABJRU5ErkJggg==') 14 /  14px / 0 round;
+    border-width:  14px;
+    border-style:  solid; 
+  }
+  
+  
+  
+
+  .typebox {
+    background-color: var(--text-light);
+    border: 1px solid #5a5976;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  #type-text {
+    color: var(--text-main);
+    font-size: 14px;
+    font-family: monospace;
+    overflow: hidden;
+    unicode-bidi: isolate;
+    margin-bottom: 0px;
+  }
+
+  #type-text::before {
+	  content: "> ";
+  }
+
 
   .scrollbox {
       background-color: var(--main-bg-color);
@@ -1066,6 +1143,21 @@ create styles for #leftSidebar and #rightSidebar */
   margin-bottom: 1rem;
   background-color: #5e4e8c;
 }
+
+.ssGridMenu {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 1rem;
+  }
+
+  .screenshot {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: 220px;
+  }
+
 
 /*EXTRA PAGE STUFF*/
 

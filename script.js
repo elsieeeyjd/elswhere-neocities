@@ -546,7 +546,7 @@ function initPlayerUI() {
     }
 
     resumeTime = Number(saved.time) || 0;
-    resumePlay = !!saved.playing;  // browsers may block autoplay; we’ll handle nicely below
+    resumePlay = !!saved.playing;  
   }
 
   // Load the track now
@@ -1246,7 +1246,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //HIT COUNTER SHIT
 
   (() => {
-    const url = "/data/hits.json?t=" + Date.now(); // cache-buster
+    const url = "/data/hits.json?bust=" + Date.now(); // cache-buster
     fetch(url)
       .then((r) => {
         if (!r.ok) throw new Error(r.status + " " + r.statusText);

@@ -733,7 +733,7 @@ function throttle (fn, ms) {
   }
 }
 
-const STORAGE_KEY = 'elsiePlayer';
+const STORAGE_KEY = 'localPlayer';
 
 const saveState = throttle(() => {
   try {
@@ -1019,13 +1019,13 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
             <p class='boxtext sidebartext'>total visits: <span id='hitcount'>loading...</span></p>
+            <span class="visitor-count"></span>
             <!-- FC2 Clap tag starts here -->
             <a href="https://clap.fc2.com/post/elsieee/?url=https%3A%2F%2Felswhere.neocities.org&title=Home" target="_blank" title="Web Clap by FC2"><img src="https://clap.fc2.com/images/button/white/elsieee?url=https%3A%2F%2Felswhere.neocities.org&amp;lang=en" alt="Web Clap by FC2" style="border:none;" /></a>
             <!-- FC2 Clap tag ends here -->
             <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
         </div>
-        <a href="https://buymeacoffee.com/elsieee" target="_blank"><img src="${rootPath}buttons/tip-jar.png" id="tip-jar"></a>
-        <p class='sidebartext boxtext' style='font-size: 10px; margin-bottom: 5px;'>the payment method here isn't set up yet, but you can follow my BMAC page anyway!</p>
+        <a href="https://ko-fi.com/elsieee" target="_blank"><img src="${rootPath}buttons/tip-jar.png" id="tip-jar"></a>
         <h3 class="sidebartext nicetext">Blinkies!</h3>
         <div class="blinkiestack">
             <img src="${rootPath}blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>
@@ -1082,7 +1082,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class='sidebar-center'>
             <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
             <textarea class='buttoncode' readonly>
-<a href="https://elswhere.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
+<a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
             </textarea>
             <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
             <p class='boxtext' style='font-size: 10px;'>------------------</p>

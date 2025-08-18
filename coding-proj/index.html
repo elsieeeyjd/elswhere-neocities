@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>extra | elswhere</title>
+    <link rel="icon" href="../webicon.PNG" type="image/x-icon" />
+    <!--PICO-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <!--ICONS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- CSS LINK -->
+    <link href="../style.css" rel="stylesheet" type="text/css" media="all" />
+  </head>
+  <body>
+    <!-- DIY MUSIC PLAYER -->
+      <div class="player" id="player"></div>
+      <audio id="audio" preload="metadata"></audio>
+
+    <div class="container">
+      <div id="headerArea">
+        <div id="header"></div>
+
+        <nav id="navbar" style="margin-bottom: 10px"></nav>
+      </div>
+
+      <div id="flex" class="extracontainer">
+        <div class="smallsidebar" id="extraSidebar"></div>
+        <!--MAIN AREA STUFF -->
+        <main class="extracontent">
+        <h1 class="specialtextL">my coding projects</h1>
+        <div class="typebox">
+          <p id="type-text">></p>
+        </div>
+        <p class="maintext">this is where i put all my coding projects that i've made as a coding newbie!</p>
+          <div class="stack-box broider-win">
+            <h3 class="nicetext">#1. locally hosted music player</h3>
+            <hr style="border: #7978a1 dashed 2px;">
+            <img src="https://elsieeeyjd.github.io/music-player-bar/the-playlist-stuff/playlist-sample.png" alt="playlist sample">
+            <p class="maintext" style="margin-top: 1rem;">You can see it in action on the top of this page right now!</p>
+            <p class="maintext">This birthed from my rage of not finding a single music widget that works for my website. It's a simple top bar music player made with html, css, and js. It directly plays from mp3 files hosted on your website or elseswhere, so no external scripts required!</p>
+            <p class="maintext">You can find the code on this <a href="https://github.com/elsieeeyjd/music-player-bar?tab=readme-ov-file" target="_blank">github repo</a>, just remember to throw me a credit if you were to use it on your own site!</p>
+          </div>
+        </main>
+      </div>
+      <footer id="footer" style="margin-top: 10px; color: #e9e8ff"></footer>
+    </div>
+    <script src="../script.js"></script>
+    <script>
+
+      const str = "You enter an unassuming workshop on the edge of the plaza. Upon walking in, you're met with probably the messiest space you have ever stepped foot in. You can't find a single soul in this place; the ownder must be out. But you do find a note on the big desk at the center of the room: 'I'll be back soon, feel free to look around!'."
+      let a = 0; 
+      let text = "";
+      let isTag = false;
+
+      function type() {
+        text = str.slice(0, ++a);
+        if (text === str) return;
+
+        document.getElementById('type-text').innerHTML = text;
+
+        var char = text.slice(-1);
+        if( char === '<' ) isTag = true;
+        if( char === '>' ) isTag = false;
+
+        if (isTag) return type();
+        setTimeout(type, 60);
+      }
+
+      type();
+
+    </script>
+  </body>
+</html>

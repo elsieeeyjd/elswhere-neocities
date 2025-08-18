@@ -1282,6 +1282,17 @@ create styles for #leftSidebar and #rightSidebar */
   height: 500px;
 }
 
+.stack-box {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.broider-win {
+    border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACBklEQVR4AezdwU3DQBSEYZNeqIR+KIZ+qIRi4JbDLDAMbxIZ9kfK4enNbryfV5HByLk8PT6/8+oZXA5+qgKAVjmPA9Bbg76+vTzw+rmBng92qIoMa0CHgDocUBUZ1tuD6jW4erq+5rcHVZBpDehUUMYDKiDT8jeg0/c81Xi95tbPTO27g98e1AGlfUBTMZMH1ACl7e1B3Wem9h3w9qAOKO0DmoqZPKAGKG1vD+quM11fwbcHVZBpDehUUMYDKiDTcgHV6y6t9Q21/0V9vff/18fr+nQ9C6gGqDMBQDMvmwbUEmWBBTS97tK8q/XwXF779x7v3k/7C6gGqDMBQDMvmwbUEmUBQDMvmwbUEmUBQDMvmwbUEmWBM4NmKzlJGtDyiQAU0LJAeTp2KKBlgfJ07FBAywLl6ewOdX+PLB/P6aZL129BT7fCkx8QoOUTBOi9Qd196PLxTKerj0/Xzw4tnwJAAS0LlKdjhwJaFihPxw4FtCxQno4dCmhZoDwdOxTQskB5OnbocVRJAa1y8qi2MieggNYFyhPyGQpoWaA8HTv01qDuHor2/3ut3rpe7bNDVWRYAzoE1OGAqsiwXkD1f3moP30e8/U51eq/gGqAOhMANPOyaUAtURYANPOyaUAtURYANPOyaUAtURZYQPV3Vervv2tJuRdQDVBnAoBmXjYNqCXKAh8AAAD//911e6cAAAAGSURBVAMAFkQ6yXOS4lwAAAAASUVORK5CYII=") 28 /  28px / 0 round;
+    border-width:  28px;
+    border-style:  solid;
+}
+
 
 .filters {
   all: unset;

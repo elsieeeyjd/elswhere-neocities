@@ -996,6 +996,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 8. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>better extra pages!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>14. 8. 2025</h3>
             <p class='sidebartextDark boxtextDark'>top bar music player (oml i spent way too much time on this if only did wikiplayer just fucking worked)</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>10. 8. 2025</h3>
@@ -1096,6 +1098,8 @@ document.addEventListener("DOMContentLoaded", function () {
               <li><i class="bi bi-heart-arrow"></i><a href="https://www.freepik.com/collection?id=14688295" target="_blank">Freepik assets</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://petrapixel.neocities.org/coding/bookmarks" target="_blank">PetraPixel's coding bookmarks</a></li>
               <li><i class="bi bi-heart-arrow"></i><a href="https://pixelsafari.neocities.org/" target="_blank">Pixel Safari</a></li>
+              <li><i class="bi bi-heart-arrow"></i><a href="https://maxbittker.github.io/broider/" target="_blank">Cool borders by broider</a></li>
+              <li><i class="bi bi-heart-arrow"></i><a href="https://www.tooooools.app/" target="_blank">img effects by toooools</a></li>
           </ul>
           <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-ultra-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>`;
   if (document.getElementById("rightSidebar")) {
@@ -1242,24 +1246,24 @@ document.addEventListener("DOMContentLoaded", function () {
     autoScroll(); // Start the auto-scrolling
   }
 
-  //HIT COUNTER SHIT
+  // //HIT COUNTER SHIT
 
-  (() => {
-    const url = "/data/hits.json?bust=" + Date.now(); // cache-buster
-    fetch(url)
-      .then((r) => {
-        if (!r.ok) throw new Error(r.status + " " + r.statusText);
-        return r.json();
-      })
-      .then(({ views }) => {
-        document.getElementById("hitcount").textContent =
-          Number(views).toLocaleString();
-      })
-      .catch((err) => {
-        console.error("hit-counter error:", err);
-        document.getElementById("hitcount").textContent = "—";
-      });
-  })();
+  // (() => {
+  //   const url = "/data/hits.json?bust=" + Date.now(); // cache-buster
+  //   fetch(url)
+  //     .then((r) => {
+  //       if (!r.ok) throw new Error(r.status + " " + r.statusText);
+  //       return r.json();
+  //     })
+  //     .then(({ views }) => {
+  //       document.getElementById("hitcount").textContent =
+  //         Number(views).toLocaleString();
+  //     })
+  //     .catch((err) => {
+  //       console.error("hit-counter error:", err);
+  //       document.getElementById("hitcount").textContent = "—";
+  //     });
+  // })();
 
   //BLOG STUFF HTML
   //==[ 4. INSERTING THE SECTIONS INTO OUR ACTUAL HTML PAGES ]==

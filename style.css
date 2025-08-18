@@ -555,10 +555,17 @@ create styles for #leftSidebar and #rightSidebar */
     background-color: var(--box-bg-color);
     border: 1px solid #7978a1;
     padding: 1rem;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
     width: 100%;
   }
+
+  .lace-broider {
+    border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACVklEQVR4AeycXW7CQAyEoZdo7386OAUVL0gMyk6NJ9skfJUi1fHP2t9a0zz168RPlABAozhPJ4ACNEwgXI4NBWiYQLgcGwrQMIFwufiGXi+32+hx/Y9y7z7Nv78bPRq/th0HunbDW68P0PANAXQDQJ9aUP36/jmfR4/Gqz3Kvfu68U/Nr2CwoWGoAAVomEC43PQNvevg6HHzaW41XjXY2a6++qcD1QaOZgM0fKMABWiPgGqws1Vj3elsqCNU9AO0CMyFA9QRKvrLQFVTVIMWzn+81vyH4yC/lIEeZO7VxgBoGC1AZwNVzatqpvbbzdd6ztb+q/HVftlQR7joB2gRmAsHqCNU9B8eaFUDi/xewg8P9GXilV8ANAwYoLOBqgZVv+sa/f5LandeNjR8bQAFaJhAuJzdUNVM1ZhwP7svZ4HufsLJAwA0DBygAA0TkHLdvxlsqADtmgDtEpR8gAqQrmmB6nenaky3gXB+u1x3Xgu03eGHFQBo+MIBujegR9dcvQ82VIk0bYA2AWo6QJVI07ZAVQP1O82dX4139Zxf+3Xx6tf8av8WqB6IPSYA0DGfshegZWTjhMMBrWre9XJ7+h8p1XzFezigOuBsG6Bh4gCdDVQ1Rb/TnB3ud/Pl2NDwFQEUoGEC4XLlDVVNdbZqrOu/G1/Nd/1U/WWg1QM+LR6g4RsH6N6Aqsaqxqndje/m/5HvYhgbuojmPQdA3+O2mAXQRTTvOaYDVY1TW8dQv9oar7bGq63xXXs60G7DW88HaPiGAArQMIFwOTYUoGEC4XJsaBjoLwAAAP//w/zgaQAAAAZJREFUAwDPacDHEbDlzAAAAABJRU5ErkJggg==") 28 /  28px / 0 round;
+    border-width:  28px;
+    border-style:  solid;
+  }
+
 
   .CDGridMenu {
     display: grid;

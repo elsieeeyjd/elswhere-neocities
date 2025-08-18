@@ -35,6 +35,9 @@
         <!--MAIN AREA STUFF -->
         <main class="extracontent">
           <h1 class="specialtextL">Movie and TV show recommendations</h1>
+          <div class="typebox">
+            <p id="type-text">></p>
+          </div>
         <!--MOVIES-->
         <h2 class="maintext specialtextS">Movies</h2>
             <div class="selectmenu">
@@ -106,7 +109,7 @@
             </div>
         <div class="mediabox">
             <div class="file tv" data-tags="drama romance">
-                <img src="../../../current/gossipgirl.jpg" alt="Gossip Girl">
+                <img src="../../../about/current/gossipgirl.jpg" alt="Gossip Girl">
                 <p class="filename"><a href="https://www.imdb.com/title/tt0397442/" target="_blank">Gossip Girl</a></p>
                 <div class='hoverinfo'>
                 <p class='boxtext'>I've finished the first season and I honestly love it??? its so messy but so good that it makes me feel like my life is boring (is that a bad thing lol)</p>
@@ -143,5 +146,29 @@
       <footer id="footer" style="margin-top: 10px; color: #e9e8ff"></footer>
     </div>
     <script src="../../../script.js"></script>
+    <script>
+
+      const str = "You can't see a soul in the cinema, but somehow, it still feels very much alive. Posters of films are plastered on the walls. These aren't new release by any means, so you wonder what's their significance?."
+      let a = 0; 
+      let text = "";
+      let isTag = false;
+
+      function type() {
+        text = str.slice(0, ++a);
+        if (text === str) return;
+
+        document.getElementById('type-text').innerHTML = text;
+
+        var char = text.slice(-1);
+        if( char === '<' ) isTag = true;
+        if( char === '>' ) isTag = false;
+
+        if (isTag) return type();
+        setTimeout(type, 60);
+      }
+
+      type();
+
+    </script>
   </body>
 </html>

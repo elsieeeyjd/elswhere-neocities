@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>extra | elswhere</title>
+    <link rel="icon" href="../webicon.PNG" type="image/x-icon" />
+    <!--PICO-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <!--ICONS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- CSS LINK -->
+    <link href="../../../style.css" rel="stylesheet" type="text/css" media="all" />
+  </head>
+  <body>
+    <!-- DIY MUSIC PLAYER -->
+      <div class="player" id="player"></div>
+      <audio id="audio" preload="metadata"></audio>
+
+    <div class="container">
+      <div id="headerArea">
+        <div id="header"></div>
+
+        <nav id="navbar" style="margin-bottom: 10px"></nav>
+      </div>
+
+      <div id="flex" class="extracontainer">
+        <div class="smallsidebar" id="extraSidebar"></div>
+        <!--MAIN AREA STUFF -->
+        <main class="extracontent">
+          <h1 class="specialtextL">book reccomendations</h1>
+          <div class="typebox">
+            <p id="type-text">></p>
+          </div>
+          <p class="maintext">This page is still under construction, check back later!</p>
+          <img src="../../../blinkies/kirby.gif" alt="i luv kirby" style="width: 200px; height: auto;">
+        </main>
+      </div>
+      <footer id="footer" style="margin-top: 10px; color: #e9e8ff"></footer>
+    </div>
+    <script src="../../../script.js"></script>
+    <script>
+
+      const str = "The library that looks elegant on the outside actually is... completely empty. In fact, it still looks like a construction site. You find a sign right next to the main entrance that reads: 'the library is still under construction, sorry for the inconvinience!'."
+      let a = 0; 
+      let text = "";
+      let isTag = false;
+
+      function type() {
+        text = str.slice(0, ++a);
+        if (text === str) return;
+
+        document.getElementById('type-text').innerHTML = text;
+
+        var char = text.slice(-1);
+        if( char === '<' ) isTag = true;
+        if( char === '>' ) isTag = false;
+
+        if (isTag) return type();
+        setTimeout(type, 60);
+      }
+
+      type();
+
+    </script>
+  </body>
+</html>

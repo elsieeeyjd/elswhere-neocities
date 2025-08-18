@@ -35,6 +35,9 @@
         <!--MAIN AREA STUFF -->
         <main class="extracontent">
           <h1 class="specialtextL">YouTube recommendations</h1>
+          <div class="typebox">
+            <p id="type-text">></p>
+          </div>
           <div class="flexcolumn">
             <div id="buttonwall">
             <h2 class="maintext specialtextS">Channels</h2>
@@ -117,5 +120,29 @@
       <footer id="footer" style="margin-top: 10px; color: #e9e8ff"></footer>
     </div>
     <script src="../../../script.js"></script>
+    <script>
+
+      const str = "The film studio feels less like a studio and more like a display of the internet's own creators. You feel the urge to check these creators out (wooooooo).."
+      let a = 0; 
+      let text = "";
+      let isTag = false;
+
+      function type() {
+        text = str.slice(0, ++a);
+        if (text === str) return;
+
+        document.getElementById('type-text').innerHTML = text;
+
+        var char = text.slice(-1);
+        if( char === '<' ) isTag = true;
+        if( char === '>' ) isTag = false;
+
+        if (isTag) return type();
+        setTimeout(type, 60);
+      }
+
+      type();
+
+    </script>
   </body>
 </html>

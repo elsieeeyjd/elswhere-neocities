@@ -10,6 +10,14 @@
     <meta charset="UTF-8">
     <title>Status</title>
     <style>
+      @font-face {
+          font-family: 'VT323';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isRFJXUdVNFKPY.woff2) format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
       body, html {
         border: none;
         margin: 0;
@@ -21,9 +29,29 @@
         background: transparent;
         color: #2F2C42;
       }
+
+      .boxtext {
+        font-size: 12px;
+        color: #f8f4ff;
+      }
+
+      .sidebartext {
+        color: #f8f4ff;
+      }
+
+      .visitor-count {
+        font-family: 'VT323', monospace;
+        font-size: 14px;
+        color: #2F2C42;
+        margin-top: 1rem;
+        padding: 2px 5px;
+        background-color: #dedcfe;
+        border-radius: 5px;
+        border: 1px solid #7978a1;
+      }
     </style>
   </head>
-    <p class='boxtext sidebartext'>total visits: <span class='visitor-count'>loading...</span></p>
+    <p class='boxtext sidebartext'>total visits: <span class='visitor-count'></span></p>
     <script src="visitors.js" defer></script>
   </body>
 </html>

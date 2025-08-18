@@ -43,6 +43,14 @@
         color: #f8f4ff;
       }
 
+      .counter-box { padding: 12px; }
+      .counter-box .row {
+        display: flex;
+        justify-content: center;   /* centers the whole line */
+        align-items: center;
+        gap: .5rem;
+      }
+
       .visitor-count {
         font-family: 'VT323', monospace;
         font-size: 14px;
@@ -55,7 +63,11 @@
       }
     </style>
   </head>
-    <p class='boxtext sidebartext'>total visits: <span class='visitor-count'></span></p>
-    <script src="visitors.js" defer></script>
+    <div class="counterBox">
+      <div class="row">
+        <p class='boxtext sidebartext'>total visits: <span class='visitor-count'></span></p>
+        <script src="visitors.js" defer></script>
+      </div>
+    </div>
   </body>
 </html>

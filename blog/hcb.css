@@ -1,0 +1,199 @@
+
+
+
+  :root{
+      --header-image: url('new-elswhere-banner.png');
+      --body-bg-image: url('tilebg.gif');
+      --content: #43256E;
+      --navbar-color: #7978a1;
+      --sidebar-color: #8584b9;
+      --main-bg-color: #eeedf7;
+      --box-bg-color: #9998ce;
+      --box-border-color: #7978a1;
+      --text-light: #e9e8ff;
+      --text-main: #2F2C42;
+      --text-ultra-light: #f8f4ff;
+      color-scheme: light;
+
+      /*music player specifics*/
+      --bar-h: 56px;
+      --bar-bg: #666699;
+      --bar-fg: #e9e8ff;
+      --accent: #acace6;
+  }
+
+
+
+  /* VT323 FONT*/
+  @font-face {
+      font-family: 'VT323';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isRFJXUdVNFKPY.woff2) format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  
+  /* latin */
+  @font-face {
+      font-family: 'VT323';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isfFJXUdVNF.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+    /*VCR_OCD (main text) FONT*/
+  @font-face {
+    font-family: 'VCR';
+    font-style: normal;
+    font-weight: normal; 
+    src: url('../font/VCR_OSD_MONO_1.001.ttf') format('truetype');
+  }
+
+
+#HCB_comment_box {
+    border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABiUlEQVR4AdzSi0kDYRAEYJNGbUMr0DasVAn4hWNwWe8VXAPHZGefM/zXp+b3+vLxufya8l+nlzNv/7vG9tBuwKPy90Nvqn768hA1yWesDspnnLw8lL8fivir2B769v58WX6EUAyT15O8WB7iK2wPrRofzW8+NJ3gLF5MEF68FjcfunbR3vprpbxzQF/W4R0mn7w8VAfx+uY46vIOKcu6ildX5SteX+IcR6s3QTGkUP1eNM/8RHl75jial1cx/izknPkZz3PUG6FInMrkj0Lz7avmznOUEgrFnVJ1WzHn535z5zlKCYViis5G++zPffMcpaBTpu5o5GS1f66jlHHsW+FFfDTm/Nxv31xHKaC0UqhuL5pvn3kZz3OUMooyxp+FuS/jOY7m5d5GIifV70Xzco9Y3p45jrq8w1SqvuK7fNenH85xNJV5E5CiRH1Zh1cvn7w8VAfx+uY46vK1WCnHc8JcvHgt/h9HOQE5UTmWvBjqNw/iK5znKMWJqVAeL4b4Cqs6fKI5Yxz9AgAA//8NpemwAAAABklEQVQDAF0gZPuctn/GAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
+    border-width:  14px;
+    border-style:  solid;
+  padding: 10px;
+  color: var(--text-main);
+  background: var(--main-bg-color);
+  font-family: VCR, monospace !important;
+  font-size: 14px;
+}
+
+#HCB_comment_box > h3 {
+  display: none;
+}
+
+
+#HCB_comment_box #hcb_settings, #HCB_comment_box #hcb_subscribe {
+  display: none !important;
+}
+
+small a {
+    display: none !important;
+}
+
+
+.hcb-mod b {
+  color: #0088af;
+}
+#HCB_comment_box textarea,
+#HCB_comment_box input.text {
+    all: unset;
+    font-family: VCR, monospace !important;
+  border: 2px inset whitesmoke;
+  background-color: white !important;
+}
+#HCB_comment_box .hcb-wrapper-half {
+  display: block;
+  width: 50%;
+  float: left;
+}
+
+#HCB_comment_box .hcb-wrapper {
+  clear: both;
+  
+}
+
+#hcb_form_name_container input{
+  all:unset;
+  font-family: VCR, monospace !important;
+  border: 2px inset whitesmoke;
+  background-color: white !important;
+  padding: 0.5rem !important;
+}
+
+#HCB_comment_box input.text {
+  display: block;
+  width: 95%;
+
+    font-family: VCR, monospace !important;
+  border: 2px inset whitesmoke;
+  background-color: white !important;
+}
+
+#hcb_submit {
+    all:unset;
+    padding-top: 10px !important;
+  color: var(--text-main) !important;
+  background: var(--main-bg-color) !important;
+  font-family: "VCR", monospace !important;
+  border: 2px outset whitesmoke !important;
+  cursor: pointer;
+}
+
+#hcb_submit:hover {
+    text-decoration: underline !important;
+
+}
+
+
+#hcb_submit:active {
+  border: 2px inset whitesmoke !important;
+}
+
+.btn-secondary {
+    all:unset;
+    padding-top: 10px !important;
+  color: var(--text-main) !important;
+  background: var(--main-bg-color) !important;
+  font-family: "VCR", monospace !important;
+  border: 2px outset whitesmoke !important;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+    text-decoration: underline !important;
+
+}
+
+.btn-secondary:active {
+  border: 2px inset whitesmoke !important;
+}
+
+#HCB_comment_box div.comment {
+  color: var(--text-main);
+  border: var(--navbar-color) 1px dashed !important;
+  margin: 5px;
+  padding: 0.5rem;
+}
+#HCB_comment_box .comment .likes {
+  color: var(--navbar-color);
+}
+#HCB_comment_box .hcb-link {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+#HCB_comment_box blockquote {
+    border: none;
+  padding: 0 0 0 2px !important ;
+}
+
+#HCB_comment_box .author-name {
+    color: var(--text-main);
+    font-weight: normal;
+}
+
+.home-desc {
+  display: none !important;
+}
+
+.admin-link {
+  display: none !important;
+}
+
+.hcb-like {
+  display: none !important;
+}
+
+#hcb_msg {
+    display: none !important;
+}
+
+
+ 

@@ -454,7 +454,10 @@ function mountPlayer() {
   root.innerHTML = playerHTML;
 }
 
-function initPlayerUI() {
+function initPlayerUI(opts={}) {
+
+  console.log('initPlayerUI called with:', opts);
+   showConsoleCredit(opts);
 
   let path = window.location.pathname;
 
@@ -905,8 +908,36 @@ const saveState = throttle(() => {
     repeat = repeat === "all" ? "one" : repeat === "one" ? "off" : "all";
     btnRepeat.textContent = repeat === "one" ? "🔂" : "🔁";
     btnRepeat.style.opacity = repeat === "off" ? ".5" : "1";
+
+    
+     
   });
+  
+
 } //end of initPlayerUI
+
+function showConsoleCredit(opts = {}) {
+  // allow turning it off: init({ credit:false })
+  if (opts.credit === false) return;
+
+  // avoid duplicates (per page load)
+  if (window.__lilacCreditShown) return;
+  window.__lilacCreditShown = true;
+
+
+  const NAME = "elsie's music player widget";
+  const VERSION = '1.0.0';
+  const URL = 'https://github.com/elsieeeyjd/music-player-bar';
+
+  const credStart = "this lovely site uses: ";
+  const tag   = `${NAME} v${VERSION} `;
+  const style = 'background:#8b5cf6;color:#fff;padding:2px 8px;border-radius:8px;font-weight:600';
+  const msg   = `by elsie — MIT — ${URL}`;
+
+  console.info(`${credStart}%c${tag}%c ${msg}`, style, '');
+}
+
+
 
 
 //9) remember play progress
@@ -997,7 +1028,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 8. 2025</h3>
-            <p class='sidebartextDark boxtextDark'>better extra pages!</p>
+            <p class='sidebartextDark boxtextDark'>better extra pages, new blog posts, and new comment box! (the css of the comment box was inspired by ribo.zone who used the same comment box engine cuz holy shit the html tags of that widget r crazy.</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>14. 8. 2025</h3>
             <p class='sidebartextDark boxtextDark'>top bar music player (oml i spent way too much time on this if only did wikiplayer just fucking worked)</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>10. 8. 2025</h3>

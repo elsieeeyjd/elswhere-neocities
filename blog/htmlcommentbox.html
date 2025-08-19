@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html data-theme="light" lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Status</title>
     <link rel="stylesheet" href="hcb.css" type="text/css" media="all" />
   </head>
   <body>
-            <!-- begin wwww.htmlcommentbox.com -->
-          <div id="HCB_comment_box">
-            <a href="http://www.htmlcommentbox.com">Comment Box</a> is loading
-            comments...
-          </div>
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://www.htmlcommentbox.com/static/skins/simple/skin.css"
-          />
-          <script type="text/javascript" id="hcb">
-            /*<!--*/ if (!window.hcb_user) {
-              hcb_user = {};
-            }
-            (function () {
-              var s = document.createElement("script"),
-                l =
-                  hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
-                h = "https://www.htmlcommentbox.com";
-              s.setAttribute("type", "text/javascript");
-              s.setAttribute(
-                "src",
-                h +
-                  "/jread?page=" +
-                  encodeURIComponent(l).replace("+", "%2B") +
-                  "&mod=%241%24wq1rdBcg%243J%2FEP1TjpNk1m0tuTj9gB1" +
-                  "&opts=17814&num=10&ts=1755600371812"
-              );
-              if (typeof s != "undefined")
-                document.getElementsByTagName("head")[0].appendChild(s);
-            })();
-          </script>
-    </body>
+    <!-- begin wwww.htmlcommentbox.com -->
+    <div id="HCB_comment_box">
+      <a href="http://www.htmlcommentbox.com">Comment Box</a> is loading
+      comments...
+    </div>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.htmlcommentbox.com/static/skins/simple/skin.css"
+    />
+    <script type="text/javascript" id="hcb">
+      (function () {
+        // 1) get per-post id from ?post=
+        // 1) require a unique id per post via ?post=
+        const params = new URLSearchParams(location.search);
+        const raw = params.get("post"); 
+        if (!raw) {
+          // explicit param is best; referrer often loses path
+          document.getElementById("HCB_comment_box").textContent =
+            "Missing ?post=… parameter.";
+          return;
+        }
+
+        // 2) make it absolute & stable
+        const pageId = new URL(raw, location.origin).href;
+
+        // 3) tell HCB which thread to use
+        window.hcb_user = { PAGE: pageId }; // HCB reads PAGE/page case-insensitively
+
+        // 4) load exactly once (with cache-bust)
+        const s = document.createElement("script");
+        s.defer = true;
+        s.src =
+          "https://www.htmlcommentbox.com/jread?page=" +
+          encodeURIComponent(pageId) +
+          "&opts=17814&num=10&ts=" +
+          Date.now();
+        document.head.appendChild(s);
+      })();
+      // /*<!--*/ if (!window.hcb_user) {
+      //   hcb_user = {};
+      // }
+      // (function () {
+      //   var s = document.createElement("script"),
+      //     l =
+      //       hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+      //     h = "https://www.htmlcommentbox.com";
+      //   s.setAttribute("type", "text/javascript");
+      //   s.setAttribute(
+      //     "src",
+      //     h +
+      //       "/jread?page=" +
+      //       encodeURIComponent(l).replace("+", "%2B") +
+      //       "&mod=%241%24wq1rdBcg%243J%2FEP1TjpNk1m0tuTj9gB1" +
+      //       "&opts=17814&num=10&ts=1755600371812"
+      //   );
+      //   if (typeof s != "undefined")
+      //     document.getElementsByTagName("head")[0].appendChild(s);
+      // })();
+    </script>
+  </body>
 </html>

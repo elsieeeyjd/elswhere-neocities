@@ -54,9 +54,7 @@
 
 
 #HCB_comment_box {
-    border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABiUlEQVR4AdzSi0kDYRAEYJNGbUMr0DasVAn4hWNwWe8VXAPHZGefM/zXp+b3+vLxufya8l+nlzNv/7vG9tBuwKPy90Nvqn768hA1yWesDspnnLw8lL8fivir2B769v58WX6EUAyT15O8WB7iK2wPrRofzW8+NJ3gLF5MEF68FjcfunbR3vprpbxzQF/W4R0mn7w8VAfx+uY46vIOKcu6ildX5SteX+IcR6s3QTGkUP1eNM/8RHl75jial1cx/izknPkZz3PUG6FInMrkj0Lz7avmznOUEgrFnVJ1WzHn535z5zlKCYViis5G++zPffMcpaBTpu5o5GS1f66jlHHsW+FFfDTm/Nxv31xHKaC0UqhuL5pvn3kZz3OUMooyxp+FuS/jOY7m5d5GIifV70Xzco9Y3p45jrq8w1SqvuK7fNenH85xNJV5E5CiRH1Zh1cvn7w8VAfx+uY46vK1WCnHc8JcvHgt/h9HOQE5UTmWvBjqNw/iK5znKMWJqVAeL4b4Cqs6fKI5Yxz9AgAA//8NpemwAAAABklEQVQDAF0gZPuctn/GAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
-    border-width:  14px;
-    border-style:  solid;
+
   padding: 10px;
   color: var(--text-main);
   background: var(--main-bg-color);

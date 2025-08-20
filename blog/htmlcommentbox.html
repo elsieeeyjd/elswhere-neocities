@@ -20,13 +20,18 @@
       (function () {
         // 1) get per-post id from ?post=
         // 1) require a unique id per post via ?post=
-        const params = new URLSearchParams(location.search);
-        const raw = params.get("post"); 
+        const url  = new URL(window.location.href);
+        // try ?post= first, then #post=
+        const searchPost = url.searchParams.get('post');
+        const hashPost   = new URLSearchParams(url.hash.slice(1)).get('post');
+        const raw = searchPost || hashPost;
+
+        console.log('[HCB] href:', url.href, 'search:', url.search, 'hash:', url.hash, 'post:', raw);
+
         if (!raw) {
-          // explicit param is best; referrer often loses path
-          document.getElementById("HCB_comment_box").textContent =
-            "Missing ?post=… parameter.";
-          return;
+            document.getElementById('HCB_comment_box').textContent =
+            'Missing post id. Pass ?post=… or #post=…';
+            return;
         }
 
         // 2) make it absolute & stable

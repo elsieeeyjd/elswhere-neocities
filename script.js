@@ -7,9 +7,10 @@ let authorLink = "elswhere.neocities.org"; // Enter your website, social media, 
 //==[ 2. POSTS ARRAY ]==
 
 let postsArray = [
+  ["posts/2025-08-20-i-compare-a-lot.html"],
   ["posts/2025-07-25-the-'fuck-it-ill-do-it-myself'-mentality.html"],
   ["posts/2025-07-01-thoughts-in-the-filler-episodes.html"],
-  ["posts/2025-06-09-why-i-made-this-site.html"],
+  ["posts/2025-06-09-why-i-made-this-site.html"]
   //[ "posts/2020-11-10-My-Second-Post-Example.html" ],
 ];
 
@@ -145,7 +146,7 @@ for (let i = 0; i < postsArray.length; i++) {
 postListHTML += "</ul>";
 
 //Generate the Recent Post List HTML, which can be shown on the home page (or wherever you want!)
-let recentPostsCutoff = 3; //Hey YOU! Change this number to set how many recent posts to show before cutting it off with a "more posts" link.
+let recentPostsCutoff = 8; //Hey YOU! Change this number to set how many recent posts to show before cutting it off with a "more posts" link.
 let recentPostListHTML =
   "<h2 class='specialtextS' style='font-size: 30px'>Recent Posts:</h2><ul>";
 let numberOfRecentPosts = Math.min(recentPostsCutoff, postsArray.length);

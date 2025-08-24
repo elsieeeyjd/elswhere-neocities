@@ -108,6 +108,14 @@
     font-weight: normal;
     src: url('font/OpenDyslexic-Regular.otf') format('opentype');
   }
+
+  /*BORN2BSPORTY FONT*/
+  @font-face {
+    font-family: 'Born2BSporty';
+    font-style: normal;
+    font-weight: normal;
+    src: url('font/Born2bSportyFS.otf') format('truetype');
+  }
   
   
   .bi {
@@ -407,6 +415,11 @@ a:hover {
   font-family: 'VT323';
 }
 
+.impacttext {
+  font-family: 'Born2BSporty';
+  font-size: 50px; 
+}
+
 
 .specialtextL {
   font-family: 'Venice';
@@ -582,6 +595,12 @@ create styles for #leftSidebar and #rightSidebar */
   .other-lace {
     border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABiUlEQVR4AdzSi0kDYRAEYJNGbUMr0DasVAn4hWNwWe8VXAPHZGefM/zXp+b3+vLxufya8l+nlzNv/7vG9tBuwKPy90Nvqn768hA1yWesDspnnLw8lL8fivir2B769v58WX6EUAyT15O8WB7iK2wPrRofzW8+NJ3gLF5MEF68FjcfunbR3vprpbxzQF/W4R0mn7w8VAfx+uY46vIOKcu6ildX5SteX+IcR6s3QTGkUP1eNM/8RHl75jial1cx/izknPkZz3PUG6FInMrkj0Lz7avmznOUEgrFnVJ1WzHn535z5zlKCYViis5G++zPffMcpaBTpu5o5GS1f66jlHHsW+FFfDTm/Nxv31xHKaC0UqhuL5pvn3kZz3OUMooyxp+FuS/jOY7m5d5GIifV70Xzco9Y3p45jrq8w1SqvuK7fNenH85xNJV5E5CiRH1Zh1cvn7w8VAfx+uY46vK1WCnHc8JcvHgt/h9HOQE5UTmWvBjqNw/iK5znKMWJqVAeL4b4Cqs6fKI5Yxz9AgAA//8NpemwAAAABklEQVQDAF0gZPuctn/GAAAAAElFTkSuQmCC") 14 /  14px / 0 round;
     border-width:  14px;
+    border-style:  solid;
+  }
+
+  .lace-broider3 {
+    border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAA60lEQVR4AbSOsQ4DMQhDe5069P+/tEO3qx7SkwgKl9zQSJYDGJvn4w9vMP1+zlPMsurMGs76wTQPZv/X+zjAbJZ7YUoSyAP+9jpGI9AA6jDlM4NXdTzboXdpioB0wH8XYcolFRrYt87sLDPzMOUD7l7EDqh7YWqTRES76PbCVBNF1rtc98LUC+VdM/Wye2FqYaJsf8Xq5cG0Jq7MnNe9wdSkKnK547o3mN41M6TuhSlJFS5kVmPPOjOzMOWzAy4CK+2lKRdg0DGzGcKUdFAF9jrOejSAXpjy6cCVoJvP+oMpSUJxre3DzmBq8QMAAP//Q7qQPgAAAAZJREFUAwACv8ArtS80xgAAAABJRU5ErkJggg==") 7 /  7px / 0 round;
+    border-width:  7px;
     border-style:  solid;
   }
 
@@ -846,6 +865,16 @@ create styles for #leftSidebar and #rightSidebar */
     color: #dedcfe;
   }
 
+  .sidebarlink {
+    color: var(--text-ultra-light); 
+    text-decoration: none;
+  }
+
+  .sidebarlink:hover {
+    text-decoration: underline;
+    color: #dedcfe;
+  }
+
   .sidebar-center {
     display: flex;
     flex-direction: column;
@@ -861,6 +890,18 @@ create styles for #leftSidebar and #rightSidebar */
   }
 
   #tip-jar:hover {
+    transform: scale(1.05) rotate(5deg);
+    transition: transform 0.2s ease;
+  }
+    #guestbookbtn {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+   #guestbookbtn:hover {
     transform: scale(1.05) rotate(5deg);
     transition: transform 0.2s ease;
   }

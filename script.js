@@ -792,14 +792,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //UNIVERSALISE STUFF
 
+
+  const nav = document.getElementById('navbar');
+
   const navbarHTML = `
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
+      <div class='nav-links' id='nav-links'>
         <ul>
             <li><a href="https://elswhere.neocities.org">Home</a></li>
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
             <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
             <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
-        </ul>`;
+        </ul>
+      </div>`;
   document.getElementById("navbar").innerHTML = navbarHTML;
+
+    // hook up the toggle
+ const btn   = nav.querySelector('.nav-toggle');
+  const panel = nav.querySelector('.nav-links');
+  if (!btn || !panel) return;
+
+  const openMenu  = () => {
+    nav.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    document.addEventListener('click', onDocClick);      // bubble phase
+    document.addEventListener('keydown', onEsc, true);
+  };
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.removeEventListener('click', onDocClick);
+    document.removeEventListener('keydown', onEsc, true);
+  };
+  const onDocClick = (e) => {
+    if (!nav.contains(e.target)) closeMenu();
+  };
+  const onEsc = (e) => { if (e.key === 'Escape') closeMenu(); };
+
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    nav.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.addEventListener('click', (e) => e.stopPropagation());
 
   const footerHTML = `
         <div class='buttonrow footerbuttons'>

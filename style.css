@@ -19,6 +19,9 @@
   --accent: #acace6;
 }
 
+pre, code { white-space: pre-wrap; }
+p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
+
 @font-face {
   font-family: Nunito;
   src: url("https://sadhost.neocities.org/fonts/Nunito-Regular.ttf");
@@ -530,9 +533,18 @@ EXCEPT for the navigation */
   width: 100%;
 }
 
-#navbar .nav-links { width: 100%;}
+#navbar .nav-links-h { width: 100%;}
 
-#navbar .nav-links > ul{
+#navbar .nav-links-h ul,
+#navbar .nav-links-v ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+/*DESKTOP*/
+
+#navbar .nav-links-h > ul{
   display: flex;
   padding: 0;
   margin: 0;
@@ -569,36 +581,10 @@ EXCEPT for the navigation */
   display: none;
 }
 
-/* mobile breakpoint */
-@media (max-width: 900px) {
-  .nav-toggle{
-    all:unset;
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    margin:1 0px;
-    background:transparent;
-    font-family:"VT323", monospace;
-    font-size:18px;
-    color: var(--text-ultra-light);
-  }
-
-  #navbar .nav-links{
-    display:none;                  /* hidden until opened */
-    position:fixed;
-    inset:56px 0 0 0;             
-    background:#6a6a8d;
-    padding:16px;
-    z-index:2000;
-  }
-  #navbar.open .nav-links{ display:flex; } 
-
-  #navbar .nav-links > ul{
-    flex-direction:column;
-    gap:12px;
-    width:100%;
-  }
+.nav-links-v {
+  display: none;
 }
+
 
 #flex {
   display: flex;
@@ -606,6 +592,8 @@ EXCEPT for the navigation */
   min-height: 100vh;
   align-items: stretch;
 }
+
+#flex > * { min-width: 0; }
 
 /* this colors BOTH sidebars
 if you want to style them separately,
@@ -641,6 +629,7 @@ aside {
   flex-direction: column;
   gap: 10px;
   order: 2;
+  min-width: 0;
 }
 
 main {
@@ -1488,7 +1477,7 @@ and then subtrack it by 100. use this new number as the
 "max-width" value below
 */
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 900px) {
   #flex {
     flex-wrap: wrap;
   }
@@ -1496,21 +1485,76 @@ and then subtrack it by 100. use this new number as the
   aside {
     width: 100%;
   }
+  
+
+  /*Navbar stuff*/
+  
+  #navbar { position:relative; }           /* anchor the dropdown */
+  #navbar .nav-links-h { display:none; }     /* hide desktop links */
+
+  .nav-toggle {
+    all:unset;
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:8px 12px;
+    font-family:"VT323", monospace;
+    font-size:18px;
+    color:var(--text-ultra-light);
+    cursor:pointer;
+  }
+
+  #navbar #nav-links-v {
+    display: none;
+    position:absolute;
+    left:0; right:0; top:100%;
+    background:#6a6a8d;
+    border-top:1px solid #5a5a7a;
+    box-shadow:0 6px 12px rgba(0,0,0,.15);
+    z-index:2000;
+  }
+
+  #navbar #nav-links-v.open {
+    display: block;
+  }
+
+  #navbar .nav-links-v > ul {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    padding:12px;
+  }
+  #navbar .nav-links-v li { display:block; }
+  #navbar .nav-links-v a {
+    display:block;
+    padding:10px 12px;
+    text-decoration:none;
+    color:var(--text-ultra-light);
+  }
+  #navbar .nav-links-v a:hover { background:rgba(255,255,255,.08); }
+
+  /* show/hide controlled by [hidden] attribute */
+  #navbar .nav-links-v[hidden] { display:none; }
+
+  .boxlabel {display: none;}
 
   /* the order of the items is adjusted here for responsiveness!
 since the sidebars would be too small on a mobile device.
 feel free to play around with the order!
 */
-  main {
+  .contentstack {
     order: 1;
+    flex-wrap: wrap;
   }
 
   #leftSidebar {
     order: 2;
+    display: none;
   }
 
   #rightSidebar {
     order: 3;
+    display: none;
   }
 
   #navbar ul {

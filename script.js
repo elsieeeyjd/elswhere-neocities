@@ -512,7 +512,29 @@ document.addEventListener("DOMContentLoaded", function () {
   //     });
   // })();
 
+  if (isMobile()) {
+    const mobWarning = `
+     <div id='mobileWarning' class='mobile-warning' role='alert'>
+      <button style='float: right;' class="mw-close" aria-label="Dismiss" >X</button>
+      <h3 class='nicetext sidebartext'>WAIT! are you viewing from your phone?</h3>
+      <p class='boxtext sidebartext'>this site is not yet optimized for mobile. Some features will not work properly and things will look very, very scuffed (as if it isn't already lmao)</p>
+      <p class='boxtext sidebartext'>please view this on a desktop of a tablet for the best experience! I promise I'll optimize it soon :)</p>
+      </div>
+    `
+    document.body.insertAdjacentHTML("afterbegin", mobWarning);
+    console.log('mobile warning shown');
+  }
+
+  console.log('isMobile?', window.innerWidth <= 900);
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('#mobileWarning .mw-close')) {
+      document.getElementById('mobileWarning')?.remove();
+    }
+  });
+
   function isMobile() {
     return window.innerWidth <= 900;
-  }
+  };
+  
 }); //END OF DOM CONTENT LOADED EVENT

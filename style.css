@@ -1477,6 +1477,32 @@ and then subtrack it by 100. use this new number as the
 "max-width" value below
 */
 
+.mobile-warning {
+  position: fixed;
+  background-color: var(--navbar-color);
+  padding: 1rem;
+  border: 1px solid #cdcbed;
+  text-align: center;
+  font-family: "VT323", monospace;
+  box-shadow: 0 14px 36px rgba(0,0,0,.3);
+  z-index: 9000;
+}
+
+.mw-close{
+  all:unset;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font: inherit;
+  background: transparent;
+  border: 0;
+  color: #f8f4ff;
+}
+
+@media (min-width: 901px){
+  #mobileWarning{ display:none !important; }
+}
+
 @media only screen and (max-width: 900px) {
   #flex {
     flex-wrap: wrap;

@@ -227,10 +227,10 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
       <div class='nav-links-h' id='nav-links-h'>
         <ul>
-            <li><a href="https://elswhere.neocities.org">Home</a></li>
-            <li><a href="https://elswhere.neocities.org/about/">About</a></li>
-            <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
-            <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
+            <li><a href="https://elswhere.neocities.org"><img src="${rootPath}buttons/nav-png/home-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/home-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/about/"><img src="${rootPath}buttons/nav-png/about-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/about-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/about-nav.png'" alt="about" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/blog/"><img src="${rootPath}buttons/nav-png/blog-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/blog-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/blog-nav.png'" alt="blog" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/extra/"><img src="${rootPath}buttons/nav-png/extra-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/extra-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/extra-nav.png'" alt="extra" class="nav-png"></img></a></li>
         </ul>
       </div>
       <div class='nav-links-v' id='nav-links-v'>
@@ -266,6 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>
+            <p class='sidebartextDark boxtextDark'>better navbar graphic + main page graphic! will prolly do the same for the other pages asw</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 8. 2025</h3>
             <p class='sidebartextDark boxtextDark'>better extra pages, new blog posts, and new comment box! (the css of the comment box was inspired by ribo.zone who used the same comment box engine cuz holy shit the html tags of that widget r crazy.</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>14. 8. 2025</h3>
@@ -512,7 +514,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //     });
   // })();
 
-  if (isMobile()) {
     const mobWarning = `
      <div id='mobileWarning' class='mobile-warning' role='alert'>
       <button style='float: right;' class="mw-close" aria-label="Dismiss" >X</button>
@@ -520,18 +521,14 @@ document.addEventListener("DOMContentLoaded", function () {
       <p class='boxtext sidebartext'>this site is not yet optimized for mobile. Some features will not work properly and things will look very, very scuffed (as if it isn't already lmao)</p>
       <p class='boxtext sidebartext'>please view this on a desktop of a tablet for the best experience! I promise I'll optimize it soon :)</p>
       </div>
-    `
+    `;
     document.body.insertAdjacentHTML("afterbegin", mobWarning);
-    console.log('mobile warning shown');
-  }
 
-  console.log('isMobile?', window.innerWidth <= 900);
-
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('#mobileWarning .mw-close')) {
-      document.getElementById('mobileWarning')?.remove();
-    }
-  });
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#mobileWarning .mw-close')) {
+        document.getElementById('mobileWarning')?.remove();
+      }
+    });
 
   function isMobile() {
     return window.innerWidth <= 900;

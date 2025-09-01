@@ -533,6 +533,14 @@ EXCEPT for the navigation */
   width: 100%;
 }
 
+#navbar .nav-png {
+  bottom: calc(100% - 4px);
+  transform: translateY(-50%);
+  width: 200px;
+  height: auto;
+  margin: 0;
+}
+
 #navbar .nav-links-h { width: 100%;}
 
 #navbar .nav-links-h ul,
@@ -759,6 +767,16 @@ main {
   background-color: var(--main-bg-color);
   flex: 1;
   padding: 20px;
+}
+
+.paper-bg {
+  background-image: url('blog/images/paper-bg.jpg');
+  padding: 1.5rem; 
+  margin-bottom: 1.5rem;
+  border: 5px solid #6a6a8d;
+  border-radius: 10px; 
+  height: fit-content;
+  background-repeat: repeat;
 }
 
 footer {
@@ -1468,6 +1486,8 @@ img.divider {
   margin-bottom: 0.5rem;
 }
 
+
+
 /* BELOW THIS POINT IS MEDIA QUERY */
 
 /* so you wanna change the width of your page? 
@@ -1476,8 +1496,25 @@ in order to keep things responsive, take your new height,
 and then subtrack it by 100. use this new number as the 
 "max-width" value below
 */
-
 .mobile-warning {
+  display: none;
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+  #flex {
+    flex-wrap: wrap;
+  }
+
+  aside {
+    width: 100%;
+  }
+  
+  /*mobile warning*/
+  .mobile-warning {
+  display: block;
   position: fixed;
   background-color: var(--navbar-color);
   padding: 1rem;
@@ -1499,19 +1536,6 @@ and then subtrack it by 100. use this new number as the
   color: #f8f4ff;
 }
 
-@media (min-width: 901px){
-  #mobileWarning{ display:none !important; }
-}
-
-@media only screen and (max-width: 900px) {
-  #flex {
-    flex-wrap: wrap;
-  }
-
-  aside {
-    width: 100%;
-  }
-  
 
   /*Navbar stuff*/
   

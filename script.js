@@ -206,13 +206,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let rootPath = "";
   if (path.includes("extra/mediarec/")) {
     rootPath = "../../../";
-  } else if (path.includes("blog/posts/")) {
+  } else if (path.includes("blog/posts/") || path.includes ("extra/screenshots/")) {
     rootPath = "../../";
   } else if (
     path.includes("blog/") ||
     path.includes("artworks/") ||
     path.includes("about/") ||
-    path.includes("extra/")
+    path.includes("extra/") ||
+    path.includes('coding-proj/') 
   ) {
     rootPath = "../";
   } else {
@@ -267,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>
-            <p class='sidebartextDark boxtextDark'>better navbar graphic + main page graphic! will prolly do the same for the other pages asw</p>
+            <p class='sidebartextDark boxtextDark'>better navbar graphic + main page graphic! will prolly do the same for the other pages asw. Chatbox in extra page</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 8. 2025</h3>
             <p class='sidebartextDark boxtextDark'>better extra pages, new blog posts, and new comment box! (the css of the comment box was inspired by ribo.zone who used the same comment box engine cuz holy shit the html tags of that widget r crazy.</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>14. 8. 2025</h3>

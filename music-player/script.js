@@ -56,14 +56,16 @@ function initPlayerUI(opts={}) {
   ) {
     rootPath = "../../../"; 
   } else if (
-    path.includes("blog/posts/") 
+    path.includes("blog/posts/") ||
+    path.includes ("extra/screenshots/")
   ) {
     rootPath = "../../";
   } else if (
     path.includes("blog/") ||
     path.includes("artworks/") ||
     path.includes("about/") ||
-    path.includes("extra/")
+    path.includes("extra/") ||
+    path.includes('coding-proj/')
   ) {
     rootPath = "../";
   } else {

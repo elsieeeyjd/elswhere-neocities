@@ -15,7 +15,7 @@
     ],
     noteLine: "this site is best viewed on a computer or laptop.",
 
-    rememberForMinutes: 0,
+    rememberForMinutes: 30,
 
     respectReducedMotion: true
   };

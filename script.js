@@ -213,7 +213,8 @@ document.addEventListener("DOMContentLoaded", function () {
     path.includes("artworks/") ||
     path.includes("about/") ||
     path.includes("extra/") ||
-    path.includes('coding-proj/') 
+    path.includes('coding-proj/') ||
+    path.includes('home/')
   ) {
     rootPath = "../";
   } else {
@@ -228,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
       <div class='nav-links-h' id='nav-links-h'>
         <ul>
-            <li><a href="https://elswhere.neocities.org"><img src="${rootPath}buttons/nav-png/home-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/home-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/home/"><img src="${rootPath}buttons/nav-png/home-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/home-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
             <li><a href="https://elswhere.neocities.org/about/"><img src="${rootPath}buttons/nav-png/about-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/about-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/about-nav.png'" alt="about" class="nav-png"></img></a></li>
             <li><a href="https://elswhere.neocities.org/blog/"><img src="${rootPath}buttons/nav-png/blog-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/blog-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/blog-nav.png'" alt="blog" class="nav-png"></img></a></li>
             <li><a href="https://elswhere.neocities.org/extra/"><img src="${rootPath}buttons/nav-png/extra-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/extra-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/extra-nav.png'" alt="extra" class="nav-png"></img></a></li>
@@ -236,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
       <div class='nav-links-v' id='nav-links-v'>
         <ul>
-            <li><a href="https://elswhere.neocities.org">Home</a></li>
+            <li><a href="https://elswhere.neocities.org/home/">Home</a></li>
             <li><a href="https://elswhere.neocities.org/about/">About</a></li>
             <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
             <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>

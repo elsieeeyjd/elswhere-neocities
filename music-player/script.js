@@ -65,7 +65,8 @@ function initPlayerUI(opts={}) {
     path.includes("artworks/") ||
     path.includes("about/") ||
     path.includes("extra/") ||
-    path.includes('coding-proj/')
+    path.includes('coding-proj/') ||
+    path.includes("home/")
   ) {
     rootPath = "../";
   } else {

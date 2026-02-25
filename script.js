@@ -267,7 +267,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
-            <p class='sidebartextDark'>This site has been updated as of August 2025!</p>
+            <p class='sidebartextDark'>This site has been updated as of February 2026!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 2. 2026</h3>
+            <p class='sidebartextDark boxtextDark'>new blog + updated currents section on <a href="elswhere.neocities.org/about/">About page</a></p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>
             <p class='sidebartextDark boxtextDark'>better navbar graphic + main page graphic! will prolly do the same for the other pages asw. Chatbox in extra page</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 8. 2025</h3>

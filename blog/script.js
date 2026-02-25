@@ -19,6 +19,7 @@ let authorLink = "elswhere.neocities.org"; // Enter your website, social media, 
 //==[ 2. POSTS ARRAY ]==
 
 let postsArray = [
+  ["posts/2026-02-25-im-not-dead-i-swear.html"],
   ["posts/2025-08-20-i-compare-a-lot.html"],
   ["posts/2025-07-25-the-'fuck-it-ill-do-it-myself'-mentality.html"],
   ["posts/2025-07-01-thoughts-in-the-filler-episodes.html"],

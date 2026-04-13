@@ -51,13 +51,14 @@ function initPlayerUI(opts={}) {
   let path = window.location.pathname;
 
   let rootPath = "";
-  if(
+  if (
     path.includes("extra/mediarec/")
   ) {
-    rootPath = "../../../"; 
+    rootPath = "../../../";
   } else if (
-    path.includes("blog/posts/") ||
-    path.includes ("extra/screenshots/")
+    path.includes("blog/posts/") || 
+    path.includes ("extra/screenshots/") ||
+    path.includes("extra/credits")
   ) {
     rootPath = "../../";
   } else if (
@@ -66,7 +67,7 @@ function initPlayerUI(opts={}) {
     path.includes("about/") ||
     path.includes("extra/") ||
     path.includes('coding-proj/') ||
-    path.includes("home/")
+    path.includes('home/')
   ) {
     rootPath = "../";
   } else {

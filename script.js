@@ -198,15 +198,53 @@ document.querySelectorAll(".filter-tv").forEach((button) => {
   });
 });
 
+//CREDIT SELECTOR---------------------
+
+function initTabs() {
+  console.log("initTabs ran");
+  console.log("found buttons:", document.querySelectorAll(".filter-cred").length);
+
+  if (!document.querySelector(".selectmenu")) return;
+  const tabBtns = document.querySelectorAll(".tabs-tab");
+  tabBtns.forEach((tabBtn) => {
+    tabBtn.addEventListener("click", () => {
+      openTab(tabBtn.getAttribute("data-tab"));
+    });
+  });
+}
+
+function openTab(tabName) {
+  [...document.querySelectorAll(".active-tab")].forEach((el) => {
+    el.classList.remove("active-tab");
+  });
+
+  [...document.querySelectorAll("[data-tab='" + tabName + "']")].forEach(
+    (el) => {
+      el.classList.add("active-tab");
+    },
+  );
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initTabs();
+});
+
+
 //-----------------------------
 //DOMCONTENTLOADED STARTS HERE
 document.addEventListener("DOMContentLoaded", function () {
   let path = window.location.pathname;
 
   let rootPath = "";
-  if (path.includes("extra/mediarec/")) {
+  if (
+    path.includes("extra/mediarec/")
+  ) {
     rootPath = "../../../";
-  } else if (path.includes("blog/posts/") || path.includes ("extra/screenshots/")) {
+  } else if (
+    path.includes("blog/posts/") || 
+    path.includes ("extra/screenshots/") ||
+    path.includes("extra/credits")
+  ) {
     rootPath = "../../";
   } else if (
     path.includes("blog/") ||
@@ -269,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of April 2026!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>13. 4. 2026</h3>
-            <p class='sidebartextDark boxtextDark'>added a <a href='https://elswhere.neocities.org/blog/feed.xml'>RSS feed</a> for the blog</p>
+            <p class='sidebartextDark boxtextDark'>added a <a href='https://elswhere.neocities.org/blog/feed.xml'>RSS feed</a> for the blog, fix webring widgets dissapearing, right sidebar edit incl poll widget</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 2. 2026</h3>
             <p class='sidebartextDark boxtextDark'>new blog + updated currents section on <a href="elswhere.neocities.org/about/">About page</a></p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>
@@ -337,26 +375,25 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <h3 class='nicetext sidebartext'>my button!</h3>
           <div class='sidebar-center'>
-          <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
-          <textarea class='buttoncode' readonly>
-<a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
-          </textarea>
-          <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
+            <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
+            <textarea class='buttoncode' readonly>
+  <a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
+            </textarea>
+            <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
             <p class='boxtext' style='font-size: 10px; margin-bottom: 10px;'>this site is:</p>
             <a href="https://lovesick.cafe/grrrl" target="_blank" style="margin-bottom: 1rem;"><img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-h2-2.png" class='sidebarbutton'></a>
+            <a href='https://elswhere.neocities.org/extra/credits/' class='sidebartext sidebarlink' style='font-size: 16px; text-aling: center'><i class="bi bi-heart-arrow"></i> site credits and resources</a>
           </div>
-          <h3 class='sidebartext nicetext sidebarlink'>Stuff I used & Resources</h3>
-          <ul class='sidebarlinks'>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/projects/layout-builder/" target="_blank">Layout base by sadgrl</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://blinkies.cafe/" target="_blank">Blinkies cafe</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://goblin-heart.net/sadgrl/" target="_blank">More resources by sadgrl</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://www.freepik.com/collection?id=14688295" target="_blank">Freepik assets</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://petrapixel.neocities.org/coding/bookmarks" target="_blank">PetraPixel's coding bookmarks</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://pixelsafari.neocities.org/" target="_blank">Pixel Safari</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://maxbittker.github.io/broider/" target="_blank">Cool borders by broider</a></li>
-              <li><i class="bi bi-heart-arrow"></i><a href="https://www.tooooools.app/" target="_blank">img effects by toooools</a></li>
-          </ul>
-          <p class='boxtext sidebartext' style='font-size: 10px; margin-bottom: 10px;'>for more resources I used, check out the <a href="https://elswhere.neocities.org/extra/" class='sidebarlinks' style="color: var(--text-ultra-light); text-decoration-color: var(--text-light);">button wall</a>!!</p>`;
+          <img src="../blinkies/dividers/purple-lace.png" alt="purple lace" class="divider">
+          <div class='pollbox'>
+            <p class='impacttext sidebartext' style="; margin-bottom: 0; font-size: 1rem;">poll time !</p>
+            <iframe 
+              src="https://petracoding.github.io/neocities/widgets/pollcode?pollcode=&lt;form method=&quot;post&quot; action=&quot;https://poll.pollcode.com/57685493&quot;&gt;&lt;div style=&quot;background-color:#eeedf7;padding:2px;width:175px;font-family:arial;font-size:small;color:#2f2c42;border-radius:5px;border-style:dashed;border-width:2px;&quot;&gt;&lt;div style=&quot;padding:4px 4px 4px 4px;&quot;&gt;&lt;strong&gt;digital vs physical planner?&lt;/strong&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;1&quot; id=&quot;answer576854931&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854931&quot; style=&quot;float:left;width:125px;&quot;&gt;digital &lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;2&quot; id=&quot;answer576854932&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854932&quot; style=&quot;float:left;width:125px;&quot;&gt;physical&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;3&quot; id=&quot;answer576854933&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854933&quot; style=&quot;float:left;width:124px;&quot;&gt;i use both&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;4&quot; id=&quot;answer576854934&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854934&quot; style=&quot;float:left;width:150px;&quot;&gt;i dont use a planner (ur either the most chaotic or mentally organised person either and i love that&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;div align=&quot;center&quot; style=&quot;padding:3px;&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot; Vote &quot;&gt;&amp;nbsp;&lt;input type=&quot;submit&quot; name=&quot;view&quot; value=&quot; View &quot;&gt;&lt;/div&gt;&lt;div align=&quot;right&quot; style=&quot;font-size:10px&quot;&gt;pollcode.com &lt;a href=&quot;https://pollcode.com/&quot;&gt;free polls&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;"
+              frameborder="0" title="Poll" height="300"
+              class="poll">
+            </iframe>
+          </div>
+          `;
   if (document.getElementById("rightSidebar")) {
     document.getElementById("rightSidebar").innerHTML = rightSidebarHTML;
   }

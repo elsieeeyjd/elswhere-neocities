@@ -1087,6 +1087,19 @@ img.divider {
   color: #bbbafd;
 }
 
+/*TABS*/
+.tabs-tab.active-tab {
+  background-color: #dedcfe;
+  color: #7978a1;
+  border: 2px solid #7978a1;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.tabs-content:not(.active-tab) {
+  display: none;
+}
+
 /*WIDGET STUFF*/
 .statusWrapper {
   position: relative;
@@ -1164,6 +1177,13 @@ img.divider {
   transition: box-shadow 0.2s;
 }
 
+.poll {
+  display: block;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 5px;
+  width: calc(100% + 40px);
+}
 /*ABOUT ME PAGE STUFF*/
 .meGrid {
   display: grid;

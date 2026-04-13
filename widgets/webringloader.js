@@ -15,35 +15,36 @@
   document.head.appendChild(l);
 });
 
-function execScriptsIn(node) {
+async function execScriptsIn(node) {
   // Replace inert <script> nodes with real ones so they execute
-  node.querySelectorAll("script").forEach((old) => {
-    const s = document.createElement("script");
-    // copy common attributes
-    [
-      "src",
-      "type",
-      "async",
-      "defer",
-      "crossorigin",
-      "referrerpolicy",
-      "integrity",
-    ].forEach((a) => {
-      if (old.hasAttribute(a)) s.setAttribute(a, old.getAttribute(a));
+  const script = [...node.querySelectorAll("script")];
+  for (const old of script) {
+    await new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      ["src", "type", "crossorigin", "referrerpolicy", "integrity"].forEach((a) => {
+        if (old.hasAttribute(a)) s.setAttribute(a, old.getAttribute(a));
+      });
+      if (s.src) {
+        s.onload = resolve;
+        s.onerror = () => {
+          console.warn("Webring script failed to load:", s.src);
+          resolve(); 
+        };
+      }
+      if (!s.src) s.textContent = old.textContent;
+      old.replaceWith(s);
+      if (!s.src) resolve();
     });
-    if (!s.src) s.textContent = old.textContent;
-    old.replaceWith(s);
-  });
+  }
 }
 
-function mountTemplate(tplId, host) {
+async function mountTemplate(tplId, host) {
   const tpl = document.getElementById(tplId);
   if (!tpl || host.dataset.loaded) return;
   host.dataset.loaded = "1";
   const frag = tpl.content.cloneNode(true);
-  // execute any scripts contained in the fragment
-  execScriptsIn(frag);
   host.appendChild(frag);
+  await execScriptsIn(host);
 }
 
 

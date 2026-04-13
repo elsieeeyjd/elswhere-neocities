@@ -267,7 +267,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftSidebarHTML = `
         <h2 class='nicetext sidebartext'>Updates</h2>
         <div class="scrollbox" tabindex="0">
-            <p class='sidebartextDark'>This site has been updated as of February 2026!</p>
+            <p class='sidebartextDark'>This site has been updated as of April 2026!</p>
+            <h3 class='sidebartextDark nicetext' style='font-size: 18px'>13. 4. 2026</h3>
+            <p class='sidebartextDark boxtextDark'>added a <a href='https://elswhere.neocities.org/blog/feed.xml'>RSS feed</a> for the blog</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 2. 2026</h3>
             <p class='sidebartextDark boxtextDark'>new blog + updated currents section on <a href="elswhere.neocities.org/about/">About page</a></p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>

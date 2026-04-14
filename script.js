@@ -402,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div id="scrollRowSide2">
               <small class="row-item"><a href="https://fan.sanguineroyal.com/cli/barbieland/" target="_blank">Barbieland</a><img src="https://iili.io/HD7xIff.png" style="height: 16px; width:16px;"> This Barbie studies history and politics!</small>
-              <small style="text-transform: lowercase;" class="row-item"><a href="https://reef.kingdra.net/">gemstone</a> <span style="display: inline-block; padding: 0 5px;"><img src="${rootPath}buttons/cliques/gem-diamond.png" height="10px" style="image-rendering: pixelated;"></span></a> GEMSTONE</span></small>
+              <small style="text-transform: lowercase;" class="row-item"><a href="https://reef.kingdra.net/">gemstone</a> <span style="display: inline-block; padding: 0 5px;"><img src="${rootPath}buttons/cliques/gem-diamond.png" height="10px" style="image-rendering: pixelated;"></span></a> diamond</span></small>
             </div>
           </div>
           `;
@@ -436,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <details class="sidebarsection">
               <summary>Other</summary>
               <ul>
-                <li><a href="https://elswhere.neocities.org/extra/credits/">Creits</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/credits/">Credits</a></li>
                 <li><a href="https://elswhere.neocities.org/extra/contact/">Contact</a></li>
               </ul>
             </details>`;

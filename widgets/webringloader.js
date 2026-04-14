@@ -1,4 +1,4 @@
-// preconnect helps once we load
+// preconnect helps once these load
 [
   "https://cdn.jsdelivr.net/",
   "https://town.thecozy.cat",
@@ -85,7 +85,7 @@ function scheduleWebrings() {
   document.addEventListener("keydown", once, true);
 }
 
-// run after YOUR stuff
+// run after other stuff
 document.addEventListener("DOMContentLoaded", () => {
   try {
     initPlayerUI?.();

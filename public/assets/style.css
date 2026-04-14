@@ -1,6 +1,6 @@
 :root {
-  --header-image: url("assets/new-elswhere-banner.png");
-  --body-bg-image: url("assets/tilebg.gif");
+  --header-image: url("new-elswhere-banner.png");
+  --body-bg-image: url("tilebg.gif");
   --content: #43256e;
   --navbar-color: #7978a1;
   --sidebar-color: #8584b9;
@@ -100,7 +100,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "Venice";
   font-style: normal;
   font-weight: normal;
-  src: url("assets/font/VeniceClassic.ttf") format("truetype");
+  src: url("font/VeniceClassic.ttf") format("truetype");
 }
 
 /*VCR_OCD (main text) FONT*/

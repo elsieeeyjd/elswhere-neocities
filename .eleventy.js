@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
 
   // This will copy this folder to the output without modifying it at all
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("style.css");
 
   // This defines which files will be copied
   eleventyConfig.setTemplateFormats(["html", "njk", "txt", "js", "css", "xml", "json"]);

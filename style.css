@@ -1,6 +1,6 @@
 :root {
-  --header-image: url("new-elswhere-banner.png");
-  --body-bg-image: url("tilebg.gif");
+  --header-image: url("assets/new-elswhere-banner.png");
+  --body-bg-image: url("assets/tilebg.gif");
   --content: #43256e;
   --navbar-color: #7978a1;
   --sidebar-color: #8584b9;
@@ -100,7 +100,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "Venice";
   font-style: normal;
   font-weight: normal;
-  src: url("font/VeniceClassic.ttf") format("truetype");
+  src: url("assets/font/VeniceClassic.ttf") format("truetype");
 }
 
 /*VCR_OCD (main text) FONT*/
@@ -108,7 +108,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "VCR";
   font-style: normal;
   font-weight: normal;
-  src: url("font/VCR_OSD_MONO_1.001.ttf") format("truetype");
+  src: url("assets/font/VCR_OSD_MONO_1.001.ttf") format("truetype");
 }
 
 /*OPEN DYSLEXIC FONT*/
@@ -116,7 +116,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "OpenDyslexic";
   font-style: normal;
   font-weight: normal;
-  src: url("font/OpenDyslexic-Regular.otf") format("opentype");
+  src: url("assets/font/OpenDyslexic-Regular.otf") format("opentype");
 }
 
 /*BORN2BSPORTY FONT*/
@@ -124,7 +124,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "Born2BSporty";
   font-style: normal;
   font-weight: normal;
-  src: url("font/Born2bSportyFS.otf") format("truetype");
+  src: url("assets/font/Born2bSportyFS.otf") format("truetype");
 }
 
 .bi {

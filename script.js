@@ -268,10 +268,10 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
       <div class='nav-links-h' id='nav-links-h'>
         <ul>
-            <li><a href="https://elswhere.neocities.org/home/"><img src="${rootPath}buttons/nav-png/home-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/home-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
-            <li><a href="https://elswhere.neocities.org/about/"><img src="${rootPath}buttons/nav-png/about-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/about-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/about-nav.png'" alt="about" class="nav-png"></img></a></li>
-            <li><a href="https://elswhere.neocities.org/blog/"><img src="${rootPath}buttons/nav-png/blog-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/blog-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/blog-nav.png'" alt="blog" class="nav-png"></img></a></li>
-            <li><a href="https://elswhere.neocities.org/extra/"><img src="${rootPath}buttons/nav-png/extra-nav.png" onmouseover="this.src='${rootPath}buttons/nav-png/extra-nav-i.png'" onmouseout="this.src='${rootPath}buttons/nav-png/extra-nav.png'" alt="extra" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/home/"><img src="${rootPath}assets/buttons/nav-png/home-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/home-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/about/"><img src="${rootPath}assets/buttons/nav-png/about-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/about-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/about-nav.png'" alt="about" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/blog/"><img src="${rootPath}assets/buttons/nav-png/blog-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/blog-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/blog-nav.png'" alt="blog" class="nav-png"></img></a></li>
+            <li><a href="https://elswhere.neocities.org/extra/"><img src="${rootPath}assets/buttons/nav-png/extra-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/extra-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/extra-nav.png'" alt="extra" class="nav-png"></img></a></li>
         </ul>
       </div>
       <div class='nav-links-v' id='nav-links-v'>
@@ -343,14 +343,14 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- FC2 Clap tag ends here -->
             <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
         </div>
-        <a href="https://ko-fi.com/elsieee" target="_blank"><img src="${rootPath}buttons/tip-jar.png" id="tip-jar"></a>
-        <h3 class="sidebartext nicetext">Blinkies!</h3>
+        <a href="https://ko-fi.com/elsieee" target="_blank"><img src="${rootPath}assets/buttons/tip-jar.png" id="tip-jar"></a>
+        <h3 class="sidebartext nicetext">blinkies!</h3>
         <div class="blinkiestack">
-            <img src="${rootPath}blinkies/impatientbitch.gif" alt="impatientbitch" class='blinkie'>
-            <img src="${rootPath}blinkies/rock-n-roll.gif" alt="rock-n-roll" class='blinkie'>
-            <img src="${rootPath}blinkies/cat-destroy.gif" alt="cat-destroy" class='blinkie'>
-            <img src="${rootPath}blinkies/forgot-to-save.gif" alt="forgot-to-save" class='blinkie'>
-            <img src="${rootPath}blinkies/seal-approval.png" alt="seal-approval" class='blinkie'>
+            <img src="${rootPath}assets/blinkies//impatientbitch.gif" alt="impatientbitch" class='blinkie'>
+            <img src="${rootPath}assets/blinkies//rock-n-roll.gif" alt="rock-n-roll" class='blinkie'>
+            <img src="${rootPath}assets/blinkies//cat-destroy.gif" alt="cat-destroy" class='blinkie'>
+            <img src="${rootPath}assets/blinkies//forgot-to-save.gif" alt="forgot-to-save" class='blinkie'>
+            <img src="${rootPath}assets/blinkies//seal-approval.png" alt="seal-approval" class='blinkie'>
         </div>
         <h3 class = 'sidebartext nicetext'>Enjoy some music while you scroll</h3>
         <div class='nicebox'>
@@ -371,19 +371,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
           <div class='sidebar-center'>
 
-          <a href="https://elswhere.neocities.org/extra/#guestbook"><img src="${rootPath}buttons/guestbook.PNG" id="guestbookbtn"></a>
+          <a href="https://elswhere.neocities.org/extra/#guestbook"><img src="${rootPath}assets/buttons/guestbook.PNG" id="guestbookbtn"></a>
           <a  href="https://elswhere.neocities.org/extra/"class='impacttext sidebarlink lace-broider3' style='font-size: 18px; margin: 1rem 0; padding: 0 5px;'>you feel a strange urge to explore → </a>
           </div>
           <h3 class='nicetext sidebartext'>my button!</h3>
           <div class='sidebar-center'>
-            <img src="${rootPath}buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
+            <img src="${rootPath}assets/buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
             <textarea class='buttoncode' readonly>
-  <a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
+  <a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/assets/buttons/elswhere-button.GIF"></a>
             </textarea>
             <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
             <a href='https://elswhere.neocities.org/extra/credits/' class='sidebartext sidebarlink' style='font-size: 16px; text-aling: center'><i class="bi bi-heart-arrow"></i> site credits and resources</a>
           </div>
-          <img src="../blinkies/dividers/purple-lace.png" alt="purple lace" class="divider">
+          <img src="../assets/blinkies//dividers/purple-lace.png" alt="purple lace" class="divider">
           <div class='pollbox'>
             <p class='impacttext sidebartext' style="; margin-bottom: 0; font-size: 1rem;">poll time !</p>
             <iframe 
@@ -398,11 +398,11 @@ document.addEventListener("DOMContentLoaded", function () {
               <a href="https://cliques.moudoku.com/cats" target="_blank" class="row-item"><img src="https://cliques.shadow-lord.com/cats/8.png"></a>
               <a href="https://lovesick.cafe/grrrl" target="_blank" class="row-item"><img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-h2-2.png"></a>
               <a href="https://angel.valentinely.cc/" target="_blank" class="row-item"><img src="https://i.ibb.co/JCp6YKj/111.png"></a>
-              <a href="https://bungle.online/clique" class="row-item"><img src="${rootPath}buttons/cliques/computer-angel.png" alt="Angel resting upon a computer"></a>
+              <a href="https://bungle.online/clique" class="row-item"><img src="${rootPath}assets/buttons/cliques/computer-angel.png" alt="Angel resting upon a computer"></a>
             </div>
             <div id="scrollRowSide2">
               <small class="row-item"><a href="https://fan.sanguineroyal.com/cli/barbieland/" target="_blank">Barbieland</a><img src="https://iili.io/HD7xIff.png" style="height: 16px; width:16px;"> This Barbie studies history and politics!</small>
-              <small style="text-transform: lowercase;" class="row-item"><a href="https://reef.kingdra.net/">gemstone</a> <span style="display: inline-block; padding: 0 5px;"><img src="${rootPath}buttons/cliques/gem-diamond.png" height="10px" style="image-rendering: pixelated;"></span></a> diamond</span></small>
+              <small style="text-transform: lowercase;" class="row-item"><a href="https://reef.kingdra.net/">gemstone</a> <span style="display: inline-block; padding: 0 5px;"><img src="${rootPath}assets/buttons/cliques/gem-diamond.png" height="10px" style="image-rendering: pixelated;"></span></a> diamond</span></small>
             </div>
           </div>
           `;

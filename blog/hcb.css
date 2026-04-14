@@ -2,8 +2,8 @@
 
 
   :root{
-      --header-image: url('new-elswhere-banner.png');
-      --body-bg-image: url('tilebg.gif');
+      --header-image: url('assets/new-elswhere-banner.png');
+      --body-bg-image: url('assets/tilebg.gif');
       --content: #43256E;
       --navbar-color: #7978a1;
       --sidebar-color: #8584b9;
@@ -49,7 +49,7 @@
     font-family: 'VCR';
     font-style: normal;
     font-weight: normal; 
-    src: url('../font/VCR_OSD_MONO_1.001.ttf') format('truetype');
+    src: url('../assets/font/VCR_OSD_MONO_1.001.ttf') format('truetype');
   }
 
 

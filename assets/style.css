@@ -159,7 +159,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
 
 /* Default cursor for the whole page */
 body {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/normal-select.png"),
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/normal-select.png"),
     auto;
 }
 
@@ -169,35 +169,35 @@ button,
 .insitebutton,
 .rowbutton,
 .sidebarsection summary {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/link-select.png"),
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/link-select.png"),
     pointer;
 }
 
 /* Help cursor (for help icons or tooltips) */
 .help-cursor {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/help-select.png"),
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/help-select.png"),
     help;
 }
 
 /* Crosshair (for drawing or selection tools) */
 .move-cursor {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/move.png");
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/move.png");
 }
 
 /*Resize*/
 
 .resize-vertical-cursor {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/vertical-resize.png")
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/vertical-resize.png")
     ns-resize;
 }
 
 .resize-horizontal-cursor {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/horizontal-resize.png"),
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/horizontal-resize.png"),
     ew-resize;
 }
 
 .resize-diag-left-cursor {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/diagonal-resize-1.png")
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/diagonal-resize-1.png")
     nwse-resize;
 }
 
@@ -209,7 +209,7 @@ button,
 input,
 textarea,
 .text-cursor {
-  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/cursor/p-angel-heart/text-select.png"),
+  cursor: url("https://elsieeeyjd.github.io/elswhere-neocities/assets/cursor/p-angel-heart/text-select.png"),
     text;
 }
 

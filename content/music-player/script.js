@@ -99,7 +99,7 @@ function resolveSrc(p) {
 }
 
   // 1) fetch playlist.json
-  fetch(`playlist.json`, {cache: 'no-store'})
+  fetch(`/music-player/playlist.json`, {cache: 'no-store'})
     .then((r) => r.json())
     .then((tracks) => {
       list = tracks;

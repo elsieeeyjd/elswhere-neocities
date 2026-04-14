@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html data-theme="light" lang="en">
+  <head>
+    {% include "layout/head.njk" %}
+  </head>
+  <!--for anyone who's bored enough to want to inspect the elements of my website -- don't. Idk how to code so this shi is honestly a mess. I'm a history-politics major not a cs one and idek why i'm making a website but here i am lol (tbh its just cuz i dislike most drag and drop web maker so i was just like ok fine ill do it myself and now im knee deep in this mess lmfao) -->
+  <body>
+
+     <!-- DIY MUSIC PLAYER -->
+    <div class="player" id="player"></div>
+
+    <audio id="audio" preload="metadata"></audio>
+
+    <!-- DIY MUSIC PLAYER END  -->
+
+    <div class='container'>
+      
+      <div id="headerArea">
+        <div id="header"></div>
+        <nav id="navbar" style="margin-bottom: 10px;">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
+            <div class='nav-links-h' id='nav-links-h'>
+                <ul>
+                    <li><a href="https://elswhere.neocities.org/home/"><img src="${rootPath}assets/buttons/nav-png/home-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/home-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
+                    <li><a href="https://elswhere.neocities.org/about/"><img src="${rootPath}assets/buttons/nav-png/about-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/about-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/about-nav.png'" alt="about" class="nav-png"></img></a></li>
+                    <li><a href="https://elswhere.neocities.org/blog/"><img src="${rootPath}assets/buttons/nav-png/blog-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/blog-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/blog-nav.png'" alt="blog" class="nav-png"></img></a></li>
+                    <li><a href="https://elswhere.neocities.org/extra/"><img src="${rootPath}assets/buttons/nav-png/extra-nav.png" onmouseover="this.src='${rootPath}assets/buttons/nav-png/extra-nav-i.png'" onmouseout="this.src='${rootPath}assets/buttons/nav-png/extra-nav.png'" alt="extra" class="nav-png"></img></a></li>
+                </ul>
+            </div>
+            <div class='nav-links-v' id='nav-links-v'>
+                <ul>
+                    <li><a href="https://elswhere.neocities.org/home/">Home</a></li>
+                    <li><a href="https://elswhere.neocities.org/about/">About</a></li>
+                    <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
+                    <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
+                </ul>
+            </div>
+        </nav>
+      </div>
+
+      <div id="flex">
+        <!--LEFT SIDE BAR STUFF -->
+        <aside id="leftSidebar" style="margin-right: 10px;">{% include 'layout/leftsidebar.njk' %}</aside>
+        <!--CENTER STACK STUFF-->
+        <div id="flex" class="extracontainer">
+        <div class="smallsidebar" id="extraSidebar"></div>
+        <!--MAIN AREA STUFF -->
+        <main class="extracontent">
+          {{ content | safe}}
+        </main>
+      </div>
+        <!--RIGHT SIDE BAR STUFF -->
+        <aside id="rightSidebar" style="margin-left: 10px;">{% include "layout/rightsidebar.njk" %}</aside></div>
+        <footer id="footer" style="margin-top: 10px; color: #e9e8ff;">{% include 'layout/footer.njk' %}</footer>
+    </div>
+      <script src="landing/landing.js"></script>
+      <script src="{{ nesting }}data/visitors.js"></script>
+      <script src="{{ nesting }}script.js"></script>
+      <script src="{{ nesting }}widgets/webringloader.js"></script>
+      <script src="{{ nesting }}music-player/script.js"></script>
+      <script>
+
+        const str = "{{ plot }}"
+        let a = 0; 
+        let text = "";
+        let isTag = false;
+
+        function type() {
+          text = str.slice(0, ++a);
+          if (text === str) return;
+
+          document.getElementById('type-text').innerHTML = text;
+
+          var char = text.slice(-1);
+          if( char === '<' ) isTag = true;
+          if( char === '>' ) isTag = false;
+
+          if (isTag) return type();
+          setTimeout(type, 60);
+        }
+
+        type();
+
+    </script>
+  </body>
+</html>
+
+

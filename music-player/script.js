@@ -58,7 +58,8 @@ function initPlayerUI(opts={}) {
   } else if (
     path.includes("blog/posts/") || 
     path.includes ("extra/screenshots/") ||
-    path.includes("extra/credits")
+    path.includes("extra/credits") ||
+    path.includes("extra/contact")
   ) {
     rootPath = "../../";
   } else if (

@@ -1023,7 +1023,6 @@ img.divider {
   display: flex;
   overflow-x: hidden;
   gap: 8px;
-  max-width: 80%; /*change to 80% once i have enough buttons*/
   white-space: nowrap;
   flex-wrap: nowrap;
   position: relative;
@@ -1037,10 +1036,61 @@ img.divider {
   flex-shrink: 0;
 }
 
+.doubleScroll {
+  display: flex;
+  gap: 8px;
+  position: relative;
+  border: 1px solid #cdcbed;
+  padding: 5px;
+  background-color: transparent;
+  flex-direction: column;
+}
+
+#scrollRow {
+  max-width: 80%; /*change to 80% once i have enough buttons*/
+}
+
 #scrollRow,
 .buttonscroll {
   overflow-x: hidden;
   white-space: nowrap;
+}
+
+#scrollRowSide {
+  width: 100%;
+  margin-right: 0;
+  height: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+#scrollRowSide2 {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  width: auto;
+  gap: 5px;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+}
+
+#scrollRowSide .row-item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  width: auto;
+}
+
+#scrollRowSide2 .row-item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  width: auto;
+  gap: 2px;
 }
 
 .rowbutton {
@@ -1182,6 +1232,7 @@ img.divider {
   margin-left: -20px;
   margin-right: -20px;
   margin-top: 5px;
+  margin-bottom: 1rem;
   width: calc(100% + 40px);
 }
 /*ABOUT ME PAGE STUFF*/

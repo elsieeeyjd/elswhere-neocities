@@ -243,7 +243,8 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (
     path.includes("blog/posts/") || 
     path.includes ("extra/screenshots/") ||
-    path.includes("extra/credits")
+    path.includes("extra/credits") ||
+    path.includes("extra/contact")
   ) {
     rootPath = "../../";
   } else if (
@@ -307,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="scrollbox" tabindex="0">
             <p class='sidebartextDark'>This site has been updated as of April 2026!</p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>13. 4. 2026</h3>
-            <p class='sidebartextDark boxtextDark'>added a <a href='https://elswhere.neocities.org/blog/feed.xml'>RSS feed</a> for the blog, fix webring widgets dissapearing, right sidebar edit incl poll widget</p>
+            <p class='sidebartextDark boxtextDark'>added a <a href='https://elswhere.neocities.org/blog/feed.xml'>RSS feed</a> for the blog, fix webring widgets dissapearing, right sidebar edit incl poll widget, <a href="https://elswhere.neocities.org/extra/contact/">contact page</a></p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 2. 2026</h3>
             <p class='sidebartextDark boxtextDark'>new blog + updated currents section on <a href="elswhere.neocities.org/about/">About page</a></p>
             <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>
@@ -380,8 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
   <a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/buttons/elswhere-button.GIF"></a>
             </textarea>
             <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
-            <p class='boxtext' style='font-size: 10px; margin-bottom: 10px;'>this site is:</p>
-            <a href="https://lovesick.cafe/grrrl" target="_blank" style="margin-bottom: 1rem;"><img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-h2-2.png" class='sidebarbutton'></a>
             <a href='https://elswhere.neocities.org/extra/credits/' class='sidebartext sidebarlink' style='font-size: 16px; text-aling: center'><i class="bi bi-heart-arrow"></i> site credits and resources</a>
           </div>
           <img src="../blinkies/dividers/purple-lace.png" alt="purple lace" class="divider">
@@ -389,9 +388,22 @@ document.addEventListener("DOMContentLoaded", function () {
             <p class='impacttext sidebartext' style="; margin-bottom: 0; font-size: 1rem;">poll time !</p>
             <iframe 
               src="https://petracoding.github.io/neocities/widgets/pollcode?pollcode=&lt;form method=&quot;post&quot; action=&quot;https://poll.pollcode.com/57685493&quot;&gt;&lt;div style=&quot;background-color:#eeedf7;padding:2px;width:175px;font-family:arial;font-size:small;color:#2f2c42;border-radius:5px;border-style:dashed;border-width:2px;&quot;&gt;&lt;div style=&quot;padding:4px 4px 4px 4px;&quot;&gt;&lt;strong&gt;digital vs physical planner?&lt;/strong&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;1&quot; id=&quot;answer576854931&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854931&quot; style=&quot;float:left;width:125px;&quot;&gt;digital &lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;2&quot; id=&quot;answer576854932&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854932&quot; style=&quot;float:left;width:125px;&quot;&gt;physical&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;3&quot; id=&quot;answer576854933&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854933&quot; style=&quot;float:left;width:124px;&quot;&gt;i use both&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;4&quot; id=&quot;answer576854934&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854934&quot; style=&quot;float:left;width:150px;&quot;&gt;i dont use a planner (ur either the most chaotic or mentally organised person either and i love that&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;div align=&quot;center&quot; style=&quot;padding:3px;&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot; Vote &quot;&gt;&amp;nbsp;&lt;input type=&quot;submit&quot; name=&quot;view&quot; value=&quot; View &quot;&gt;&lt;/div&gt;&lt;div align=&quot;right&quot; style=&quot;font-size:10px&quot;&gt;pollcode.com &lt;a href=&quot;https://pollcode.com/&quot;&gt;free polls&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;"
-              frameborder="0" title="Poll" height="300"
+              frameborder="0" title="Poll" height="210"
               class="poll">
             </iframe>
+          </div>
+          <h3 class='nicetext sidebartext'>cliques!</h3>
+          <div class="doubleScroll">
+            <div id="scrollRowSide">
+              <a href="https://cliques.moudoku.com/cats" target="_blank" class="row-item"><img src="https://cliques.shadow-lord.com/cats/8.png"></a>
+              <a href="https://lovesick.cafe/grrrl" target="_blank" class="row-item"><img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-h2-2.png"></a>
+              <a href="https://angel.valentinely.cc/" target="_blank" class="row-item"><img src="https://i.ibb.co/JCp6YKj/111.png"></a>
+              <a href="https://bungle.online/clique" class="row-item"><img src="${rootPath}buttons/cliques/computer-angel.png" alt="Angel resting upon a computer"></a>
+            </div>
+            <div id="scrollRowSide2">
+              <small class="row-item"><a href="https://fan.sanguineroyal.com/cli/barbieland/" target="_blank">Barbieland</a><img src="https://iili.io/HD7xIff.png" style="height: 16px; width:16px;"> This Barbie studies history and politics!</small>
+              <small style="text-transform: lowercase;" class="row-item"><a href="https://reef.kingdra.net/">gemstone</a> <span style="display: inline-block; padding: 0 5px;"><img src="${rootPath}buttons/cliques/gem-diamond.png" height="10px" style="image-rendering: pixelated;"></span></a> GEMSTONE</span></small>
+            </div>
           </div>
           `;
   if (document.getElementById("rightSidebar")) {
@@ -424,7 +436,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <details class="sidebarsection">
               <summary>Other</summary>
               <ul>
-                <li>Coming soon!</li>
+                <li><a href="https://elswhere.neocities.org/extra/credits/">Creits</a></li>
+                <li><a href="https://elswhere.neocities.org/extra/contact/">Contact</a></li>
               </ul>
             </details>`;
 
@@ -511,14 +524,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Scroll button stuff
 
-  const scrollContainer = document.getElementById("scrollRow");
+  const scrollContainer = document.querySelectorAll("#scrollRow, #scrollRowSide, #scrollRowSide2");
 
-  if (scrollContainer) {
+  scrollContainer.forEach((scrollContainer) => {
     //Duplicate the content to create an infinite scrolling effect
     scrollContainer.innerHTML += scrollContainer.innerHTML;
 
     let scrollSpeed = 1; // Adjust this value to change the speed of scrolling
-
     let scrolling = true;
 
     function autoScroll() {
@@ -536,7 +548,9 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollContainer.addEventListener("mouseout", () => (scrolling = true));
 
     autoScroll(); // Start the auto-scrolling
-  }
+  })
+    
+  
 
   // //HIT COUNTER SHIT
 

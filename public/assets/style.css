@@ -108,7 +108,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "VCR";
   font-style: normal;
   font-weight: normal;
-  src: url("assets/font/VCR_OSD_MONO_1.001.ttf") format("truetype");
+  src: url("font/VCR_OSD_MONO_1.001.ttf") format("truetype");
 }
 
 /*OPEN DYSLEXIC FONT*/
@@ -116,7 +116,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "OpenDyslexic";
   font-style: normal;
   font-weight: normal;
-  src: url("assets/font/OpenDyslexic-Regular.otf") format("opentype");
+  src: url("font/OpenDyslexic-Regular.otf") format("opentype");
 }
 
 /*BORN2BSPORTY FONT*/
@@ -124,7 +124,7 @@ p, a, li, h1, h2, h3 { overflow-wrap: anywhere; }
   font-family: "Born2BSporty";
   font-style: normal;
   font-weight: normal;
-  src: url("assets/font/Born2bSportyFS.otf") format("truetype");
+  src: url("font/Born2bSportyFS.otf") format("truetype");
 }
 
 .bi {

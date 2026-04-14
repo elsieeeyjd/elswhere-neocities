@@ -99,7 +99,7 @@ function resolveSrc(p) {
 }
 
   // 1) fetch playlist.json
-  fetch(`/music-player/playlist.json`, {cache: 'no-store'})
+  fetch(`https://elsieeeyjd.github.io/elswhere-neocities/public/music-player/playlist.json`, {cache: 'no-store'})
     .then((r) => r.json())
     .then((tracks) => {
       list = tracks;

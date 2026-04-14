@@ -99,7 +99,7 @@ function resolveSrc(p) {
 }
   
   // 1) fetch playlist.json
-  fetch(`${rootPath}music-player/playlist.json`, {cache: 'no-store'})
+  fetch(`{{ nesting }}music-player/playlist.json`, {cache: 'no-store'})
     .then((r) => r.json())
     .then((tracks) => {
       list = tracks;

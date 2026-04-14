@@ -38,21 +38,15 @@
         </nav>
       </div>
 
-      <div id="flex">
-        <!--LEFT SIDE BAR STUFF -->
-        <aside id="leftSidebar" style="margin-right: 10px;">{% include 'layout/leftsidebar.njk' %}</aside>
-        <!--CENTER STACK STUFF-->
-        <div id="flex" class="extracontainer">
-        <div class="smallsidebar" id="extraSidebar"></div>
+
+      <div id="flex" class="extracontainer">
+        <div class="smallsidebar" id="extraSidebar">{% include "layout/extrasidebar.njk" %}</div>
         <!--MAIN AREA STUFF -->
         <main class="extracontent">
           {{ content | safe}}
         </main>
       </div>
-        <!--RIGHT SIDE BAR STUFF -->
-        <aside id="rightSidebar" style="margin-left: 10px;">{% include "layout/rightsidebar.njk" %}</aside></div>
-        <footer id="footer" style="margin-top: 10px; color: #e9e8ff;">{% include 'layout/footer.njk' %}</footer>
-    </div>
+
       <script src="landing/landing.js"></script>
       <script src="{{ nesting }}data/visitors.js"></script>
       <script src="{{ nesting }}script.js"></script>

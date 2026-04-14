@@ -412,38 +412,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Extra Page Layout
 
-  const extraSidebarHTML = `
-          <h3 class="sSidebartitle">Menu</h3>
-            <p class="boxtext">completed pages: movies, youtube, tv show recs; art gallery</p>
-            <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Main</a>
-            <details class="sidebarsection">
-              <summary>Media recs</summary>
-              <ul>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/mediarec/others/">Others</a></li>
-              </ul>
-            </details>
-            <details class="sidebarsection">
-              <summary>Creations</summary>
-              <ul>
-                <li><a href="https://elswhere.neocities.org/extra/portfolio/">Writings</a></li>
-                <li><a href="https://elswhere.neocities.org/coding-proj/">Coding</a></li>
-                <li><a href="https://elswhere.neocities.org/artworks/">Art</a></li>
-              </ul>
-            </details>
-            <details class="sidebarsection">
-              <summary>Other</summary>
-              <ul>
-                <li><a href="https://elswhere.neocities.org/extra/credits/">Credits</a></li>
-                <li><a href="https://elswhere.neocities.org/extra/contact/">Contact</a></li>
-              </ul>
-            </details>`;
+  // const extraSidebarHTML = `
+  //         <h3 class="sSidebartitle">Menu</h3>
+  //           <p class="boxtext">completed pages: movies, youtube, tv show recs; art gallery</p>
+  //           <a href='https://elswhere.neocities.org/extra/' class="sidebarsection" style="text-decoration: none; border-bottom: 2px dashed #cdcbed;">Main</a>
+  //           <details class="sidebarsection">
+  //             <summary>Media recs</summary>
+  //             <ul>
+  //               <li><a href="https://elswhere.neocities.org/extra/mediarec/books/">Books</a></li>
+  //               <li><a href="https://elswhere.neocities.org/extra/mediarec/movies/">Movies/TV</a></li>
+  //               <li><a href="https://elswhere.neocities.org/extra/mediarec/youtube/">Youtube</a></li>
+  //               <li><a href="https://elswhere.neocities.org/extra/mediarec/others/">Others</a></li>
+  //             </ul>
+  //           </details>
+  //           <details class="sidebarsection">
+  //             <summary>Creations</summary>
+  //             <ul>
+  //               <li><a href="https://elswhere.neocities.org/extra/portfolio/">Writings</a></li>
+  //               <li><a href="https://elswhere.neocities.org/coding-proj/">Coding</a></li>
+  //               <li><a href="https://elswhere.neocities.org/artworks/">Art</a></li>
+  //             </ul>
+  //           </details>
+  //           <details class="sidebarsection">
+  //             <summary>Other</summary>
+  //             <ul>
+  //               <li><a href="https://elswhere.neocities.org/extra/credits/">Credits</a></li>
+  //               <li><a href="https://elswhere.neocities.org/extra/contact/">Contact</a></li>
+  //             </ul>
+  //           </details>`;
 
-  if (document.getElementById("extraSidebar")) {
-    document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
-  }
+  // if (document.getElementById("extraSidebar")) {
+  //   document.getElementById("extraSidebar").innerHTML = extraSidebarHTML;
+  // }
 
   //ACCESSIBILITY STUFF
 

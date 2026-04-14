@@ -1,0 +1,238 @@
+<!DOCTYPE html> 
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- CSP stuff -->
+<title>
+    im not dead i swear | elswhere
+</title>
+<link rel="icon" href="../../../assets/webicon.PNG" type="image/x-icon">
+<meta name="description" content="elsie's internet closet, stuffed with art,blogs, and random stuff.">
+<!--PICO-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+<!--ICONS-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- CSS LINK -->
+<link href="../../../style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <!--for anyone who's bored enough to want to inspect the elements of my website -- don't. Idk how to code so this shi is honestly a mess. I'm a history-politics major not a cs one and idek why i'm making a website but here i am lol (tbh its just cuz i dislike most drag and drop web maker so i was just like ok fine ill do it myself and now im knee deep in this mess lmfao) -->
+  <body>
+
+     <!-- DIY MUSIC PLAYER -->
+    <div class="player" id="player"></div>
+
+    <audio id="audio" preload="metadata"></audio>
+
+    <!-- DIY MUSIC PLAYER END  -->
+
+    <div class='container'>
+      
+      <div id="headerArea">
+        <div id="header"></div>
+        <nav id="navbar" style="margin-bottom: 10px;">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰ Menu</button>
+            <div class='nav-links-h' id='nav-links-h'>
+                <ul>
+                    <li><a href="https://elswhere.neocities.org/home/"><img src="../../../assets/buttons/nav-png/home-nav.png" onmouseover="this.src='../../../assets/buttons/nav-png/home-nav-i.png'" onmouseout="this.src='../../../assets/buttons/nav-png/home-nav.png'" alt="home" class="nav-png"></img></a></li>
+                    <li><a href="https://elswhere.neocities.org/about/"><img src="../../../assets/buttons/nav-png/about-nav.png" onmouseover="this.src='../../../assets/buttons/nav-png/about-nav-i.png'" onmouseout="this.src='../../../assets/buttons/nav-png/about-nav.png'" alt="about" class="nav-png"></img></a></li>
+                    <li><a href="https://elswhere.neocities.org/blog/"><img src="../../../assets/buttons/nav-png/blog-nav.png" onmouseover="this.src='../../../assets/buttons/nav-png/blog-nav-i.png'" onmouseout="this.src='../../../assets/buttons/nav-png/blog-nav.png'" alt="blog" class="nav-png"></img></a></li>
+                    <li><a href="https://elswhere.neocities.org/extra/"><img src="../../../assets/buttons/nav-png/extra-nav.png" onmouseover="this.src='../../../assets/buttons/nav-png/extra-nav-i.png'" onmouseout="this.src='../../../assets/buttons/nav-png/extra-nav.png'" alt="extra" class="nav-png"></img></a></li>
+                </ul>
+            </div>
+            <div class='nav-links-v' id='nav-links-v'>
+                <ul>
+                    <li><a href="https://elswhere.neocities.org/home/">Home</a></li>
+                    <li><a href="https://elswhere.neocities.org/about/">About</a></li>
+                    <li><a href="https://elswhere.neocities.org/blog/">Blog</a></li>
+                    <li><a href="https://elswhere.neocities.org/extra/">Extra</a></li>
+                </ul>
+            </div>
+        </nav>
+      </div>
+
+      <div id="flex">
+        <!--LEFT SIDE BAR STUFF -->
+        <aside id="leftSidebar" style="margin-right: 10px;"><h2 class='nicetext sidebartext'>Updates</h2>
+<div class="scrollbox" tabindex="0">
+    <p class='sidebartextDark'>This site has been updated as of April 2026!</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>13. 4. 2026</h3>
+    <p class='sidebartextDark boxtextDark'>added a <a href='https://elswhere.neocities.org/blog/feed.xml'>RSS feed</a> for the blog, fix webring widgets dissapearing, right sidebar edit incl poll widget, <a href="https://elswhere.neocities.org/extra/contact/">contact page</a></p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 2. 2026</h3>
+    <p class='sidebartextDark boxtextDark'>new blog + updated currents section on <a href="elswhere.neocities.org/about/">About page</a></p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 9. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>better navbar graphic + main page graphic! will prolly do the same for the other pages asw. Chatbox in extra page</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 8. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>better extra pages, new blog posts, and new comment box! (the css of the comment box was inspired by ribo.zone who used the same comment box engine cuz holy shit the html tags of that widget r crazy.</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>14. 8. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>top bar music player (oml i spent way too much time on this if only did wikiplayer just fucking worked)</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>10. 8. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>new banner!</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>25. 7. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>new blog post, accessibility options</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 7. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>movies and youtube media rec pages</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>1. 7. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>new blog post, revamped main page menu</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>18. 6. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>more widgets, added extra page w new layout, comment section on blog</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>9. 6. 2025 (nice)</h3>
+    <p class='sidebartextDark boxtextDark'>added (a shit ton of) buttons!! widget additions/fixes</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>5. 6. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>Universalise sidebar contents, added new blinkies & bumper stickers</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>3. 6. 2025</h3>
+    <p class='sidebartextDark boxtextDark'>Created blog page + archive</p>
+    <h3 class='sidebartextDark nicetext' style='font-size: 18px'>apr - may 2025</h3>
+    <p class='sidebartextDark boxtextDark'>Website launch and other design stuff (i just moved everything to vscode lol so i dont have the timeline for what came before)</p>
+</div>
+<div class='dashedbox' style='border-color: var(--text-light); margin-top: 1rem; align-items: center; justify-content: center; flex-direction: column;'>
+    <iframe src="https://elsieeeyjd.github.io/elswhere-neocities/data/hits.html" width="200px" height="45px" style="border:none; display: block; margin: 0 auto;" frameborder="0"></iframe> 
+    <!-- FC2 Clap tag starts here -->
+    <a href="https://clap.fc2.com/post/elsieee/?url=https%3A%2F%2Felswhere.neocities.org&title=Home" target="_blank" title="Web Clap by FC2"><img src="https://clap.fc2.com/images/button/white/elsieee?url=https%3A%2F%2Felswhere.neocities.org&amp;lang=en" alt="Web Clap by FC2" style="border:none;" /></a>
+    <!-- FC2 Clap tag ends here -->
+    <p class='sidebartext boxtext' style='font-size: 12px; margin-bottom: 5px;'>click to clap for me!!</p>
+</div>
+<a href="https://ko-fi.com/elsieee" target="_blank"><img src="../../../assets/buttons/tip-jar.png" id="tip-jar"></a>
+<h3 class="sidebartext nicetext">blinkies!</h3>
+<div class="blinkiestack">
+    <img src="../../../assets/blinkies//impatientbitch.gif" alt="impatientbitch" class='blinkie'>
+    <img src="../../../assets/blinkies//rock-n-roll.gif" alt="rock-n-roll" class='blinkie'>
+    <img src="../../../assets/blinkies//cat-destroy.gif" alt="cat-destroy" class='blinkie'>
+    <img src="../../../assets/blinkies//forgot-to-save.gif" alt="forgot-to-save" class='blinkie'>
+    <img src="../../../assets/blinkies//seal-approval.png" alt="seal-approval" class='blinkie'>
+</div>
+<h3 class = 'sidebartext nicetext'>Enjoy some music while you scroll</h3>
+<div class='nicebox'>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2ICY7Wy10jOHTzfJAZTPsg?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div></aside>
+        <!--CENTER STACK STUFF-->
+        <div class='contentstack'>
+          
+<main id="content">
+  <a href="https://elswhere.neocities.org/blog/"
+    ><i class="bi bi-caret-left-fill"></i>back</a
+  >
+  <h1 class="specialtextL">i'm not dead i swear</h1>
+  <!--In general, this content is automatically generated for blog posts-->
+  <p class="maintext"><b>25/02/2026</b></p>
+  <p class="maintext">
+    I hope everyone's having a good 2026 so far! 
+  </p>
+  <p class="maintext">
+    Yes, yes, I did disappear from the face of the indie web for approximately five months now (last updated was 1st september, oops). 
+    I guess it's sort of reasonable when I started this website as a summer bored project so inevitably when university starts I kind of got sucked back into the 'serious world' again. 
+  </p>
+  <p class="maintext">
+    My experience in London has been fairly positive despite all that I've heard about it. For one it's a pleasant change of pace from the really nice but also really small country I came from.
+    And also, there's just so much fun things to do here. It's such an amazing feeling to live next to all the famous stuff that I can just casually visit during my study breaks. 
+  </p>
+  <p class="maintext">
+    As for university, the feelings' been kind of mixed. For one, though the school work has been really REALLY challenging and I've been bogged down in endless reading for the past three months,
+    I actually don't feel all that miserable (for the majority of the time at least, lol) 
+  </p>
+  <p class="maintext">
+    At the same time, the work is taking a lot of time out of me. And along with balancing being with friends and just taking care of myself (which i now have to do away from home lol), I really don't have
+    lots of time to do anything else. That's probably the main reason why i neglected this website so much oops. And also now I have to worry about internships and stuff (i'm a first year wtf) which is a whole nother can of worms
+  </p>
+  <p class="maintext">
+    Speaking of taking care of myself, I do find myself somehow getting infinitely better at that since coming to uni. For some reason the moment I get home I just immediately become a slob again. My
+    motivation needs to be studied lol.
+  </p>
+  <p class="maintext">
+    Anyways, recently I've been obsessed with the song 'Drag Path' by twentyonepilots (a lot of people are mad cuz they released a different version of this song than the original paid version but tbh im not
+    all that bothered) and it's got me thinking, what's my drag path? 
+  </p>
+  <p class="maintext">
+    I'm not sure how long neocities will stay up for, or how long they'll keep my website up. But if it stays forever, maybe it'll be the most complete drag path i'll have.
+  </p>
+  <div class="blog-nav other-lace">
+    <a
+      href="https://elswhere.neocities.org/blog/"
+      class="nicetext"
+      style="font-size: 25px"
+      >read more of my madness?</a
+    >
+    <br />
+    <a
+      class="nicetext"
+      style="font-size: 20px"
+      href="https://elswhere.neocities.org/not_found.html"
+      >←newer</a
+    >
+    <a
+      class="nicetext"
+      style="font-size: 20px"
+      href="https://elswhere.neocities.org/blog/posts/2025-08-20-i-compare-a-lot"
+      >older→</a
+    >
+  </div>
+</main>
+<!-- end of div id="content" -->
+<!-- begin wwww.htmlcommentbox.com -->
+
+<iframe class="lace-broider" src="https://elsieeeyjd.github.io/elswhere-neocities/public/blog/htmlcommentbox.html#post=2026-02-25-im-not-dead-i-swear" frameborder="0" width="100%" height="400px"></iframe>
+
+<!-- end www.htmlcommentbox.com -->
+
+        </div> <!--END OF CONTENT STACK-->
+        <!--RIGHT SIDE BAR STUFF -->
+        <aside id="rightSidebar" style="margin-left: 10px;"><div id="accessibility">
+    <h3 class="sidebartext nicetext">Accessibility Options</h3>
+    <button id="toggle-blink" class="accbutton">Gif bg: ON</button>
+    <button id="toggle-font" class="accbutton">Font: Default</button>
+</div>
+
+<div class='sidebar-center'>
+
+    <a href="https://elswhere.neocities.org/extra/#guestbook"><img src="../../../assets/buttons/guestbook.PNG" id="guestbookbtn"></a>
+    <a  href="https://elswhere.neocities.org/extra/"class='impacttext sidebarlink lace-broider3' style='font-size: 18px; margin: 1rem 0; padding: 0 5px;'>you feel a strange urge to explore → </a>
+</div>
+<h3 class='nicetext sidebartext'>my button!</h3>
+<div class='sidebar-center'>
+    <img src="../../../assets/buttons/elswhere-button.GIF" alt="elsiebutton" class='sidebarbutton'>
+    <textarea class='buttoncode' readonly>
+    <a href="https://elswhere.neocities.org/" target="_blank"><img src="https://elswhere.neocities.org/assets/buttons/elswhere-button.GIF"></a>
+    </textarea>
+    <p class='boxtext' style='font-size: 10px;'>button made in procreate by me :) link back appreciated</p>
+    <a href='https://elswhere.neocities.org/extra/credits/' class='sidebartext sidebarlink' style='font-size: 16px; text-align: center'><i class="bi bi-heart-arrow"></i> site credits and resources</a>
+</div>
+<img src="../assets/blinkies//dividers/purple-lace.png" alt="purple lace" class="divider">
+<div class='pollbox'>
+    <p class='impacttext sidebartext' style="margin-bottom: 0; font-size: 1rem;">poll time !</p>
+    <iframe 
+        src="https://petracoding.github.io/neocities/widgets/pollcode?pollcode=&lt;form method=&quot;post&quot; action=&quot;https://poll.pollcode.com/57685493&quot;&gt;&lt;div style=&quot;background-color:#eeedf7;padding:2px;width:175px;font-family:arial;font-size:small;color:#2f2c42;border-radius:5px;border-style:dashed;border-width:2px;&quot;&gt;&lt;div style=&quot;padding:4px 4px 4px 4px;&quot;&gt;&lt;strong&gt;digital vs physical planner?&lt;/strong&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;1&quot; id=&quot;answer576854931&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854931&quot; style=&quot;float:left;width:125px;&quot;&gt;digital &lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;2&quot; id=&quot;answer576854932&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854932&quot; style=&quot;float:left;width:125px;&quot;&gt;physical&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;3&quot; id=&quot;answer576854933&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854933&quot; style=&quot;float:left;width:124px;&quot;&gt;i use both&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;4&quot; id=&quot;answer576854934&quot; style=&quot;float:left;&quot; /&gt;&lt;label for=&quot;answer576854934&quot; style=&quot;float:left;width:150px;&quot;&gt;i dont use a planner (ur either the most chaotic or mentally organised person either and i love that&lt;/label&gt;&lt;div style=&quot;clear:both;height:2px;&quot;&gt;&lt;/div&gt;&lt;div align=&quot;center&quot; style=&quot;padding:3px;&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot; Vote &quot;&gt;&amp;nbsp;&lt;input type=&quot;submit&quot; name=&quot;view&quot; value=&quot; View &quot;&gt;&lt;/div&gt;&lt;div align=&quot;right&quot; style=&quot;font-size:10px&quot;&gt;pollcode.com &lt;a href=&quot;https://pollcode.com/&quot;&gt;free polls&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;"
+        frameborder="0" title="Poll" height="210"
+        class="poll">
+    </iframe>
+</div>
+<h3 class='nicetext sidebartext'>cliques!</h3>
+<div class="doubleScroll">
+    <div id="scrollRowSide">
+        <a href="https://cliques.moudoku.com/cats" target="_blank" class="row-item"><img src="https://cliques.shadow-lord.com/cats/8.png"></a>
+        <a href="https://lovesick.cafe/grrrl" target="_blank" class="row-item"><img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-h2-2.png"></a>
+        <a href="https://angel.valentinely.cc/" target="_blank" class="row-item"><img src="https://i.ibb.co/JCp6YKj/111.png"></a>
+        <a href="https://bungle.online/clique" class="row-item"><img src="../../../assets/buttons/cliques/computer-angel.png" alt="Angel resting upon a computer"></a>
+    </div>
+    <div id="scrollRowSide2">
+        <small class="row-item"><a href="https://fan.sanguineroyal.com/cli/barbieland/" target="_blank">Barbieland</a><img src="https://iili.io/HD7xIff.png" style="height: 16px; width:16px;"> This Barbie studies history and politics!</small>
+        <small style="text-transform: lowercase;" class="row-item"><a href="https://reef.kingdra.net/">gemstone</a> <span style="display: inline-block; padding: 0 5px;"><img src="../../../assets/buttons/cliques/gem-diamond.png" height="10px" style="image-rendering: pixelated;"></span></a> diamond</span></small>
+    </div>
+</div></aside></div>
+        <footer id="footer" style="margin-top: 10px; color: #e9e8ff;">
+<div class='buttonrow footerbuttons'>
+    <p class='boxtext rowbutton footertext'>created by elsie 2025 | </p>
+    <a href="https://neocities.org/site/elswhere" target="_blank" class='rowbutton footertext footerlink'>my neocities profile</a>
+    <p class='boxtext rowbutton footertext'> | </p>
+    <a href="https://github.com/elsieeeyjd/elswhere-neocities" target="_blank" class='rowbutton footertext footerlink'>github</a>
+</div>
+</footer>
+    </div>
+      <script src="../../../data/visitors.js"></script>
+      <script src="../../../js/script.js"></script>
+      <script src="../../../widgets/webringloader.js"></script>
+      <script src="../../../music-player/script.js"></script>
+      <script src="../../../js/blog.js"></script>
+  </body>
+</html>
+
+

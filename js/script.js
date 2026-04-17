@@ -524,7 +524,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Scroll button stuff
 
-  const scrollContainer = document.querySelectorAll("#scrollRow, #scrollRowSide, #scrollRowSide2");
+  const scrollContainer = document.querySelectorAll("#scrollRow, #scrollRowSide, #scrollRowSide2, #scrollRowSide3");
 
   scrollContainer.forEach((scrollContainer) => {
     //Duplicate the content to create an infinite scrolling effect

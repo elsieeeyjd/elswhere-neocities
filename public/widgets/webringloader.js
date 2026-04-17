@@ -1,5 +1,6 @@
 // preconnect helps once these load
 [
+  "https://webring.ghostk.id/",
   "https://cdn.jsdelivr.net/",
   "https://town.thecozy.cat",
   "https://melonland.net/",

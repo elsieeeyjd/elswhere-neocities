@@ -48,10 +48,7 @@
       </div>
       <footer id="footer" style="margin-top: 10px; color: #e9e8ff;">{% include 'layout/footer.njk' %}</footer>
       </div> <!-- close container-->
-      <script src="{{ nesting }}data/visitors.js"></script>
-      <script src="{{ nesting }}js/script.js"></script>
-      <script src="{{ nesting }}widgets/webringloader.js"></script>
-      <script src="{{ nesting }}music-player/script.js"></script>
+      {% include 'layout/scripts.njk' %}
       <script>
 
         const str = "{{ plot }}"

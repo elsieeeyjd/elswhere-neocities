@@ -759,6 +759,18 @@ main {
   transform: scale(1.05) rotate(5deg);
 }
 
+#door img {
+  height: 150px;
+  width: auto; 
+}
+
+#door:hover img,
+#door:focus img {
+  content: url('../assets/buttons/items/door-opened.png');
+  transform: scale(1) rotate(0deg) !important;
+}
+
+
 .CD {
   transition: transform 0.2s ease;
 }
@@ -1251,6 +1263,20 @@ img.divider {
   transition: box-shadow 0.2s;
 }
 
+/*for the webring widgets that oddly have a white background*/
+#freespeechwebring,
+#sovereignwebring,
+#FCWL {
+  background: transparent !important;
+}
+
+/* catch any inner elements the scripts generate too */
+#freespeechwebring *,
+#sovereignwebring *,
+#FCWL * {
+  background: transparent !important;
+}
+
 .poll {
   display: block;
   margin-left: -20px;
@@ -1579,6 +1605,72 @@ img.divider {
 
 .blog-nav p {
   margin-bottom: 0.5rem;
+}
+
+/*sitemap css*/
+
+.sitemapcontent li {
+  margin: 2rem;
+}
+
+.sitemapsection summary {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-main) !important;
+  margin: 2px 0 0;
+  padding: 2px;
+  list-style: none;
+  position: relative;
+}
+
+summary::marker,
+  summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 0.5em;
+  transition: transform 0.2s;
+}
+
+.sitemapsection summary:hover {
+  color: var(--bar-bg);
+  text-decoration: underline;
+}
+
+.sitemapsection[open] summary {
+  color: var(--text-main);
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.sitemapsection ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: "✶ ";
+}
+
+.sitemapsection ul li {
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: var(--bar-bg)
+}
+
+.sitemapsection ul li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.sidebarsection ul li a:hover {
+  color: var(--bar-bg);
+  text-decoration: underline;
 }
 
 

@@ -1,0 +1,226 @@
+---
+title: extra
+nesting: "../../"
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>elswhere</title>
+    <meta
+      name="description"
+      content="elsie's internet closet, stuffed with art,blogs, and random stuff."
+    />
+    <style>
+      /* VT323 FONT*/
+      @font-face {
+        font-family: "VT323";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isRFJXUdVNFKPY.woff2)
+          format("woff2");
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+          U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+          U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      /* latin */
+      @font-face {
+        font-family: "VT323";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isfFJXUdVNF.woff2)
+          format("woff2");
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      /* reset the page so the bg can fill the viewport */
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+      }
+
+      body {
+        background: #060e1b;
+        overflow: hidden;
+      }
+
+      #void-msg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+        pointer-events: none; /* so it doesn't block clicks if needed */
+    }
+    #void-msg #door {
+      pointer-events: auto;
+    }
+
+      h2, p {
+        font-family: 'VT323';
+        color: #f8f4ff;
+      }
+
+      #door img {
+        width: 120px; 
+        height: auto; 
+      }
+
+      #door span {
+        opacity: 0;
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        color: #fff;
+        filter: drop-shadow(1px 1px 0 #43256e) drop-shadow(-1px 1px 0 #43256e)
+            drop-shadow(1px -1px 0 #43256e) drop-shadow(-1px -1px 0 #43256e);
+        }
+    #door:hover span,
+    #door:focus span {
+        opacity: 1;
+    }
+    #door:hover img,
+    #door:focus img {
+        transform: scale(1.05);
+    }
+
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas><canvas id="canvas"></canvas>
+      <div id="void-msg">
+        <h2>Oh no... you've stepped into a void!</h2>
+        <p>fortunately the door is still right behind you. Perhaps you can return here sometimes in the future...</p>
+        <div class="itembtn" id="door"><a href="https://elswhere.neocities.org/extra/" class="imgtxt">
+            <img src="../../assets/buttons/items/door-closed.png" alt="door">
+            <span>return</span>
+        </a></div>
+      </div>
+    
+
+    <script>
+      "use strict";
+
+      var canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d"),
+        w = (canvas.width = window.innerWidth),
+        h = (canvas.height = window.innerHeight),
+        hue = 217,
+        stars = [],
+        count = 0,
+        maxStars = 1400;
+
+      // Thanks @jackrugile for the performance tip! https://codepen.io/jackrugile/pen/BjBGoM
+      // Cache gradient
+      var canvas2 = document.createElement("canvas"),
+        ctx2 = canvas2.getContext("2d");
+      canvas2.width = 100;
+      canvas2.height = 100;
+      var half = canvas2.width / 2,
+        gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+      gradient2.addColorStop(0.025, "#fff");
+      gradient2.addColorStop(0.1, "hsl(" + hue + ", 61%, 33%)");
+      gradient2.addColorStop(0.25, "hsl(" + hue + ", 64%, 6%)");
+      gradient2.addColorStop(1, "transparent");
+
+      ctx2.fillStyle = gradient2;
+      ctx2.beginPath();
+      ctx2.arc(half, half, half, 0, Math.PI * 2);
+      ctx2.fill();
+
+      // End cache
+
+      function random(min, max) {
+        if (arguments.length < 2) {
+          max = min;
+          min = 0;
+        }
+
+        if (min > max) {
+          var hold = max;
+          max = min;
+          min = hold;
+        }
+
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function maxOrbit(x, y) {
+        var max = Math.max(x, y),
+          diameter = Math.round(Math.sqrt(max * max + max * max));
+        return diameter / 2;
+      }
+
+      var Star = function () {
+        this.orbitRadius = random(maxOrbit(w, h));
+        this.radius = random(60, this.orbitRadius) / 12;
+        this.orbitX = w / 2;
+        this.orbitY = h / 2;
+        this.timePassed = random(0, maxStars);
+        this.speed = random(this.orbitRadius) / 50000;
+        this.alpha = random(2, 10) / 10;
+
+        count++;
+        stars[count] = this;
+      };
+
+      Star.prototype.draw = function () {
+        var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+          y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+          twinkle = random(10);
+
+        if (twinkle === 1 && this.alpha > 0) {
+          this.alpha -= 0.05;
+        } else if (twinkle === 2 && this.alpha < 1) {
+          this.alpha += 0.05;
+        }
+
+        ctx.globalAlpha = this.alpha;
+        ctx.drawImage(
+          canvas2,
+          x - this.radius / 2,
+          y - this.radius / 2,
+          this.radius,
+          this.radius,
+        );
+        this.timePassed += this.speed;
+      };
+
+      for (var i = 0; i < maxStars; i++) {
+        new Star();
+      }
+
+      function animation() {
+        ctx.globalCompositeOperation = "source-over";
+        ctx.globalAlpha = 0.8;
+        ctx.fillStyle = "hsla(" + hue + ", 64%, 6%, 1)";
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.globalCompositeOperation = "lighter";
+        for (var i = 1, l = stars.length; i < l; i++) {
+          stars[i].draw();
+        }
+
+        window.requestAnimationFrame(animation);
+      }
+
+      animation();
+    </script>
+  </body>
+</html>

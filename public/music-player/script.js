@@ -48,32 +48,32 @@ function initPlayerUI(opts={}) {
 
   showConsoleCredit(opts);
   
-  // let path = window.location.pathname;
+  let path = window.location.pathname;
 
-  // let rootPath = "";
-  // if (
-  //   path.includes("extra/mediarec/")
-  // ) {
-  //   rootPath = "../../../";
-  // } else if (
-  //   path.includes("blog/posts/") || 
-  //   path.includes ("extra/screenshots/") ||
-  //   path.includes("extra/credits") ||
-  //   path.includes("extra/contact")
-  // ) {
-  //   rootPath = "../../";
-  // } else if (
-  //   path.includes("blog/") ||
-  //   path.includes("artworks/") ||
-  //   path.includes("about/") ||
-  //   path.includes("extra/") ||
-  //   path.includes('coding-proj/') ||
-  //   path.includes('home/')
-  // ) {
-  //   rootPath = "../";
-  // } else {
-  //   rootPath = ""; //main index.html
-  // }
+  let rootPath = "";
+  if (
+    path.includes("extra/mediarec/")
+  ) {
+    rootPath = "../../../../";
+  } else if (
+    path.includes("blog/posts/") || 
+    path.includes ("extra/screenshots/") ||
+    path.includes("extra/credits") ||
+    path.includes("extra/contact")
+  ) {
+    rootPath = "../../../";
+  } else if (
+    path.includes("blog/") ||
+    path.includes("artworks/") ||
+    path.includes("about/") ||
+    path.includes("extra/") ||
+    path.includes('coding-proj/') ||
+    path.includes('home/')
+  ) {
+    rootPath = "../../";
+  } else {
+    rootPath = ""; //main index.html
+  }
 
 
   // oh my lord so many consts
@@ -99,7 +99,7 @@ function resolveSrc(p) {
 }
 
   // 1) fetch playlist.json
-  fetch(`https://elsieeeyjd.github.io/elswhere-neocities/public/music-player/playlist.json`, {cache: 'no-store'})
+  fetch(`${rootPath}music-player/playlist.json`, {cache: 'no-store'})
     .then((r) => r.json())
     .then((tracks) => {
       list = tracks;
